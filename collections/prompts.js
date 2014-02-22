@@ -13,12 +13,18 @@ if (Meteor.isServer) {
   Meteor.publish("prompts", function() {
     return Prompts.find({});
   });
+
+  Meteor.methods({
+    'Prompts.create': function(promptText) {
+      if(promptText != "") {
+          return Prompts.insert({text: promptText});
+      }
+    }
+  });
 }
 
 Prompts.create = function(promptText) {
-    if(promptText != "") {
-        return Prompts.insert({text: promptText});
-    }
+  return Meteor.call('Prompts.create', promptText);
 };
 
 Prompts.allPromptIds = function() {

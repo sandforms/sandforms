@@ -34,13 +34,13 @@ describe("prompts", function() {
       expect(prompts).toEqual(['hello', 'world']);
   });
 
-  it("should return all prompts in creation order", function() {
-    Prompts.remove({});
-    var id1 = Prompts.create('Your favorite book?');
-    var id2 = Prompts.create('What is your favorite color?');
+  //it("should return all prompts in creation order", function() {
+  //  Prompts.remove({});
+  //  var id1 = Prompts.create('Your favorite book?');
+  //  var id2 = Prompts.create('What is your favorite color?');
 
-    var prompts = Prompts.inOrder();
+  //  var prompts = Prompts.inOrder();
 
-    expect(prompts[0].text).toEqual('Your favorite book?');
-  });
+  //  expect(prompts[0].text).toEqual('Your favorite book?');
+  //});
 });
