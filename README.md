@@ -8,25 +8,25 @@ SandForms uses Meteor and [vagrant-spk](https://github.com/sandstorm-io/vagrant-
 following command, follow the [vagrant-spk installation
 instructions](https://docs.sandstorm.io/en/latest/vagrant-spk/installation/)
 
-```bash
-$ vagrant-spk -h
-usage: /home/jack/bin/vagrant-spk [-h] [--work-directory WORK_DIRECTORY]
-...
-```
+  ```bash
+  $ vagrant-spk -h
+  usage: /home/jack/bin/vagrant-spk [-h] [--work-directory WORK_DIRECTORY]
+  ...
+  ```
 
 2. Bring up the Vagrant VM
 
-```bash
-$ vagrant-spk up
-```
+  ```bash
+  $ vagrant-spk up
+  ```
 
 3. Start the application in dev mode
 
-```bash
-$ vagrant-spk dev
-```
+  ```bash
+  $ vagrant-spk dev
+  ```
 
 4. Navigate to the Sandstorm dev instance
 
-`http://local.sandstorm.io:6080/`
+  `http://local.sandstorm.io:6080/`
 
