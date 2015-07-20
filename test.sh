@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-DEBUG=${DEBUG:-0}
-
 if [ $(which chrome) ]; then
   export CHROME_BIN=chrome
 elif [ $(which chromium) ]; then
