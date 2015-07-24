@@ -1,6 +1,10 @@
 
 Template.create.events({
   'click button': function() {
-    alert('clicked!');
+
+    $('input').each(function(i, questionInput) {
+      var questionText = questionInput.value;
+      Questions.insert({text: questionText});
+    });
   }
 });
