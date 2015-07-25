@@ -4,17 +4,19 @@
   <h2>Responses</h2>
 
   <table>
-    <th>
-      {{#each questions this}}
-        <td>{{text}}</td>
-      {{/each}}
-    </th>
-
     <tr>
-      <td>Fill</td>
-      <td>Me</td>
-      <td>In</td>
+      {{#each questions this}}
+        <th>{{text}}</th>
+      {{/each}}
     </tr>
+
+    {{#each answersInOrder}}
+      <tr>
+      {{#each this}}
+        <td>{{this}}</td>
+      {{/each}}
+      </tr>
+    {{/each}}
   </table>
 
 </template>
