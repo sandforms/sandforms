@@ -4,14 +4,14 @@ MochaWeb.testOnly(function() {
   describe("submit answers", function() {
 
     it("should allow inserts", function() {
-      Answers.remove({});
+      Submissions.remove({});
 
-      Answers.insert({
+      Submissions.insert({
         questionId: 'some-question-id',
         answer: 'my favorite color is blue!'
       });
 
-      var q = Answers.find();
+      var q = Submissions.find();
 
       chai.expect(q.count()).to.equal(1);
     });

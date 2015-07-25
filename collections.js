@@ -13,12 +13,12 @@ Questions.inOrder = function() {
 };
 
 
-Answers = new Mongo.Collection("answers");
+Submissions = new Mongo.Collection("answers");
 
-Answers.inTableFormat = function(questionsInOrder) {
-  return Answers.find().map(function(answers) {
+Submissions.inTableFormat = function(questionsInOrder) {
+  return Submissions.find().map(function(submission) {
     var answersInOrder = questionsInOrder.map(function(question) {
-      var answerForQuestion = _(answers.answers).find(function(answer) {
+      var answerForQuestion = _(submission.answers).find(function(answer) {
         return answer.questionId === question._id;
       });
 

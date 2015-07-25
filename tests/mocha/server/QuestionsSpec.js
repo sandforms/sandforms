@@ -24,15 +24,15 @@ MochaWeb.testOnly(function() {
         { _id: 'id-3', text: 'ccc' }
       ];
 
-      Answers.remove({});
-      Answers.insert({ answers: [
+      Submissions.remove({});
+      Submissions.insert({ answers: [
         { questionId: 'id-2', answer: 'udfn answer 2'},
         { questionId: 'id-1', answer: 'zl3k answer 1'},
         { questionId: 'id-3', answer: 'akdf answer 3'}
       ]});
 
       // When
-      var answersArray = Answers.inTableFormat(questions);
+      var answersArray = Submissions.inTableFormat(questions);
 
       // Then
       chai.expect(answersArray).to.deep.have.members([

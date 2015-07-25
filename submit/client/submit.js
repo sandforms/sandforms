@@ -1,11 +1,11 @@
 
-Template.answers.helpers({
+Template.submit.helpers({
   questions: function() {
     return Questions.find();
   }
 });
 
-Template.answers.events({
+Template.submit.events({
   'click button': function() {
     var answers = Questions.allQuestionIds().map(function(id) {
       return {
@@ -14,6 +14,6 @@ Template.answers.events({
       }
     });
 
-    Answers.insert({answers: answers});
+    Submissions.insert({answers: answers});
   }
 });
