@@ -15,5 +15,7 @@ Template.submit.events({
     });
 
     Submissions.insert({answers: answers});
+
+    $('input').val('');
   }
 });
