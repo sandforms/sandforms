@@ -22,7 +22,11 @@ Submissions.inTableFormat = function(questionsInOrder) {
         return answer.questionId === question._id;
       });
 
-      return answerForQuestion.answer;
+      if (answerForQuestion === undefined) {
+        return '';
+      } else {
+        return answerForQuestion.answer;
+      }
     });
 
     return answersInOrder;

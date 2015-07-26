@@ -27,5 +27,26 @@ MochaWeb.testOnly(function() {
         ['zl3k answer 1', 'udfn answer 2', 'akdf answer 3']
       ]);
     });
+
+    it("should return a blank string if the answer to a question is missing", function() {
+      // Given
+      var questions = [
+        { _id: 'id-1', text: 'aaa' },
+        { _id: 'id-2', text: 'bbb' },
+      ];
+
+      Submissions.remove({});
+      Submissions.insert({ answers: [
+        { questionId: 'id-1', answer: 'zl3k answer 1'},
+      ]});
+
+      // When
+      var answersArray = Submissions.inTableFormat(questions);
+
+      // Then
+      chai.expect(answersArray).to.deep.have.members([
+        ['zl3k answer 1', '']
+      ]);
+    });
   });
 });
