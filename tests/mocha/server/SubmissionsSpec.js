@@ -20,10 +20,10 @@ MochaWeb.testOnly(function() {
       ]});
 
       // When
-      var answersArray = Submissions.inTableFormat(questions);
+      var answers = Submissions.inTableFormat(questions);
 
       // Then
-      chai.expect(answersArray).to.deep.have.members([
+      chai.expect(answers).to.deep.have.members([
         ['zl3k answer 1', 'udfn answer 2', 'akdf answer 3']
       ]);
     });
@@ -41,10 +41,10 @@ MochaWeb.testOnly(function() {
       ]});
 
       // When
-      var answersArray = Submissions.inTableFormat(questions);
+      var answers = Submissions.inTableFormat(questions);
 
       // Then
-      chai.expect(answersArray).to.deep.have.members([
+      chai.expect(answers).to.deep.have.members([
         ['zl3k answer 1', '']
       ]);
     });
