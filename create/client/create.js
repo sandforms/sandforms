@@ -6,5 +6,7 @@ Template.create.events({
       var questionText = questionInput.value;
       Questions.insert({text: questionText});
     });
+
+    $('input').val('');
   }
 });

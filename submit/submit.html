@@ -1,0 +1,11 @@
+
+<template name="submit">
+
+  <h2>Submit Answers</h2>
+
+  {{#each questions this}}
+    <p>{{text}} <input id="{{_id}}" type="text"></p>
+  {{/each}}
+
+  <button>Submit some awesome answers</button>
+</template>

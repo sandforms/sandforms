@@ -1,6 +1,11 @@
 
 Template.responses.helpers({
+
   questions: function() {
-    return Questions.find();
+    return Questions.inOrder();
+  },
+
+  answersInOrder: function() {
+    return Submissions.inTableFormat(Questions.inOrder());
   }
 });
