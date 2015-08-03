@@ -1,4 +1,3 @@
-
 Template.create.events({
   'click button': function() {
 

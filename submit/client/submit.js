@@ -1,4 +1,3 @@
-
 Template.submit.helpers({
   questions: function() {
     return Questions.find();

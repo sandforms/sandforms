@@ -1,5 +1,3 @@
-
-
 MochaWeb.testOnly(function() {
 
   describe("questions", function() {

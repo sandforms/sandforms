@@ -1,4 +1,3 @@
-
 Template.responses.helpers({
 
   questions: function() {
