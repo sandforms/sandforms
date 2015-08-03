@@ -4,7 +4,7 @@ Template.responses.helpers({
     return Prompts.inOrder();
   },
 
-  answersInOrder: function() {
+  responsesInOrder: function() {
     return Submissions.inTableFormat(Prompts.inOrder());
   }
 });

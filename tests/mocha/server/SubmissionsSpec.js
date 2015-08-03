@@ -2,7 +2,7 @@ MochaWeb.testOnly(function() {
 
   describe("submissions", function() {
 
-    it("should give us answers back with order matching the given prompts", function() {
+    it("should give us responses back with order matching the given prompts", function() {
       // Given
       var prompts = [
         { _id: 'id-1', text: 'AAA What is your pets same?' },
@@ -11,22 +11,22 @@ MochaWeb.testOnly(function() {
       ];
 
       Submissions.remove({});
-      Submissions.insert({ answers: [
-        { promptId: 'id-2', answer: 'GGG Garfield'},
-        { promptId: 'id-1', answer: 'ZZZ Orange'},
-        { promptId: 'id-3', answer: 'AAA Maybe'}
+      Submissions.insert({ responses: [
+        { promptId: 'id-2', response: 'GGG Garfield'},
+        { promptId: 'id-1', response: 'ZZZ Orange'},
+        { promptId: 'id-3', response: 'AAA Maybe'}
       ]});
 
       // When
-      var answers = Submissions.inTableFormat(prompts);
+      var responses = Submissions.inTableFormat(prompts);
 
       // Then
-      chai.expect(answers).to.deep.have.members([
+      chai.expect(responses).to.deep.have.members([
         ['ZZZ Orange', 'GGG Garfield', 'AAA Maybe']
       ]);
     });
 
-    it("should return a blank string if the answer to a prompt is missing", function() {
+    it("should return a blank string if the response to a prompt is missing", function() {
       // Given
       var prompts = [
         { _id: 'id-1', text: 'What is your pets name?' },
@@ -34,15 +34,15 @@ MochaWeb.testOnly(function() {
       ];
 
       Submissions.remove({});
-      Submissions.insert({ answers: [
-        { promptId: 'id-1', answer: 'Garfield'},
+      Submissions.insert({ responses: [
+        { promptId: 'id-1', response: 'Garfield'},
       ]});
 
       // When
-      var answers = Submissions.inTableFormat(prompts);
+      var responses = Submissions.inTableFormat(prompts);
 
       // Then
-      chai.expect(answers).to.deep.have.members([
+      chai.expect(responses).to.deep.have.members([
         ['Garfield', '']
       ]);
     });

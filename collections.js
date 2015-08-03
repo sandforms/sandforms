@@ -11,22 +11,22 @@ Prompts.inOrder = function() {
   return Prompts.find({}, {sort: ['text']});
 };
 
-Submissions = new Mongo.Collection("answers");
+Submissions = new Mongo.Collection("responses");
 
 Submissions.inTableFormat = function(promptsInOrder) {
   return Submissions.find().map(function(submission) {
-    var answersInOrder = promptsInOrder.map(function(prompt) {
-      var answerForPrompt = _(submission.answers).find(function(answer) {
-        return answer.promptId === prompt._id;
+    var responsesInOrder = promptsInOrder.map(function(prompt) {
+      var responseForPrompt = _(submission.responses).find(function(response) {
+        return response.promptId === prompt._id;
       });
 
-      if (answerForPrompt === undefined) {
+      if (responseForPrompt === undefined) {
         return '';
       } else {
-        return answerForPrompt.answer;
+        return responseForPrompt.response;
       }
     });
 
-    return answersInOrder;
+    return responsesInOrder;
   });
 }

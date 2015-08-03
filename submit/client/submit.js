@@ -6,14 +6,14 @@ Template.submit.helpers({
 
 Template.submit.events({
   'click button': function() {
-    var answers = Prompts.allPromptIds().map(function(id) {
+    var responses = Prompts.allPromptIds().map(function(id) {
       return {
         promptId: id,
-        answer: $('#' + id).val()
+        response: $('#' + id).val()
       }
     });
 
-    Submissions.insert({answers: answers});
+    Submissions.insert({responses: responses});
 
     $('input').val('');
   }
