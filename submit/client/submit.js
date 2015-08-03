@@ -1,14 +1,14 @@
 Template.submit.helpers({
-  questions: function() {
-    return Questions.find();
+  prompts: function() {
+    return Prompts.find();
   }
 });
 
 Template.submit.events({
   'click button': function() {
-    var answers = Questions.allQuestionIds().map(function(id) {
+    var answers = Prompts.allPromptIds().map(function(id) {
       return {
-        questionId: id,
+        promptId: id,
         answer: $('#' + id).val()
       }
     });

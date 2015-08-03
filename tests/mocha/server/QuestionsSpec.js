@@ -1,17 +1,17 @@
 MochaWeb.testOnly(function() {
 
-  describe("questions", function() {
+  describe("prompts", function() {
 
-    it("should let us get all question ids", function() {
+    it("should let us get all prompt ids", function() {
       // Given
-      Questions.remove({});
-      var id = Questions.insert({text: 'What is your favorite color?'});
+      Prompts.remove({});
+      var id = Prompts.insert({text: 'What is your favorite color?'});
 
       // When
-      var questionIds = Questions.allQuestionIds();
+      var promptIds = Prompts.allPromptIds();
 
       // Then
-      chai.expect(questionIds).to.have.members([id]);
+      chai.expect(promptIds).to.have.members([id]);
     });
   });
 });

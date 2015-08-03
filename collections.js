@@ -1,31 +1,29 @@
-
-Questions = new Mongo.Collection("questions");
+Prompts = new Mongo.Collection("prompts");
 
 // TODO: Let's find a good place to put this kind of code
-Questions.allQuestionIds = function() {
-  return Questions.find().map(function(question) {
-    return question._id;
+Prompts.allPromptIds = function() {
+  return Prompts.find().map(function(prompt) {
+    return prompt._id;
   })
 }
 
-Questions.inOrder = function() {
-  return Questions.find({}, {sort: ['text']});
+Prompts.inOrder = function() {
+  return Prompts.find({}, {sort: ['text']});
 };
-
 
 Submissions = new Mongo.Collection("answers");
 
-Submissions.inTableFormat = function(questionsInOrder) {
+Submissions.inTableFormat = function(promptsInOrder) {
   return Submissions.find().map(function(submission) {
-    var answersInOrder = questionsInOrder.map(function(question) {
-      var answerForQuestion = _(submission.answers).find(function(answer) {
-        return answer.questionId === question._id;
+    var answersInOrder = promptsInOrder.map(function(prompt) {
+      var answerForPrompt = _(submission.answers).find(function(answer) {
+        return answer.promptId === prompt._id;
       });
 
-      if (answerForQuestion === undefined) {
+      if (answerForPrompt === undefined) {
         return '';
       } else {
-        return answerForQuestion.answer;
+        return answerForPrompt.answer;
       }
     });
 

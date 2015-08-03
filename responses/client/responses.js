@@ -1,10 +1,10 @@
 Template.responses.helpers({
 
-  questions: function() {
-    return Questions.inOrder();
+  prompts: function() {
+    return Prompts.inOrder();
   },
 
   answersInOrder: function() {
-    return Submissions.inTableFormat(Questions.inOrder());
+    return Submissions.inTableFormat(Prompts.inOrder());
   }
 });

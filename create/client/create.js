@@ -1,9 +1,9 @@
 Template.create.events({
   'click button': function() {
 
-    $('input').each(function(i, questionInput) {
-      var questionText = questionInput.value;
-      Questions.insert({text: questionText});
+    $('input').each(function(i, promptInput) {
+      var promptText = promptInput.value;
+      Prompts.insert({text: promptText});
     });
 
     $('input').val('');
