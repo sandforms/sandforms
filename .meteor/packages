@@ -5,8 +5,7 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 kenton:accounts-sandstorm
 mike:mocha
 iron:router
+http
