@@ -14,19 +14,27 @@ instructions](https://docs.sandstorm.io/en/latest/vagrant-spk/installation/)
   ...
   ```
 
-2. Bring up the Vagrant VM
+2. Make sure you have [virtualbox](https://www.virtualbox.org/wiki/Downloads) installed before bringing up vagrant vm
+
+  ```bash
+  $ VirtualBox -h
+  Oracle VM VirtualBox Manager 5.0.0
+  ...
+  ```
+
+3. Bring up the Vagrant VM
 
   ```bash
   $ vagrant-spk up
   ```
 
-3. Start the application in dev mode
+4. Start the application in dev mode
 
   ```bash
   $ vagrant-spk dev
   ```
 
-4. Navigate to the Sandstorm dev instance
+5. Navigate to the Sandstorm dev instance
 
   `http://local.sandstorm.io:6080/`
 
