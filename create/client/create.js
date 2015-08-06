@@ -1,7 +1,8 @@
 Template.create.events({
-  'click button': function() {
+ 'submit form': function(e) {
+    e.preventDefault();
 
-    $('input').each(function(i, promptInput) {
+    $('.input-field input').each(function(i, promptInput) {
       var promptText = promptInput.value;
       Prompts.insert({text: promptText});
     });

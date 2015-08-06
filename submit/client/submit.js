@@ -5,7 +5,10 @@ Template.submit.helpers({
 });
 
 Template.submit.events({
-  'click button': function() {
+
+  'submit form': function(e) {
+    e.preventDefault();
+
     var responses = Prompts.allPromptIds().map(function(id) {
       return {
         promptId: id,
