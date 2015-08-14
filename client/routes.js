@@ -7,6 +7,10 @@ Router.isOwner = function(user) {
   }
 }
 
+Router.configure({
+  layoutTemplate: 'index'
+});
+
 Router.route('/', function() {
   if (Router.isOwner(Meteor.user())) {
     this.render('create');
