@@ -7,6 +7,6 @@ Template.create.events({
       Prompts.insert({text: promptText});
     });
 
-    $('input').val('');
+    $('.input-field input').val('');
   }
 });
