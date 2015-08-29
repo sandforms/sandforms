@@ -4,7 +4,7 @@ Template.create.events({
 
     $('.input-field input').each(function(i, promptInput) {
       var promptText = promptInput.value;
-      Prompts.insert({text: promptText});
+      Prompts.create(promptText);
     });
 
     $('.input-field input').val('');
