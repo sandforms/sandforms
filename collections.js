@@ -1,5 +1,8 @@
 Prompts = new Mongo.Collection("prompts");
 
+Prompts.create = function(prompts) {
+}
+
 // TODO: Let's find a good place to put this kind of code
 Prompts.allPromptIds = function() {
   return Prompts.find().map(function(prompt) {
