@@ -9,7 +9,7 @@ autopublish
 insecure
 kenton:accounts-sandstorm
 iron:router
-materialize:materialize
 sanjo:jasmine
+materialize:materialize
 underscore
 velocity:html-reporter
