@@ -2,6 +2,14 @@
   <title>sandforms-meteor</title>
 </head>
 
-<body>
-  <h1>SandForms</h1>
-</body>
+<template name="index">
+
+
+  <div id="content">
+    <header>
+      <h1>SandForms</h1>
+    </header>
+    {{> yield}}
+    {{> footer}}
+  </div>
+</template>

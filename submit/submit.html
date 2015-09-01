@@ -1,11 +1,14 @@
-
 <template name="submit">
-
-  <h2>Submit Responses</h2>
+<form>
+	 <h2>Submit Responses</h2>
 
   {{#each prompts this}}
-    <p>{{text}} <input id="{{_id}}" type="text"></p>
+    <div class="input-field">
+    	<input id="{{_id}}" type="text">
+    	<label for="{{_id}}">{{text}}</label>
+    </div>
   {{/each}}
 
-  <button>Submit some awesome responses</button>
+	<input type="submit" value="Submit Form">
+</form>
 </template>

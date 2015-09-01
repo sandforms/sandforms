@@ -6,6 +6,9 @@
 
 meteor-platform
 kenton:accounts-sandstorm
-mike:mocha
 iron:router
 http
+sanjo:jasmine
+materialize:materialize
+underscore
+velocity:html-reporter

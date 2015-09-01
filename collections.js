@@ -1,5 +1,11 @@
 Prompts = new Mongo.Collection("prompts");
 
+Prompts.create = function(promptText) {
+    if(promptText != "") {
+        return Prompts.insert({text: promptText});
+    }
+}
+
 // TODO: Let's find a good place to put this kind of code
 Prompts.allPromptIds = function() {
   return Prompts.find().map(function(prompt) {
