@@ -6,10 +6,6 @@ if [ $(which chrome) ]; then
   export CHROME_BIN=chrome
 elif [ $(which chromium) ]; then
   export CHROME_BIN=chromium
-else
-  echo 'ERROR: Cannot find chrome browser binary!'
-  echo 'ERROR: Install Chrome/Chromium and/or set the CHROME_BIN environment variable'
-  exit 1
 fi
 
 if [ ${DEBUG-0} -ne "0" ]; then
