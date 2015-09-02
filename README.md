@@ -1,4 +1,6 @@
 # SandForms
+### Build Status
+[![Build Status](https://snap-ci.com/sandforms/sandforms/branch/master/build_image)](https://snap-ci.com/sandforms/sandforms/branch/master)
 
 ## Developer Setup
 
