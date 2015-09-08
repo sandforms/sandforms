@@ -13,3 +13,5 @@ sanjo:jasmine
 materialize:materialize
 underscore
 velocity:html-reporter
+fourseven:scss
+waitingkuo:normalize
