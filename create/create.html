@@ -1,21 +1,19 @@
 <template name="create" class="create-survey">
 <a href="/responses">Responses</a>
 
-<h2 class="create-survey__header">Create a form:</h2>
-
-<form class="create-survey__form">
-	<div class="input-field">
-		<input id="prompt1" type="text">
-		<label for="prompt1">Prompt 1:</label>
-	</div>
-	<div class="input-field">
-		<input id="prompt2" type="text">
-		<label for="prompt2">Prompt 2:</label>
-	</div>
-	<div class="input-field">
-		<input id="prompt3" type="text">
-		<label for="prompt3">Prompt 3:</label>
-	</div>
+<h2>Create a form:</h2>
+  <form class="new-prompt">
+    <input type="text" name="prompt" placeholder="Type to add new prompt" />
+  </form>
+  <ul>
+    {{#each prompts}}
+      {{> prompt}}
+    {{/each}}
+  </ul>
 	<input type="submit" value="Preview form">
-</form>
+</template>
+
+
+<template name="prompt">
+  <li>{{text}}</li>
 </template>
