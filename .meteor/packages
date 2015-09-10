@@ -11,5 +11,6 @@ http
 sanjo:jasmine
 materialize:materialize
 underscore
-velocity:html-reporter
 accounts-password
+velocity:console-reporter
+velocity:html-reporter
