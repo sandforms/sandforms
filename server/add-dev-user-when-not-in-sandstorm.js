@@ -1,3 +1,5 @@
+var FAKE_SANDSTORM_PERMISSIONS = "owner";
+
 Meteor.startup(function () {
 
   var shouldInsertFakeHeaders = function(req) {
@@ -10,7 +12,7 @@ Meteor.startup(function () {
     if (shouldInsertFakeHeaders(req)) {
       req.headers["x-sandstorm-user-id"] = "local-user-id";
       req.headers["x-sandstorm-username"] = "Local Dev User";
-      req.headers["x-sandstorm-permissions"] = "owner";
+      req.headers["x-sandstorm-permissions"] = FAKE_SANDSTORM_PERMISSIONS;
     }
     return next();
   };
@@ -23,4 +25,10 @@ Meteor.startup(function () {
   });
 });
 
+Meteor.methods({
 
+  stubPermissions: function(permissions) {
+    FAKE_SANDSTORM_PERMISSIONS = permissions;
+  }
+
+});

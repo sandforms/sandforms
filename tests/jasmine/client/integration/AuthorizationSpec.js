@@ -1,16 +1,5 @@
 describe("authorization", function() {
 
-  function withSandstormUser(f) {
-    HTTP.get("/.sandstorm-credentials", function (error, result) {
-      if (error) {
-        console.error(error.stack);
-      } else if (!result.data) {
-        console.error("/.sandstorm-credentials is not JSON?");
-      } else if (result.data.token) {
-        Meteor.loginWithToken(result.data.token, f);
-      }
-    });
-  }
 
   beforeEach(function() {
     Prompts.find().forEach(function (p) {
@@ -33,7 +22,7 @@ describe("authorization", function() {
 
   it("should let an owner add Prompts", function (done) {
     // Given
-    withSandstormUser(function() {
+    withOwner(function() {
       // When
       Prompts.insert("Should owners be able to add prompts?", function(error, result) {
 
