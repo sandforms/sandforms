@@ -1,6 +1,6 @@
 describe("submissions", function() {
 
-  it("should give us responses back with order matching the given prompts", function() {
+  it("should give us answers back with order matching the given prompts", function() {
     // Given
     var prompts = [
       { _id: 'id-1', text: 'AAA What is your pets same?' },
@@ -16,15 +16,15 @@ describe("submissions", function() {
     ]});
 
     // When
-    var responses = Submissions.inTableFormat(prompts);
+    var answers = Submissions.inTableFormat(prompts);
 
     // Then
-    expect(responses).toEqual([
+    expect(answers).toEqual([
       ['ZZZ Orange', 'GGG Garfield', 'AAA Maybe']
-    ])
+    ]);
   });
 
-  it("should return a blank string if the response to a prompt is missing", function() {
+  it("should return a blank string if the answer to a prompt is missing", function() {
     // Given
     var prompts = [
       { _id: 'id-1', text: 'What is your pets name?' },
@@ -37,10 +37,10 @@ describe("submissions", function() {
     ]});
 
     // When
-    var responses = Submissions.inTableFormat(prompts);
+    var answers = Submissions.inTableFormat(prompts);
 
     // Then
-    expect(responses).toEqual([
+    expect(answers).toEqual([
       ['Garfield', '']
     ]);
   });
