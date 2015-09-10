@@ -17,6 +17,16 @@ Prompts.inOrder = function() {
   return Prompts.find({}, {sort: ['text']});
 };
 
+Prompts.allow({
+  insert: function(userId, _) {
+    return true;
+    //var user = Meteor.users.findOne({_id: userId});
+    //console.log(user);
+    //var permissions = user.services.sandstorm.permissions;
+    //return permissions.indexOf('owner') > -1
+  }
+});
+
 Submissions = new Mongo.Collection("responses");
 
 Submissions.inTableFormat = function(promptsInOrder) {
