@@ -10,8 +10,9 @@ iron:router
 sanjo:jasmine
 materialize:materialize
 underscore
-velocity:html-reporter
 fourseven:scss
 waitingkuo:normalize
 http
 accounts-password
+velocity:console-reporter
+velocity:html-reporter
