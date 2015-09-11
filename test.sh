@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+TEST_SUITE=${1-all}
+
 if [ $(which chrome) ]; then
   export CHROME_BIN=chrome
 elif [ $(which chromium) ]; then
@@ -20,7 +22,7 @@ export JASMINE_SERVER_INTEGRATION=0
 export JASMINE_CLIENT_UNIT=0
 export JASMINE_CLIENT_INTEGRATION=0
 
-case "$1" in
+case "$TEST_SUITE" in
   cu)
     export JASMINE_CLIENT_UNIT=1
     ;;
@@ -35,10 +37,14 @@ case "$1" in
     echo "https://velocity.readme.io/docs/jasmine-testing-modes#section-server-unit-test-mode" 1>&2
     exit 1
     ;;
-  *)
+  all)
     export JASMINE_SERVER_INTEGRATION=1
     export JASMINE_CLIENT_UNIT=1
     export JASMINE_CLIENT_INTEGRATION=1
+    ;;
+  *)
+    echo 'Invalid test suite' 2>&1
+    exit 1
 esac
 
 meteor --test --release velocity:METEOR@1.1.0.2_3
