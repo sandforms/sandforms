@@ -11,8 +11,12 @@ withUserLoggedIn = function(f) {
 }
 
 withPermissions = function(permissions, f) {
-  Meteor.call("stubPermissions", permissions, function() {
-    withUserLoggedIn(f);
+  Meteor.call("stubPermissions", permissions, function(error) {
+    if (error) {
+      console.error(error);
+    } else {
+      withUserLoggedIn(f);
+    }
   });
 }
 
