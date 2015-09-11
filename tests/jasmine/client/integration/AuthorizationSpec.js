@@ -22,7 +22,7 @@ describe("authorization", function() {
 
   it("should let an owner add Prompts", function (done) {
     // Given
-    withOwner(function() {
+     withOwner(function() {
       // When
       Prompts.insert("Should owners be able to add prompts?", function(error, result) {
 

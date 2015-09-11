@@ -29,6 +29,8 @@ Meteor.methods({
 
   stubPermissions: function(permissions) {
     FAKE_SANDSTORM_PERMISSIONS = permissions;
-  }
+  },
+
+  dummy: function() {},
 
 });
