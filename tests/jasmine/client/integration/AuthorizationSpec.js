@@ -7,18 +7,18 @@ describe("authorization", function() {
     });
   });
 
-  //it("should not let a non-owner add Prompts", function(done) {
-  //  withSandstormUser(function() {
-  //    Prompts.insert("Should anyone be able to add prompts?", function(error, result) {
+  it("should not let a non-owner add Prompts", function(done) {
+    withNonOwner(function() {
+      Prompts.insert("Should anyone be able to add prompts?", function(error, result) {
 
-  //      // TODO: not checking for undefined error first passes? what?
-  //      expect(error).not.toBeUndefined();
-  //      expect(error.error).toBe(403);
+        // TODO: not checking for undefined error first passes? what?
+        expect(error).not.toBeUndefined();
+        expect(error.error).toBe(403);
 
-  //      done();
-  //    });
-  //  });
-  //});
+        done();
+      });
+    });
+  });
 
   it("should let an owner add Prompts", function (done) {
     // Given
