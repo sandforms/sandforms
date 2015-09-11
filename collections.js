@@ -19,11 +19,9 @@ Prompts.inOrder = function() {
 
 Prompts.allow({
   insert: function(userId, _) {
-    return true;
-    //var user = Meteor.users.findOne({_id: userId});
-    //console.log(user);
-    //var permissions = user.services.sandstorm.permissions;
-    //return permissions.indexOf('owner') > -1
+    var user = Meteor.users.findOne({_id: userId});
+    var permissions = user.services.sandstorm.permissions;
+    return permissions.indexOf('owner') > -1
   }
 });
 
