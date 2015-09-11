@@ -10,16 +10,16 @@ withUserLoggedIn = function(f) {
   });
 }
 
-withOwner = function(f) {
-  //withUserLoggedInThatHasPermissions(['owner'], f);
-}
-
-withNonOwner = function(f) {
-  //withUserLoggedInThatHasPermissions([], f);
-}
-
 withPermissions = function(permissions, f) {
   Meteor.call("stubPermissions", permissions, function() {
     withUserLoggedIn(f);
   });
+}
+
+withOwner = function(f) {
+  withPermissions('owner', f);
+}
+
+withNonOwner = function(f) {
+  withPermissions('', f);
 }
