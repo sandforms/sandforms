@@ -1,8 +1,8 @@
 withUserLoggedInThatHasPermissions = function(permissions, f) {
-  Meteor.call("stubPermissions", permissions, function(error) {
-    if (error) {
-      console.error(error);
-    } else {
+  //Meteor.call("stubPermissions", permissions, function(error) {
+    //if (error) {
+      //console.error(error);
+    //} else {
       HTTP.get("/.sandstorm-credentials", function (error, result) {
         if (error) {
           console.error(error.stack);
@@ -12,8 +12,8 @@ withUserLoggedInThatHasPermissions = function(permissions, f) {
           Meteor.loginWithToken(result.data.token, f);
         }
       });
-    }
-  });
+    //}
+  //});
 }
 
 withOwner = function(f) {
