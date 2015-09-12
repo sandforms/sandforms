@@ -8,11 +8,12 @@ describe("authorization", function() {
   });
 
   it("should not let a non-owner add Prompts", function(done) {
+    // Given
     withNonOwner(function() {
+      // When
       Prompts.insert("Should anyone be able to add prompts?", function(error, result) {
 
-        // TODO: not checking for undefined error first passes? what?
-        expect(error).not.toBeUndefined();
+        // Then
         expect(error.error).toBe(403);
 
         done();
