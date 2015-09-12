@@ -1,9 +1,26 @@
 describe("authorization", function() {
 
 
-  beforeEach(function() {
-    Prompts.find().forEach(function (p) {
-      Prompts.remove({_id: p._id});
+  beforeEach(function(done) {
+    withOwner(function() {
+      Meteor.call("clearAllCollections", function() {
+        Prompts.insert("test prompt", done);
+      });
+    });
+  });
+
+  it("should let everyone see all of the Prompts", function(done) {
+    // Given
+    withNonOwner(function() {
+      // When
+      var result = Prompts.find({}).fetch();
+      console.log(result);
+
+      // Then
+      expect(result).not.toBeUndefined();
+      expect(result.length).toBe(1);
+
+      done();
     });
   });
 

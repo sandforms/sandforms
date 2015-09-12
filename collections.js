@@ -21,9 +21,19 @@ Prompts.allow({
   insert: function(userId, _) {
     var user = Meteor.users.findOne({_id: userId});
     var permissions = user.services.sandstorm.permissions;
-    return permissions.indexOf('owner') > -1
+    return permissions.indexOf('owner') > -1;
   }
 });
+
+if (Meteor.isServer) {
+  Meteor.publish("prompts", function() {
+    return Prompts.find({});
+  });
+}
+
+if (Meteor.isClient) {
+  Meteor.subscribe("prompts");
+}
 
 Submissions = new Mongo.Collection("responses");
 

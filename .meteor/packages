@@ -15,3 +15,4 @@ waitingkuo:normalize
 http
 velocity:console-reporter
 velocity:html-reporter
+sandforms-test-helpers
