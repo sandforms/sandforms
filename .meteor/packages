@@ -16,3 +16,5 @@ http
 velocity:console-reporter
 velocity:html-reporter
 sandforms-test-helpers
+pfafman:filesaver
+peerlibrary:blob
