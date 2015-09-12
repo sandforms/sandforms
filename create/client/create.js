@@ -1,12 +1,21 @@
-Template.create.events({
- 'submit form': function(e) {
-    e.preventDefault();
+if (Meteor.isClient) {
+  
+  Template.create.helpers({
+    prompts: function() {
+      return Prompts.inOrder();
+    }
+  });
 
-    $('.input-field input').each(function(i, promptInput) {
-      var promptText = promptInput.value;
-      Prompts.create(promptText);
-    });
+  Template.create.events({
+    "submit form": function (event) {
+      preventBrowserDefaultFormSubmit(event);
+      var text = event.target.prompt.value;
+      Prompts.create(text);
+      event.target.prompt.value = "";
+    }
+  });
 
-    $('.input-field input').val('');
+  var preventBrowserDefaultFormSubmit = function(event) {
+    event.preventDefault();
   }
-});
+}
