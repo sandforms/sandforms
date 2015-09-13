@@ -54,7 +54,7 @@ reactive-var@1.0.5
 reload@1.1.3
 retry@1.0.3
 routepolicy@1.0.5
-sandforms-test-helpers@0.0.0
+sandforms-test-helpers@1.0.0
 sanjo:jasmine@0.18.0
 sanjo:karma@1.7.0
 sanjo:long-running-child-process@1.1.3
