@@ -1,4 +1,4 @@
-Submissions = new Mongo.Collection("responses");
+Submissions = new Mongo.Collection("submissions");
 
 Submissions.allow({
   insert: function() {

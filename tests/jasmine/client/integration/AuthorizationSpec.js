@@ -59,18 +59,18 @@ describe("authorization", function() {
     });
   });
 
-  // it("should let owners view all Submissions", function(done) {
-  //   // Given
-  //   withOwner(function() {
-  //     // When
-  //     var result = Submissions.find({}).fetch();
+  it("should let owners view all Submissions", function(done) {
+    // Given
+    withOwner(function() {
+      // When
+      var result = Submissions.find({}).fetch();
 
-  //     // Then
-  //     expect(result.length).toBe(1);
+      // Then
+      expect(result.length).toBe(1);
 
-  //     done();
-  //   });
-  // });
+      done();
+    });
+  });
 
   it("should let everyone add Submissions", function(done) {
     // Given
