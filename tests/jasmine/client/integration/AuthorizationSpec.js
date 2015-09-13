@@ -6,7 +6,7 @@ describe("authorization", function() {
 
   it("should let everyone see all of the Prompts", function(done) {
     // Given
-    withNonOwner(function() {
+    AccountsSandstorm.withNonOwner(function() {
       // When
       var result = Prompts.find({}).fetch();
 
@@ -20,7 +20,7 @@ describe("authorization", function() {
 
   it("should not let a non-owner add Prompts", function(done) {
     // Given
-    withNonOwner(function() {
+    AccountsSandstorm.withNonOwner(function() {
       // When
       Prompts.insert("Should anyone be able to add prompts?", function(error, result) {
 
@@ -34,7 +34,7 @@ describe("authorization", function() {
 
   it("should let an owner add Prompts", function (done) {
     // Given
-     withOwner(function() {
+     AccountsSandstorm.withOwner(function() {
       // When
       Prompts.insert("Should owners be able to add prompts?", function(error, result) {
 
@@ -48,7 +48,7 @@ describe("authorization", function() {
 
   it("should not let non-owners view Submissions", function(done) {
     // Given
-    withNonOwner(function() {
+    AccountsSandstorm.withNonOwner(function() {
       // When
       var result = Submissions.find({}).fetch();
 
@@ -61,7 +61,7 @@ describe("authorization", function() {
 
   it("should let owners view all Submissions", function(done) {
     // Given
-    withOwner(function() {
+    AccountsSandstorm.withOwner(function() {
       // When
       var result = Submissions.find({}).fetch();
 
@@ -74,7 +74,7 @@ describe("authorization", function() {
 
   it("should let everyone add Submissions", function(done) {
     // Given
-    withNonOwner(function() {
+    AccountsSandstorm.withNonOwner(function() {
       // When
       Submissions.insert({ responses: [ {
         promptId: 'test-prompt-id',
