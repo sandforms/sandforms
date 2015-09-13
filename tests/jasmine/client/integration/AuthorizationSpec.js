@@ -1,12 +1,7 @@
 describe("authorization", function() {
 
-
   beforeEach(function(done) {
-    withOwner(function() {
-      Meteor.call("clearAllCollections", function() {
-        Prompts.insert("test prompt", done);
-      });
-    });
+    Meteor.call("setupFixtures", done);
   });
 
   it("should let everyone see all of the Prompts", function(done) {
@@ -14,7 +9,6 @@ describe("authorization", function() {
     withNonOwner(function() {
       // When
       var result = Prompts.find({}).fetch();
-      console.log(result);
 
       // Then
       expect(result).not.toBeUndefined();
@@ -52,4 +46,45 @@ describe("authorization", function() {
     });
   });
 
+  it("should not let non-owners view Submissions", function(done) {
+    // Given
+    withNonOwner(function() {
+      // When
+      var result = Submissions.find({}).fetch();
+
+      // Then
+      expect(result.length).toBe(0);
+
+      done();
+    });
+  });
+
+  // it("should let owners view all Submissions", function(done) {
+  //   // Given
+  //   withOwner(function() {
+  //     // When
+  //     var result = Submissions.find({}).fetch();
+
+  //     // Then
+  //     expect(result.length).toBe(1);
+
+  //     done();
+  //   });
+  // });
+
+  it("should let everyone add Submissions", function(done) {
+    // Given
+    withNonOwner(function() {
+      // When
+      Submissions.insert({ responses: [ {
+        promptId: 'test-prompt-id',
+        response: 'test response'
+      }]}, function(error, id) {
+        // Then
+        expect(error).toBeUndefined();
+        expect(id).not.toBeUndefined();
+        done();
+      });
+    })
+  });
 });

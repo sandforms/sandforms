@@ -10,9 +10,9 @@ describe("stubbing user permissions for tests", function() {
 
   it("should let us log in without any permissions", function(done) {
     withNonOwner(function() {
-        var permissions = Meteor.user().services.sandstorm.permissions;
-        expect(permissions).not.toContain('owner');
-        done();
+      var permissions = Meteor.user().services.sandstorm.permissions;
+      expect(permissions).not.toContain('owner');
+      done();
     });
   });
 

@@ -1,5 +1,25 @@
 Submissions = new Mongo.Collection("responses");
 
+Submissions.allow({
+  insert: function() {
+    return true;
+  }
+});
+
+if (Meteor.isServer) {
+  Meteor.publish("submissions", function() {
+    var user = Meteor.users.findOne({_id: this.userId});
+    var permissions = user.services.sandstorm.permissions;
+    var isOwner = permissions.indexOf('owner') > -1;
+
+    if (isOwner) {
+      return Submissions.find({});
+    } else {
+      return [];
+    }
+  });
+}
+
 Submissions.inTableFormat = function(promptsInOrder) {
   return Submissions.find().map(function(submission) {
     var responsesInOrder = promptsInOrder.map(function(prompt) {
