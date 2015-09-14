@@ -7,12 +7,10 @@
 meteor-platform
 kenton:accounts-sandstorm
 iron:router
+http
 sanjo:jasmine
 materialize:materialize
 underscore
-fourseven:scss
-waitingkuo:normalize
-http
 velocity:console-reporter
 velocity:html-reporter
 sandforms-test-helpers
