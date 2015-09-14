@@ -1,0 +1,19 @@
+.response-table {
+}
+
+.response-table__headers {
+  border: 1px solid black;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #9f9b9b;
+  padding: .5em 1em;
+}
+
+.response-table__responses {
+  border: 1px solid black;
+  padding: .5em 1em;
+}
+
+.export-to-csv {
+  float: right;
+}
