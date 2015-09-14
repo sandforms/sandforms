@@ -18,4 +18,4 @@ if (Meteor.isClient) {
   var preventBrowserDefaultFormSubmit = function(event) {
     event.preventDefault();
   }
-}}
+}
