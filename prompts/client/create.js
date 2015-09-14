@@ -1,5 +1,5 @@
 if (Meteor.isClient) {
-  
+
   Template.create.helpers({
     prompts: function() {
       return Prompts.inOrder();
@@ -7,7 +7,7 @@ if (Meteor.isClient) {
   });
 
   Template.create.events({
-    "submit form": function (event) {
+    "submit .create-survey__form": function (event) {
       preventBrowserDefaultFormSubmit(event);
       var text = event.target.prompt.value;
       Prompts.create(text);
