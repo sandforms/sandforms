@@ -44,4 +44,33 @@ describe("submissions", function() {
       ['Garfield', '']
     ]);
   });
+
+  it("should return a csv formatted string of submissions", function() {
+    var properlyFormattedString = "_id,name,fav_food,activity\r\n" +
+                                  "id-1,Garfield\r\n" +
+                                  "id-2,Garfield,lasagna\r\n" +
+                                  "id-3,Garfield,,sleep\r\n";
+
+    Submissions.remove({});
+    Submissions.insert({ _id: 'id-1', name: 'Garfield'});
+    Submissions.insert({ _id: 'id-2', name: 'Garfield', 'fav_food': 'lasagna'});
+    Submissions.insert({ _id: 'id-3', name: 'Garfield', activity: 'sleep'})
+
+    var formattedString = Submissions.exportCsvFormattedString();
+
+    expect(formattedString).toEqual(properlyFormattedString);
+  });
+
+  it("should return prompts if no responses", function() {
+    var properlyFormattedString = "_id,name,fav_food,activity\r\n";
+
+    Submissions.remove({});
+    spyOn(Prompts, 'getPromptContent').and.returnValue([
+      '_id', 'name', 'fav_food', 'activity'
+    ])
+
+    var formattedString = Submissions.exportCsvFormattedString();
+
+    expect(formattedString).toEqual(properlyFormattedString);
+  });
 });

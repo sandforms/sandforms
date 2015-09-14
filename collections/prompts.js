@@ -18,15 +18,20 @@ Prompts.create = function(promptText) {
     if(promptText != "") {
         return Prompts.insert({text: promptText});
     }
-}
+};
 
 Prompts.allPromptIds = function() {
   return Prompts.find().map(function(prompt) {
     return prompt._id;
-  })
-}
+  });
+};
 
 Prompts.inOrder = function() {
   return Prompts.find({}, {sort: ['text']});
 };
 
+Prompts.getPromptContent = function() {
+  return Prompts.find().map(function(prompt) {
+    return prompt.text;
+  });
+};

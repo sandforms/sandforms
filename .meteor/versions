@@ -45,6 +45,8 @@ mongo@1.1.0
 observe-sequence@1.0.6
 ordered-dict@1.0.3
 package-version-parser@3.0.3
+peerlibrary:blob@0.1.4
+pfafman:filesaver@0.2.0_1
 practicalmeteor:chai@2.1.0_1
 practicalmeteor:loglevel@1.2.0_2
 random@1.0.3
