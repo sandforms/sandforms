@@ -60,4 +60,17 @@ describe("submissions", function() {
 
     expect(formattedString).toEqual(properlyFormattedString);
   });
+
+  it("should return prompts if no responses", function() {
+    var properlyFormattedString = "_id,name,fav_food,activity\r\n";
+
+    Submissions.remove({});
+    spyOn(Prompts, 'getPromptContent').and.returnValue([
+      '_id', 'name', 'fav_food', 'activity'
+    ])
+
+    var formattedString = Submissions.exportCsvFormattedString();
+
+    expect(formattedString).toEqual(properlyFormattedString);
+  });
 });

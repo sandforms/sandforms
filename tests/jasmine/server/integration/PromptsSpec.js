@@ -24,4 +24,13 @@ describe("prompts", function() {
       // Then
       expect(promptIds).not.toContain(id);
   });
+
+  it("should return all prompts' content", function() {
+      Prompts.remove({});
+      Prompts.create('hello');
+      Prompts.create('world');
+
+      var prompts = Prompts.getPromptContent();
+      expect(prompts).toEqual(['hello', 'world']);
+  });
 });
