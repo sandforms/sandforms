@@ -5,11 +5,12 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 kenton:accounts-sandstorm
 iron:router
+http
 sanjo:jasmine
 materialize:materialize
 underscore
+velocity:console-reporter
 velocity:html-reporter
+sandforms-test-helpers

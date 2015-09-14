@@ -1,23 +1,25 @@
-Prompts = new Mongo.Collection("prompts");
+Submissions = new Mongo.Collection("submissions");
 
-Prompts.create = function(promptText) {
-    if(promptText != "") {
-        return Prompts.insert({text: promptText});
+Submissions.allow({
+  insert: function() {
+    return true;
+  }
+});
+
+if (Meteor.isServer) {
+  Meteor.publish("submissions", function() {
+    if (this.userId === null) return [];
+    var user = Meteor.users.findOne({_id: this.userId});
+    var permissions = user.services.sandstorm.permissions;
+    var isOwner = permissions.indexOf('owner') > -1;
+
+    if (isOwner) {
+      return Submissions.find({});
+    } else {
+      return [];
     }
+  });
 }
-
-// TODO: Let's find a good place to put this kind of code
-Prompts.allPromptIds = function() {
-  return Prompts.find().map(function(prompt) {
-    return prompt._id;
-  })
-}
-
-Prompts.inOrder = function() {
-  return Prompts.find({}, {sort: ['text']});
-};
-
-Submissions = new Mongo.Collection("responses");
 
 Submissions.inTableFormat = function(promptsInOrder) {
   return Submissions.find().map(function(submission) {
