@@ -1,0 +1,15 @@
+<template name="create" class="create-survey">
+  <h2 class="create-survey__header page-header">Create a form:</h2>
+  <button class="preview-form btn waves-effect waves-light">Preview Form</button>
+
+    <form class="create-survey__form">
+      <input type="text" name="prompt" placeholder="Add new prompt" />
+    </form>
+
+    <p class="prompts-list__header">Prompts:</p>
+    <ol class="prompt-list">
+      {{#each prompts}}
+        {{> prompt}}
+      {{/each}}
+    </ol>
+</template>
