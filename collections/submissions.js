@@ -38,3 +38,23 @@ Submissions.inTableFormat = function(promptsInOrder) {
     return responsesInOrder;
   });
 }
+
+Submissions.exportCsvFormattedString = function() {
+  var parsedString = '',
+      headers = [];
+  Submissions.find().forEach(function(submission){
+    var row = []
+
+    Object.keys(submission).forEach(function(header){
+      if (headers.indexOf(header) === -1) { headers.push(header) }
+    });
+
+    headers.forEach(function(header){
+      row.push(submission[header]);
+    });
+
+    parsedString += row.join(',') + '\r\n';
+  });
+
+  return headers.join(',') + '\r\n' + parsedString;
+};
