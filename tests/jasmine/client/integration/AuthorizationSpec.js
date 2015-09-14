@@ -24,6 +24,7 @@ describe("authorization", function() {
       // When
       Prompts.insert("Should anyone be able to add prompts?", function(error, result) {
 
+        // Then
         expect(error.error).toBe(403);
 
         done();
