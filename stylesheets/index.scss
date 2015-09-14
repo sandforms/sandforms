@@ -2,9 +2,30 @@
   padding: 1.5em;
 }
 
-.main-header {
+.navigation-bar__wrapper {
   background-color: black;
   color: white;
+}
+
+.nagivation-bar__links{
+  font-size: 1.25em;
+  padding: .25em .5em;
+}
+
+.nagivation-bar__heading {
   font-size: 2em;
   padding: .25em .5em;
+  display:inline-block;
+}
+
+.page-header {
+  display: inline-block;
+  float: left;
+}
+
+.clearfix:after {
+   content: " ";
+   display: block;
+   height: 0;
+   clear: both;
 }
