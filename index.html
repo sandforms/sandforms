@@ -1,15 +1,13 @@
-<head>
+<head >
   <title>sandforms-meteor</title>
 </head>
 
 <template name="index">
-
-
-  <div id="content">
-    <header>
-      <h1>SandForms</h1>
-    </header>
+  <header class="main-header">
+    SandForms
+  </header>
+  <div class="main-content">
     {{> yield}}
-    {{> footer}}
   </div>
+  {{> footer}}
 </template>
