@@ -7,13 +7,8 @@
   </form>
   <ul>
     {{#each prompts}}
-      {{> prompt}}
+      {{> _prompt}}
     {{/each}}
   </ul>
 	<input type="submit" value="Preview form">
-</template>
-
-
-<template name="prompt">
-  <li>{{text}}</li>
 </template>
