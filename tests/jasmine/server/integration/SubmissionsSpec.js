@@ -61,7 +61,7 @@ describe("submissions", function() {
     expect(formattedString).toEqual(properlyFormattedString);
   });
 
-  it("should return prompts if no responses", function() {
+  it("should return prompts in csv if no responses", function() {
     var properlyFormattedString = "_id,name,fav_food,activity\r\n";
 
     Submissions.remove({});

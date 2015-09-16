@@ -19,9 +19,9 @@ if (Meteor.isServer) {
   });
 }
 
-Submissions.inTableFormat = function(promptsInOrder) {
+Submissions.inTableFormat = function(prompts) {
   return Submissions.find().map(function(submission) {
-    var responsesInOrder = promptsInOrder.map(function(prompt) {
+    var responses = prompts.map(function(prompt) {
       var responseForPrompt = _(submission.responses).find(function(response) {
         return response.promptId === prompt._id;
       });
@@ -33,7 +33,7 @@ Submissions.inTableFormat = function(promptsInOrder) {
       }
     });
 
-    return responsesInOrder;
+    return responses;
   });
 }
 
