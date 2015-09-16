@@ -1,0 +1,14 @@
+#!/usr/bin/env expect
+
+set email [lindex $argv 0]
+set password [lindex $argv 1]
+
+spawn meteor deploy sandstorm-ci.meteor.com
+
+expect "Email: "
+send "$email\n"
+
+expect "Password: "
+send "$password\n"
+
+interact
