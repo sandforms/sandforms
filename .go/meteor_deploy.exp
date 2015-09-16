@@ -3,7 +3,7 @@
 set email [lindex $argv 0]
 set password [lindex $argv 1]
 
-spawn meteor deploy sandforms-ci.meteor.com
+spawn meteor deploy sandforms-ci.meteor.com --debug
 
 expect "Email: "
 send "$email\n"
