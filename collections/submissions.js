@@ -55,7 +55,6 @@ Submissions.exportCsvFormattedString = function() {
 
     parsedString += row.join(',') + '\r\n';
   });
-  console.log(headers);
   if(headers.length === 0) { headers = Prompts.getPromptContent(); }
 
   return headers.join(',') + '\r\n' + parsedString;

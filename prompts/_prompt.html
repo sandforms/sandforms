@@ -1,3 +1,5 @@
 <template name="_prompt">
-  <li>{{text}}</li>
+  <form class="create-survey__update-form" data-prompt-id="{{_id}}">
+    <input type="text" name="prompt" value="{{text}}"/>
+  </form>
 </template>

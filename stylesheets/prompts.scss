@@ -1,7 +1,17 @@
-.prompt-list {
+.create-survey__form,
+.create-survey__update-form {
   padding: .25em .5em;
-  list-style-position: inside;
   margin-left: 1em;
+}
+
+.create-survey__form input,
+.create-survey__update-form input {
+  width: 80%;
+}
+
+.prompt-list {
+  margin: 0;
+  padding: 0;
 }
 
 .prompts-list__header {

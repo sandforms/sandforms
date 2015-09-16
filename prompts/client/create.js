@@ -8,14 +8,21 @@ if (Meteor.isClient) {
 
   Template.create.events({
     "submit .create-survey__form": function (event) {
-      preventBrowserDefaultFormSubmit(event);
+      event.preventDefault();
       var text = event.target.prompt.value;
+
       Prompts.create(text);
       event.target.prompt.value = "";
+    },
+    "submit .create-survey__update-form": function (event) {
+      event.preventDefault();
+      var text = event.target.prompt.value;
+      var promptId = $(event.target).data('prompt-id');
+
+      Prompts.update(
+        {_id: promptId},
+        {$set: {"text": text}}
+      );
     }
   });
-
-  var preventBrowserDefaultFormSubmit = function(event) {
-    event.preventDefault();
-  }
 }
