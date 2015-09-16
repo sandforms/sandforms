@@ -26,3 +26,17 @@ to review it in two days, go ahead and merge it.
 Everybody! Please take some time whenever you sit down to work on the project
 to check for any outstanding pull requests and review them. You definitely do
 not have to wait for everyone to see your pull request before merging though.
+
+## Changing Permissions in dev mode
+
+There are two user types: owners and non-owners
+- Owners can create form & review submissions
+- Non-owners can review prompts & submit submissions
+
+To change user permissions in dev mode (running with `meteor`), 
+edit `server/add-dev-user-when-not-in-sandstorm.js` 
+and change `FAKE_SANDSTORM_PERMISSIONS` to `"owner"` or `""`
+
+**Note:** If you already had the browser open, 
+[clear your browser's local storage](http://stackoverflow.com/a/9404841/5270598).
+Hard refreshing is not sufficient.
