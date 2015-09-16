@@ -18,6 +18,7 @@ Template.submit.events({
 
     Submissions.insert({responses: responses});
 
-    $('input').val('');
+    $('.response-input').val('');
+    Router.go('/thanks')
   }
 });

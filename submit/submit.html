@@ -4,11 +4,11 @@
 
   {{#each prompts this}}
     <div class="input-field">
-    	<input id="{{_id}}" type="text">
+    	<input class="response-input" id="{{_id}}" type="text">
     	<label for="{{_id}}">{{text}}</label>
     </div>
   {{/each}}
 
-	<input type="submit" value="Submit Form">
+	<input id="submit-responses" class="btn waves-effect waves-light" type="submit" value="Submit Form">
 </form>
 </template>

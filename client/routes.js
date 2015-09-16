@@ -22,3 +22,4 @@ Router.route('/', function() {
 Router.route('/create');
 Router.route('/responses');
 Router.route('/submit');
+Router.route('/thanks');

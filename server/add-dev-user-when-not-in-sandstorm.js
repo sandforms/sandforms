@@ -1,7 +1,6 @@
 var FAKE_SANDSTORM_PERMISSIONS = "owner";
 
 Meteor.startup(function () {
-
   var shouldInsertFakeHeaders = function(req) {
     var devMode = process.env.NODE_ENV == 'development';
     var headerExists = _(req.headers).has("x-sandstorm-user-id");
