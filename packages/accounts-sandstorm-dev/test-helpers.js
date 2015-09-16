@@ -1,4 +1,4 @@
-var withUserLoggedIn = function(f) {
+withUserLoggedIn = this.withUserLoggedIn = function(f) {
   HTTP.get('/.sandstorm-credentials', function (error, result) {
     if (error) {
       console.error(error.stack);
@@ -10,7 +10,7 @@ var withUserLoggedIn = function(f) {
   });
 };
 
-var withPermissions = function(permissions, f) {
+withPermissions = this.withPermissions = function(permissions, f) {
   Meteor.call('stubPermissions', permissions, function(error) {
     if (error) {
       console.error(error);
@@ -20,17 +20,10 @@ var withPermissions = function(permissions, f) {
   });
 };
 
-var withOwner = function(f) {
+withOwner = this.withOwner = function(f) {
   withPermissions(['owner'], f);
 };
 
-var withNonOwner = function(f) {
+withNonOwner = this.withNonOwner = function(f) {
   withPermissions([], f);
 };
-
-AccountsSandstorm = this.AccountsSandstorm = {
-  withUserLoggedIn: withUserLoggedIn,
-  withPermissions: withPermissions,
-  withOwner: withOwner,
-  withNonOwner: withNonOwner
-}
