@@ -14,8 +14,8 @@ function tests {
 }
 
 function deploy-to-meteor {
-    echo $METEOR_EMAIL $METEOR_PASSWORD
-    ./.go/meteor_deploy.exp $METEOR_EMAIL $METEOR_PASSWORD
+    echo -e "$METEOR_EMAIL\n$METEOR_PASSWORD\n" | meteor login --email
+    meteor deploy sandforms-ci.meteor.com
 }
 
 [[ $@ ]] || { helptext; exit 1; }
