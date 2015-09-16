@@ -1,14 +1,21 @@
 <template name="submit">
 <form>
-	 <h2>Submit Responses</h2>
-
-  {{#each prompts this}}
-    <div class="input-field">
-    	<input class="response-input" id="{{_id}}" type="text">
-    	<label for="{{_id}}">{{text}}</label>
+    {{#if alreadySubmitted}}
+    <div class="row">
+        <div class="col s8 offset-s2 valign-wrapper error-bar">
+            <h5 class="valign center" style="width: 100%">You've already submitted your response!</h5>
+        </div>
     </div>
-  {{/each}}
+    {{else}}
+    <h2>Submit Responses</h2>
+    {{#each prompts}}
+    <div class="input-field">
+        <input class="response-input" id="{{_id}}" type="text">
+        <label for="{{_id}}">{{text}}</label>
+    </div>
+    {{/each}}
 
-	<input id="submit-responses" class="btn waves-effect waves-light" type="submit" value="Submit Form">
+    <input id="submit-responses" class="btn waves-effect waves-light" type="submit" value="Submit Form">
+    {{/if}}
 </form>
 </template>

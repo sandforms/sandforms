@@ -1,6 +1,9 @@
 Template.submit.helpers({
   prompts: function() {
     return Prompts.find();
+  },
+  alreadySubmitted: function() {
+    return Session.get('submitted');
   }
 });
 
@@ -19,6 +22,7 @@ Template.submit.events({
     Submissions.insert({responses: responses});
 
     $('.response-input').val('');
+    Session.set('submitted', true)
     Router.go('/thanks')
   }
 });
