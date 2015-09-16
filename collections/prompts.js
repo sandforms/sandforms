@@ -28,7 +28,7 @@ Prompts.allPromptIds = function() {
 };
 
 Prompts.inOrder = function() {
-  return Prompts.find({}, {sort: ['text']});
+  return Prompts.find({}, {sort: ['text']}).fetch();
 };
 
 Prompts.getPromptContent = function() {

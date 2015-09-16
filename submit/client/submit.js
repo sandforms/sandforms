@@ -1,6 +1,6 @@
 Template.submit.helpers({
   prompts: function() {
-    return Prompts.find();
+    return Prompts.inOrder();
   },
   alreadySubmitted: function() {
     return Session.get('submitted');
