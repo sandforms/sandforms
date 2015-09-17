@@ -1,0 +1,9 @@
+<template name="_navigation">
+  <header class="navigation-bar__wrapper">
+    <h1 class="nagivation-bar__heading">SandForms</h1>
+    {{#if isOwner}}
+      <a class="nagivation-bar__links" href="/create">Create</a>
+      <a class="nagivation-bar__links" href="/responses">Responses</a>
+    {{/if}}
+  </header>
+</template>
