@@ -3,7 +3,7 @@ Router.configure({
 });
 
 Router.route('/', function() {
-  if (User.isOwner(Meteor.user())) {
+  if (User.ownerLoggedIn()) {
     this.render('create');
   } else {
     this.render('submit');
