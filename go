@@ -21,7 +21,8 @@ function deploy-to-meteor {
     # with the hack of removing the Velocity and Jasmine packages before deploy.
     TEST_PACKAGES="sanjo:jasmine velocity:html-reporter velocity:console-reporter"
     meteor remove $TEST_PACKAGES
-    ./.go/meteor_deploy.exp $METEOR_EMAIL $METEOR_PASSWORD
+    ./.go/meteor_login.exp $METEOR_EMAIL $METEOR_PASSWORD
+    meteor deploy sandforms-ci.meteor.com --debug
     meteor add $TEST_PACKAGES
 }
 
