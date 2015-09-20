@@ -6,7 +6,7 @@ function defaults(value, fallback) {
   }
 }
 
-var STUB_PERMISSIONS = defaults(process.env.STUB_SANDSTORM_PERMISSIONS, 'owner');
+var STUB_PERMISSIONS = defaults(process.env.STUB_PERMISSIONS, 'owner');
 var STUB_USER_ID = defaults(process.env.STUB_USER_ID, 'dev-user-id');
 var STUB_USERNAME = defaults(process.env.STUB_USERNAME, 'Dev User');
 

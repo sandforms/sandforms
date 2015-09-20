@@ -9,9 +9,7 @@ Submissions.allow({
 if (Meteor.isServer) {
   Meteor.publish("submissions", function() {
     if (this.userId === null) return [];
-    var user = Meteor.users.findOne({_id: this.userId});
-    var permissions = user.services.sandstorm.permissions;
-    var isOwner = permissions.indexOf('owner') > -1;
+    var isOwner = User.isOwnersUserId(this.userId);
 
     if (isOwner) {
       return Submissions.find({});

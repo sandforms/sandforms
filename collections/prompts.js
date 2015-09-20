@@ -2,14 +2,10 @@ Prompts = new Mongo.Collection("prompts");
 
 Prompts.allow({
   insert: function(userId) {
-    var user = Meteor.users.findOne({_id: userId});
-    var permissions = user.services.sandstorm.permissions;
-    return permissions.indexOf('owner') > -1;
+    return User.isOwnersUserId(userId);
   },
   update: function(userId) {
-    var user = Meteor.users.findOne({_id: userId});
-    var permissions = user.services.sandstorm.permissions;
-    return permissions.indexOf('owner') > -1;
+    return User.isOwnersUserId(userId);
   }
 });
 

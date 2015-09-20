@@ -7,7 +7,7 @@ describe("isOwner", function() {
     };
 
     // When/Then
-    expect(Router.isOwner(user)).toBe(false);
+    expect(User.isOwner(user)).toBe(false);
   });
 
   it("should return true when the user has the owner permission", function() {
@@ -17,12 +17,12 @@ describe("isOwner", function() {
     };
 
     // When/Then
-    expect(Router.isOwner(user)).toBe(true);
+    expect(User.isOwner(user)).toBe(true);
   });
 
   it("should return false when the user is null", function() {
     // When
-    var isOwner = Router.isOwner(null);
+    var isOwner = User.isOwner(null);
 
     // Then
     expect(isOwner).toBe(false);
