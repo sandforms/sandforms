@@ -2,7 +2,15 @@
 ### Build Status
 [![Build Status](https://snap-ci.com/sandforms/sandforms/branch/master/build_image)](https://snap-ci.com/sandforms/sandforms/branch/master)
 
-## Developer Setup
+## Developer Setup (Lite)
+
+To run the webapp without Vagrant
+
+1. Install Meteor [here] (docs.meteor.com/#/basic/quickstart)
+2. Start running the app `meteor run`
+3. Visit your [localhost:3000] (http://localhost:3000)
+
+## Developer Setup (Heavy)
 
 SandForms uses Meteor and [vagrant-spk](https://github.com/sandstorm-io/vagrant-spk), so dev setup is quite easy.
 
