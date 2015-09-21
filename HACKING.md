@@ -33,9 +33,7 @@ There are two user types: owners and non-owners
 - Owners can create form & review submissions
 - Non-owners can review prompts & submit submissions
 
-To change user permissions in dev mode (running with `meteor`), 
-edit `server/add-dev-user-when-not-in-sandstorm.js` 
-and change `FAKE_SANDSTORM_PERMISSIONS` to `"owner"` or `""`
+To change user permissions in dev mode (running with `meteor`), change the `STUB_PERMISSIONS` environment variable to `"owner"` or `""` by starting Meteor like so: `STUB_PERMISSIONS="" meteor run`
 
 **Note:** If you already had the browser open, 
 [clear your browser's local storage](http://stackoverflow.com/a/9404841/5270598).
