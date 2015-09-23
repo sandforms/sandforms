@@ -1,3 +1,5 @@
+@import ".meteor/local/build/programs/server/assets/packages/poetic_materialize-scss/bower_components/materialize/sass/materialize.scss";
+
 body {
   display: flex;
   min-height: 100vh;
@@ -8,22 +10,6 @@ body {
   padding: 1.5em;
   flex: 1 0 auto;
 
-}
-
-.navigation-bar__wrapper {
-  background-color: black;
-  color: white;
-}
-
-.nagivation-bar__links{
-  font-size: 1.25em;
-  padding: .25em .5em;
-}
-
-.nagivation-bar__heading {
-  font-size: 2em;
-  padding: .25em .5em;
-  display:inline-block;
 }
 
 .page-header {

@@ -9,7 +9,6 @@ kenton:accounts-sandstorm
 iron:router
 http
 sanjo:jasmine
-materialize:materialize
 underscore
 velocity:console-reporter
 velocity:html-reporter
@@ -20,3 +19,4 @@ fourseven:scss
 waitingkuo:normalize
 accounts-sandstorm-dev
 konecty:mongo-counter
+poetic:materialize-scss

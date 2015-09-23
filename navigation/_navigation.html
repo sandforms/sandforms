@@ -1,9 +1,22 @@
 <template name="_navigation">
-  <header class="navigation-bar__wrapper">
-    <h1 class="nagivation-bar__heading">SandForms</h1>
-    {{#if isOwner}}
-      <a class="nagivation-bar__links" href="/create">Create</a>
-      <a class="nagivation-bar__links" href="/responses">Responses</a>
-    {{/if}}
-  </header>
+<header>
+    <nav>
+        <div class="nav-wrapper blue accent-1">
+            <a href="#" class="brand-logo">SandForms</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                {{#if isOwner}}
+                <li><a href="/create">Create</a></li>
+                <li><a href="/responses">Responses</a></li>
+                {{/if}}
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                {{#if isOwner}}
+                <li><a href="/create">Create</a></li>
+                <li><a href="/responses">Responses</a></li>
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
+</header>
 </template>
