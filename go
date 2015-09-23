@@ -10,7 +10,9 @@ function helptext {
 }
 
 function tests {
+    mv ./stylesheets/{,.}index.scss
     ./test.sh
+    mv ./stylesheets/{.,}index.scss
 }
 
 function deploy-to-meteor {
