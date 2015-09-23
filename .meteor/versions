@@ -32,6 +32,7 @@ iron:url@1.0.9
 jquery@1.11.3_2
 json@1.0.3
 kenton:accounts-sandstorm@0.1.4
+konecty:mongo-counter@0.0.3
 launch-screen@1.0.2
 less@1.0.14
 livedata@1.0.13
@@ -44,6 +45,7 @@ minifiers@1.1.5
 minimongo@1.0.8
 mobile-status-bar@1.0.3
 mongo@1.1.0
+mongo-livedata@1.0.8
 observe-sequence@1.0.6
 ordered-dict@1.0.3
 package-version-parser@3.0.3
