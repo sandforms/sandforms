@@ -1,21 +1,22 @@
 <template name="welcome">
-
-<div class="row">
-        <div class="card white centered-card">
-            <div class="card-content">
-                <div class="card-title black-text center-align">Welcome!</div>
-                <p>
-                 Because we're so serious about keeping your answers anonymous, we're counting on you to only complete this form once.
-                </p>
-                <br>
-                <p>
-                We aren't keeping track of who you are or what you're doing, but your employer or internet service provider might be. Learn more about keeping your data private <a href="https://ssd.eff.org/en/playlist">here</a>.
-                </p>
+    <div class="row">
+            <div class="card white centered-card">
+                <div class="card-content spacey">
+                    <div class="card-title black-text center-align">Welcome!</div>
+                    {{> welcomeText}}
+                </div>
+                <div class="card-action center-align single-action">
+                    <a href="/submit" class="btn waves-effect waves-light white-text">Let's begin.</a>
+                </div>
             </div>
-            <div class="card-action center-align single-action">
-                <a href="/submit" class="btn waves-effect waves-light white-text">Let's begin...</a>
-            </div>
-        </div>
-</div>
+    </div>
+</template>
 
+<template name="welcomeText">
+    <p>
+    Because we're so serious about keeping your answers anonymous, we're counting on you to only complete this form once.
+    </p>
+    <p>
+    We aren't keeping track of who you are or what you're doing, but your employer or internet service provider might be. Learn more about keeping your data private <a href="https://ssd.eff.org/en/playlist">here</a>.
+    </p>
 </template>

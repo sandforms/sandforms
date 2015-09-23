@@ -7,3 +7,8 @@
 .card-action.single-action a {
     margin-right: 0;
 }
+
+.card .card-content.spacey p:not(:last-child) {
+    margin-bottom: 15px;
+}
+
