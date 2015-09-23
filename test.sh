@@ -49,4 +49,6 @@ esac
 
 true || pkill -f meteor
 
+mv ./stylesheets/{,.}index.scss
 meteor --test --release velocity:METEOR@1.1.0.2_3
+mv ./stylesheets/{.,}index.scss
