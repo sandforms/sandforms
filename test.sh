@@ -49,6 +49,9 @@ esac
 
 true || pkill -f meteor
 
-mv ./stylesheets/{,.}index.scss
+# So we need meteor to run twice because our scss assets need to
+# be precompiled before they can be used by meteor. This is gross
+# and we are sorry. There are no meteor precompile run options.
+meteor --test 2>/dev/null || true
+
 meteor --test --release velocity:METEOR@1.1.0.2_3
-mv ./stylesheets/{.,}index.scss
