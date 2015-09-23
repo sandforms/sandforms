@@ -6,7 +6,7 @@ TEST_SUITE=${1-all}
 
 if [ $(which chrome >/dev/null 2>&1) ]; then
   export CHROME_BIN=chrome
-elif [ $(which chromium) ]; then
+elif [ $(which chromium >/dev/null 2>&1) ]; then
   export CHROME_BIN=chromium
 fi
 
