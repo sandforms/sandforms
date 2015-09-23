@@ -25,6 +25,22 @@ describe("prompts", function() {
       expect(promptIds).not.toContain(id);
   });
 
+  it("create should increment the order each time we call it", function() {
+    // Given
+    Prompts.remove({});
+    Counters.remove({});
+
+    Prompts.create('hello');
+    Prompts.create('world');
+
+    // When
+    var promptId = Prompts.create('the third prompt');
+
+    // Then
+    var order = Prompts.findOne(promptId).order
+    expect(order).toBe(3);
+  });
+
   it("should return all prompts' content", function() {
       Prompts.remove({});
       Prompts.create('hello');
