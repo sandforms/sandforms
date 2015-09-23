@@ -7,7 +7,6 @@ function helptext {
     echo ""
     echo "Available commands are:"
     echo "    test           Run tests"
-    echo "    reset          Drop local DB (with scss assets hack)"
 }
 
 function tests {
@@ -23,18 +22,8 @@ function deploy-to-meteor {
     TEST_PACKAGES="sanjo:jasmine velocity:html-reporter velocity:console-reporter"
     meteor remove $TEST_PACKAGES
     ./.go/meteor_login.exp $METEOR_EMAIL $METEOR_PASSWORD
-    # So we need meteor to run twice because our scss assets need to
-    # be precompiled before they can be used by meteor. This is gross
-    # and we are sorry. There are no meteor precompile run options.
-    meteor run --test 2>/dev/null || true
     meteor deploy sandforms-ci.meteor.com --debug
     meteor add $TEST_PACKAGES
-}
-
-function reset {
-    meteor reset
-    echo "Meteor has been reset, now generating pre-compile assets..."
-    meteor run --test &>/dev/null
 }
 
 [[ $@ ]] || { helptext; exit 1; }
@@ -43,8 +32,6 @@ case "$1" in
     help) helptext
     ;;
     test) tests
-    ;;
-    reset) reset
     ;;
     deploy-to-meteor) deploy-to-meteor
     ;;
