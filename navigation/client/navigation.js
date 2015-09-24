@@ -5,5 +5,5 @@ Template._navigation.helpers({
 });
 
 Template._navigation.rendered = function () {
-    $(".button-collapse").sideNav();
+
 }

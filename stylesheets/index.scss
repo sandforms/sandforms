@@ -5,19 +5,5 @@ body {
 }
 
 .main-content {
-  padding: 1.5em;
   flex: 1 0 auto;
-
-}
-
-.page-header {
-  display: inline-block;
-  float: left;
-}
-
-.clearfix:after {
-   content: " ";
-   display: block;
-   height: 0;
-   clear: both;
 }
