@@ -46,15 +46,26 @@ describe("submissions", function() {
   });
 
   it("should return a csv formatted string of submissions", function() {
-    var properlyFormattedString = "_id,name,fav_food,activity\r\n" +
-                                  "id-1,Garfield\r\n" +
-                                  "id-2,Garfield,lasagna\r\n" +
-                                  "id-3,Garfield,,sleep\r\n";
+    var properlyFormattedString = "name,fav_food,activity\r\n" +
+                                  "Garfield,lasagna,sleep\r\n" +
+                                  "Fonzo,pizza,\r\n";
+    var prompts = [
+      { _id: 'id-1', text: 'name' },
+      { _id: 'id-2', text: 'fav_food' },
+      { _id: 'id-3', text: 'activity' }
+    ];
 
+    spyOn(Prompts, 'inOrder').and.returnValue(prompts);
     Submissions.remove({});
-    Submissions.insert({ _id: 'id-1', name: 'Garfield'});
-    Submissions.insert({ _id: 'id-2', name: 'Garfield', 'fav_food': 'lasagna'});
-    Submissions.insert({ _id: 'id-3', name: 'Garfield', activity: 'sleep'})
+    Submissions.insert({ responses: [
+      { promptId: 'id-1', response: 'Garfield'},
+      { promptId: 'id-2', response: 'lasagna'},
+      { promptId: 'id-3', response: 'sleep'}
+    ]});
+    Submissions.insert({ responses: [
+      { promptId: 'id-1', response: 'Fonzo'},
+      { promptId: 'id-2', response: 'pizza'},
+    ]});
 
     var formattedString = Submissions.exportCsvFormattedString();
 
@@ -62,12 +73,16 @@ describe("submissions", function() {
   });
 
   it("should return prompts in csv if no responses", function() {
-    var properlyFormattedString = "_id,name,fav_food,activity\r\n";
+    var properlyFormattedString = "name,fav_food,activity\r\n";
+    var prompts = [
+      { _id: 'id-1', text: 'name' },
+      { _id: 'id-2', text: 'fav_food' },
+      { _id: 'id-3', text: 'activity' }
+    ];
+
+    spyOn(Prompts, 'inOrder').and.returnValue(prompts);
 
     Submissions.remove({});
-    spyOn(Prompts, 'getPromptContent').and.returnValue([
-      '_id', 'name', 'fav_food', 'activity'
-    ])
 
     var formattedString = Submissions.exportCsvFormattedString();
 
