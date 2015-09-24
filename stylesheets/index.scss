@@ -4,6 +4,43 @@ body {
   flex-direction: column;
 }
 
+header
+{
+	border-bottom: 1px solid darkgray;
+	background: darkgray;
+
+	h1
+	{
+		color:white;
+		font-size: 3em;
+		margin-bottom: .25em;
+		padding-left: .25em;
+	}
+
+	.row
+	{
+		margin-bottom: 0;
+	}
+
+	li
+	{
+		line-height: 3em;
+		margin-bottom: -3px;
+
+		a
+		{
+			font-size: 1.25em;
+			color: #783189;
+		}
+	}
+
+	.active
+	{
+		border-bottom: 5px solid #783189;
+	}
+}
+
 .main-content {
   flex: 1 0 auto;
 }
+
