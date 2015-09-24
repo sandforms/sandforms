@@ -1,4 +1,12 @@
 # SandForms
+
+The SandForms project has two major goals:
+
+First, we want to extend the capabilities of the sandstorm platform by creating user friendly alternatives to productivity software that monetizes personal information.
+
+Second, we want our software to improve the daily lives of those who work to protect individuals’ liberties online.
+
+
 ### Build Status
 [![Build Status](https://snap-ci.com/sandforms/sandforms/branch/master/build_image)](https://snap-ci.com/sandforms/sandforms/branch/master)
 
