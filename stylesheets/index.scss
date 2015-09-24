@@ -4,20 +4,43 @@ body {
   flex-direction: column;
 }
 
+header
+{
+	border-bottom: 1px solid darkgray;
+	background: darkgray;
+
+	h1
+	{
+		color:white;
+		font-size: 3em;
+		margin-bottom: .25em;
+		padding-left: .25em;
+	}
+
+	.row
+	{
+		margin-bottom: 0;
+	}
+
+	li
+	{
+		line-height: 3em;
+		margin-bottom: -3px;
+
+		a
+		{
+			font-size: 1.25em;
+			color: #783189;
+		}
+	}
+
+	.active
+	{
+		border-bottom: 5px solid #783189;
+	}
+}
+
 .main-content {
-  padding: 1.5em;
   flex: 1 0 auto;
-
 }
 
-.page-header {
-  display: inline-block;
-  float: left;
-}
-
-.clearfix:after {
-   content: " ";
-   display: block;
-   height: 0;
-   clear: both;
-}

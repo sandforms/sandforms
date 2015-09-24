@@ -1,21 +1,23 @@
 <template name="responses">
-
-  <h2 class="response-table__title page-header">Responses</h2>
-  <button class="export-to-csv btn waves-effect waves-light">Export to CSV</button>
-  <table class="response-table">
+<!-- I think this button may be better in the toolbar. -->
+<button class="export-to-csv btn waves-effect waves-light right">Export to CSV</button>
+<table class="bordered highlight s10">
+  <thead>
     <tr>
       {{#each prompts this}}
-        <th class="response-table__headers">{{text}}</th>
+        <th>{{text}}</th>
       {{/each}}
     </tr>
+  </thead>
 
-    {{#each responsesInOrder}}
-      <tr>
-      {{#each this}}
-        <td class="response-table__responses">{{this}}</td>
-      {{/each}}
-      </tr>
+  <tbody>
+  {{#each responsesInOrder}}
+    <tr>
+    {{#each this}}
+      <td>{{this}}</td>
     {{/each}}
-  </table>
-
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
 </template>
