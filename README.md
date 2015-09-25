@@ -1,10 +1,12 @@
 # SandForms
 
-The SandForms project has two major goals:
+We have two major motivations:
 
-First, we want to extend the capabilities of the sandstorm platform by creating user friendly alternatives to productivity software that monetizes personal information.
+First, we want to reduce our society's reliance on propriatery software by creating user friendly alternatives to centralized services that monetize personal information.
 
-Second, we want our software to improve the daily lives of those who work to protect individuals’ liberties online.
+Second, we want to improve the safety of those who work to protect individuals’ liberties online by providing software that actively protects their privacy.
+
+To those ends, we are creating SandForms - a free software forms application that matches or exceeds the level of usability we have become accustomed to online while explicitly protecting the personal information of its users.
 
 
 ### Build Status
