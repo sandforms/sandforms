@@ -1,13 +1,18 @@
 Router.configure({
-  layoutTemplate: 'index'
+    layoutTemplate: 'index'
 });
 
 Router.route('/', function() {
-  if (User.ownerLoggedIn()) {
-    this.render('create');
-  } else {
-    this.render('welcome');
-  }
+    if(Meteor.loggingIn()){
+        this.render('loading');
+        return;
+    }
+
+    if (User.ownerLoggedIn()) {
+        this.render('create');
+    } else {
+        this.render('welcome');
+    }
 });
 
 Router.route('/create');
