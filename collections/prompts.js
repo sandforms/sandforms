@@ -6,6 +6,9 @@ Prompts.allow({
   },
   update: function(userId) {
     return User.isOwnersUserId(userId);
+  },
+  remove: function(userId) {
+    return User.isOwnersUserId(userId);
   }
 });
 
