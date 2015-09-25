@@ -9,9 +9,9 @@ Router.route('/', function() {
     }
 
     if (User.ownerLoggedIn()) {
-        this.render('create');
+        Router.go('create');
     } else {
-        this.render('welcome');
+        Router.go('welcome');
     }
 });
 
