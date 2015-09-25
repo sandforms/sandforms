@@ -5,8 +5,8 @@
   </div>
   {{#if isOwner}}
   <ul class="row">
-    <li class="col s6 m2 l2 offset-m1 offset-l1 active"><a href="/create">Prompts</a></li>
-    <li class="col s6 m2 l2"><a href="/responses">Responses</a></li>
+    <li class="col s6 m2 l2 offset-m1 offset-l1 {{#if createActive}}active{{/if}}"><a href="/create">Prompts</a></li>
+    <li class="col s6 m2 l2 {{#if responsesActive}}active{{/if}}"><a href="/responses">Responses</a></li>
   </ul>
   {{/if}}
 </header>
