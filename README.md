@@ -15,8 +15,13 @@ Second, we want our software to improve the daily lives of those who work to pro
 To run the webapp without Vagrant
 
 1. Install Meteor [here] (docs.meteor.com/#/basic/quickstart)
-2. Start running the app `meteor run`
+2. Start running the app `meteor`
 3. Visit your [localhost:3000] (http://localhost:3000)
+
+To see multiple, small UI changes faster, you can run the webapp without Velocity’s constantly running tests:
+```bash
+VELOCITY=0 meteor
+```
 
 ## Developer Setup (Heavy)
 
