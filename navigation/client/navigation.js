@@ -3,11 +3,13 @@ Template._navigation.helpers({
         return User.ownerLoggedIn();
     },
 
-    createActive: function() {
-      return Router.current().route.getName() === "create";
+    isCreateActive: function() {
+      return Router.current().route.getName() === "create" ?
+        'active' : '';
     },
 
-    responsesActive: function() {
-      return Router.current().route.getName() === "responses";
+    isResponsesActive: function() {
+      return Router.current().route.getName() === 'responses' ?
+        'active' : '';
     }
 });
