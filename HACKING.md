@@ -27,6 +27,15 @@ Everybody! Please take some time whenever you sit down to work on the project
 to check for any outstanding pull requests and review them. You definitely do
 not have to wait for everyone to see your pull request before merging though.
 
+## Criteria For Including Third Party Code
+
+* is the license compatible with Apache 2.0?
+* does it reach out to third party servers? (eg using apis or loading resources client side) if so it's a no-go
+* can we include it using dependency management tools? (preferably the built in meteor package system https://atmospherejs.com/)
+* is it an active project? when was the last commit?
+* how healthy is the project? number of stars on github, number of contributors, etc
+* what does the issues list look like? no issues at all could be bad, as could tons of issues that never get answered. especially **look for open security issues**
+
 ## Changing Permissions in dev mode
 
 There are two user types: owners and non-owners
