@@ -34,11 +34,37 @@ const pkgdef :Spk.PackageDefinition = (
       )
     ],
 
-    continueCommand = .myCommand
+    continueCommand = .myCommand,
     # This is the command called to start your app back up after it has been
     # shut down for inactivity. Here we're using the same command as for
     # starting a new instance, but you could use different commands for each
     # case.
+    metadata = (
+      icons = (
+        appGrid = (svg = embed "../graphics/appGrid.svg"),
+        grain = (svg = embed "../graphics/grain.svg"),
+        market = (svg = embed "../graphics/market.svg"),
+      ),
+
+      website = "https://github.com/sandforms/sandforms",
+      codeUrl = "https://github.com/sandforms/sandforms",
+      license = (openSource = apache2),
+      categories = [office, productivity],
+
+      #author = (
+      #  contactEmail = "hackerslides@jacksingleton.com",
+      #  pgpSignature = embed "pgp-signature",
+      #),
+
+      #pgpKeyring = embed "pgp-keyring",
+
+      #description = (defaultText = embed "description.md"),
+      shortDescription = (defaultText = "Form App"),
+
+      #screenshots = [
+      #  (width = 448, height = 343, png = embed "screenshot.png")
+      #],
+    ),
   ),
   sourceMap = (
     # The following directories will be copied into your package.
