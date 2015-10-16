@@ -27,4 +27,22 @@ describe("isOwner", function() {
     // Then
     expect(isOwner).toBe(false);
   });
+
+  it("should return false when the sandstorm object is undefined", function() {
+    // Given
+    var user = {
+      services: {}
+    }
+
+    // When / Then
+    expect(User.isOwner(user)).toBe(false);
+  })
+
+  it("should return false when the services object is undefined", function() {
+    // Given
+    var user = {};
+
+    // When / Then
+    expect(User.isOwner(user)).toBe(false);
+  })
 });
