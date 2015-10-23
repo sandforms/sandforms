@@ -76,7 +76,7 @@ describe("prompts", function() {
     expect(promptIds).not.toContain(id);
   });
 
-  it ("should not return deleted prompts when inOrder is called", function() {
+  it("should not return deleted prompts when inOrder is called", function() {
     // Given
     Prompts.remove({});
     var id = Prompts.create({text: 'What is your favorite color?'});
@@ -89,5 +89,19 @@ describe("prompts", function() {
 
     expect(prompts.length).toBe(0);
     expect(prompts).not.toContain(id);
+  });
+
+  it("should return deleted prompts when the deleted option is passed to inOrder", function() {
+    // Given
+    Prompts.remove({});
+    var id = Prompts.create({text: 'What is your favorite color?'});
+
+    // When
+    Prompts.markAsDeleted(id);
+
+    // Then
+    var prompts = Prompts.inOrder({ deleted: true });
+
+    expect(prompts.length).toBe(1);
   });
 });

@@ -1,13 +1,14 @@
 Template.responses.helpers({
 
   prompts: function() {
-    return Prompts.inOrder();
+    return Prompts.inOrder({ deleted: true });
   },
 
   responsesInOrder: function() {
-    return Submissions.inTableFormat(Prompts.inOrder());
+    return Submissions.inTableFormat(
+      Prompts.inOrder({ deleted: true })
+    );
   }
-
 });
 
 Template.responses.events({

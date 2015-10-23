@@ -43,14 +43,23 @@ Prompts.allPromptIds = function() {
   });
 };
 
-Prompts.inOrder = function() {
-  var notDeleted = {
-    $or: [
+Prompts.inOrder = function(maybeOptions) {
+  var options = _(
+    nullOrUndefined(maybeOptions) ? {} : maybeOptions
+  ).defaults({
+    deleted : false
+  });
+
+  var queryObject = {};
+
+  if (!options.deleted) {
+    queryObject['$or'] = [
       { "deleted": { $exists: false }},
       { "deleted": false }
-    ]
-  };
-  return Prompts.find(notDeleted, {sort: ['order']}).fetch();
+    ];
+  }
+
+  return Prompts.find(queryObject, {sort: ['order']}).fetch();
 };
 
 Prompts.getPromptContent = function() {
