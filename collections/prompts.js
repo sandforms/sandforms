@@ -32,7 +32,13 @@ Prompts.create = function(promptText) {
 };
 
 Prompts.allPromptIds = function() {
-  return Prompts.find().map(function(prompt) {
+  var notDeleted = {
+    $or: [
+      { "deleted": { $exists: false }},
+      { "deleted": false }
+    ]
+  };
+  return Prompts.find(notDeleted).map(function(prompt) {
     return prompt._id;
   });
 };
@@ -46,3 +52,10 @@ Prompts.getPromptContent = function() {
     return prompt.text;
   });
 };
+
+Prompts.markAsDeleted = function(promptId) {
+  Prompts.update(
+    { _id: promptId },
+    { $set: { "deleted": true } }
+  );
+}

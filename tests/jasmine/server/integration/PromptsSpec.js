@@ -61,16 +61,17 @@ describe("prompts", function() {
     expect(prompts[0].text).toEqual('Your favorite book?');
   });
 
-  it("should delete a prompt when remove is called", function(){
+  it("should delete a prompt when markAsDeleted is called", function(){
     // Given
     Prompts.remove({});
     var id = Prompts.create({text: 'What is your favorite color?'});
 
     // When
-    Prompts.remove(id);
+    Prompts.markAsDeleted(id);
 
     // Then
     var promptIds = Prompts.allPromptIds();
+
     expect(promptIds.length).toBe(0);
     expect(promptIds).not.toContain(id);
   });
