@@ -44,7 +44,13 @@ Prompts.allPromptIds = function() {
 };
 
 Prompts.inOrder = function() {
-  return Prompts.find({}, {sort: ['order']}).fetch();
+  var notDeleted = {
+    $or: [
+      { "deleted": { $exists: false }},
+      { "deleted": false }
+    ]
+  };
+  return Prompts.find(notDeleted, {sort: ['order']}).fetch();
 };
 
 Prompts.getPromptContent = function() {
