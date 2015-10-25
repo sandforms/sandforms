@@ -23,11 +23,9 @@ if (Meteor.isClient) {
         {_id: promptId},
         {$set: {"text": text}}
       );
-    }, 
+    },
     "click .deleteX":function(prompt){
-      Prompts.remove(
-        {_id: this._id}
-      );
+      Prompts.markAsDeleted(this._id);
     }
   });
 }

@@ -41,15 +41,6 @@ describe("prompts", function() {
     expect(order).toBe(3);
   });
 
-  it("should return all prompts' content", function() {
-      Prompts.remove({});
-      Prompts.create('hello');
-      Prompts.create('world');
-
-      var prompts = Prompts.getPromptContent();
-      expect(prompts).toEqual(['hello', 'world']);
-  });
-
   it("should return all prompts in creation order", function() {
     Counters.remove({})
     Prompts.remove({});
@@ -61,17 +52,47 @@ describe("prompts", function() {
     expect(prompts[0].text).toEqual('Your favorite book?');
   });
 
-  it("should delete a prompt when remove is called", function(){
+  it("should not return deleted prompt ids", function(){
     // Given
     Prompts.remove({});
     var id = Prompts.create({text: 'What is your favorite color?'});
 
     // When
-    Prompts.remove(id);
+    Prompts.markAsDeleted(id);
 
     // Then
     var promptIds = Prompts.allPromptIds();
+
     expect(promptIds.length).toBe(0);
     expect(promptIds).not.toContain(id);
+  });
+
+  it("should not return deleted prompts when inOrder is called", function() {
+    // Given
+    Prompts.remove({});
+    var id = Prompts.create({text: 'What is your favorite color?'});
+
+    // When
+    Prompts.markAsDeleted(id);
+
+    // Then
+    var prompts = Prompts.inOrder();
+
+    expect(prompts.length).toBe(0);
+    expect(prompts).not.toContain(id);
+  });
+
+  it("should return deleted prompts when the deleted option is passed to inOrder", function() {
+    // Given
+    Prompts.remove({});
+    var id = Prompts.create({text: 'What is your favorite color?'});
+
+    // When
+    Prompts.markAsDeleted(id);
+
+    // Then
+    var prompts = Prompts.inOrder({ deleted: true });
+
+    expect(prompts.length).toBe(1);
   });
 });
