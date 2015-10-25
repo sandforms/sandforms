@@ -14,16 +14,18 @@ if (Meteor.isClient) {
       Prompts.create(text);
       event.target.prompt.value = "";
     },
-    "submit .create-survey__update-form": function (event) {
+
+    "keyup .create-survey__update-form": _.debounce(function (event) {
       event.preventDefault();
-      var text = event.target.prompt.value;
+      var text = event.target.value;
       var promptId = $(event.target).data('prompt-id');
 
       Prompts.update(
         {_id: promptId},
         {$set: {"text": text}}
       );
-    },
+    }, 200),
+
     "click .deleteX":function(prompt){
       Prompts.markAsDeleted(this._id);
     }
