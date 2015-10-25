@@ -1,9 +1,0 @@
-- [x] delete -> set deleted = true
-
-- [x] get prompts -> where deleted == false
-  - [x] create page
-  - [x] submit page
-- [x] get prompts including deleted = true on responses page
-- [x] remove duplicate notDeleted query objects
-- [x] delete getPromptContent
-- [x] data gone after reset bug
