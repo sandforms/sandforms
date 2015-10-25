@@ -19,6 +19,7 @@ if (Meteor.isServer) {
 
   Meteor.methods({
     'Prompts.create': function(promptText) {
+      check(promptText, String);
       var order = incrementCounter(Counters, "promptOrder");
       if(promptText != "") {
           return Prompts.insert({text: promptText, order: order});
