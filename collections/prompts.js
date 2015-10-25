@@ -31,19 +31,32 @@ Prompts.create = function(promptText) {
   return Meteor.call('Prompts.create', promptText);
 };
 
-Prompts.allPromptIds = function() {
-  var notDeleted = {
-    $or: [
-      { "deleted": { $exists: false }},
-      { "deleted": false }
-    ]
-  };
-  return Prompts.find(notDeleted).map(function(prompt) {
+Prompts.allPromptIds = function(maybeOptions) {
+  var queryObject = _buildQueryFromOptions(maybeOptions);
+  return Prompts.find(queryObject).map(function(prompt) {
     return prompt._id;
   });
 };
 
 Prompts.inOrder = function(maybeOptions) {
+  var queryObject = _buildQueryFromOptions(maybeOptions);
+  return Prompts.find(queryObject, {sort: ['order']}).fetch();
+};
+
+Prompts.getPromptContent = function() {
+  return Prompts.find().map(function(prompt) {
+    return prompt.text;
+  });
+};
+
+Prompts.markAsDeleted = function(promptId) {
+  Prompts.update(
+    { _id: promptId },
+    { $set: { "deleted": true } }
+  );
+};
+
+function _buildQueryFromOptions(maybeOptions) {
   var options = _(
     nullOrUndefined(maybeOptions) ? {} : maybeOptions
   ).defaults({
@@ -59,18 +72,5 @@ Prompts.inOrder = function(maybeOptions) {
     ];
   }
 
-  return Prompts.find(queryObject, {sort: ['order']}).fetch();
-};
-
-Prompts.getPromptContent = function() {
-  return Prompts.find().map(function(prompt) {
-    return prompt.text;
-  });
-};
-
-Prompts.markAsDeleted = function(promptId) {
-  Prompts.update(
-    { _id: promptId },
-    { $set: { "deleted": true } }
-  );
+  return queryObject;
 }
