@@ -5,5 +5,5 @@
   - [x] submit page
 - [x] get prompts including deleted = true on responses page
 - [x] remove duplicate notDeleted query objects
-- [ ] delete getPromptContent
-- [ ] data gone after reset bug
+- [x] delete getPromptContent
+- [x] data gone after reset bug

@@ -43,12 +43,6 @@ Prompts.inOrder = function(maybeOptions) {
   return Prompts.find(queryObject, {sort: ['order']}).fetch();
 };
 
-Prompts.getPromptContent = function() {
-  return Prompts.find().map(function(prompt) {
-    return prompt.text;
-  });
-};
-
 Prompts.markAsDeleted = function(promptId) {
   Prompts.update(
     { _id: promptId },

@@ -41,15 +41,6 @@ describe("prompts", function() {
     expect(order).toBe(3);
   });
 
-  it("should return all prompts' content", function() {
-      Prompts.remove({});
-      Prompts.create('hello');
-      Prompts.create('world');
-
-      var prompts = Prompts.getPromptContent();
-      expect(prompts).toEqual(['hello', 'world']);
-  });
-
   it("should return all prompts in creation order", function() {
     Counters.remove({})
     Prompts.remove({});
