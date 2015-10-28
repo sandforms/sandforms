@@ -16,7 +16,7 @@ To those ends, we are creating SandForms - a free software forms application tha
 
 To run the webapp without Vagrant
 
-1. Install Meteor [here] (docs.meteor.com/#/basic/quickstart)
+1. Install Meteor [here] (https://docs.meteor.com/#/basic/quickstart)
 2. Start running the app `meteor`
 3. Visit your [localhost:3000] (http://localhost:3000)
 
