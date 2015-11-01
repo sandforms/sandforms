@@ -36,6 +36,7 @@ Meteor.startup(function () {
 Meteor.methods({
 
   stubPermissions: function(permissions) {
+    check(permissions, [String]);
     STUB_PERMISSIONS = permissions.join(',');
   }
 });
