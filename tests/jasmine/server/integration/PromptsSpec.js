@@ -3,7 +3,7 @@ describe("prompts", function() {
   it("should let us get all prompt ids", function() {
     // Given
     Prompts.remove({});
-    var id = Prompts.create({text: 'What is your favorite color?'});
+    var id = Prompts.create('What is your favorite color?');
 
     // When
     var promptIds = Prompts.allPromptIds();
@@ -55,7 +55,7 @@ describe("prompts", function() {
   it("should not return deleted prompt ids", function(){
     // Given
     Prompts.remove({});
-    var id = Prompts.create({text: 'What is your favorite color?'});
+    var id = Prompts.create('What is your favorite color?');
 
     // When
     Prompts.markAsDeleted(id);
@@ -70,7 +70,7 @@ describe("prompts", function() {
   it("should not return deleted prompts when inOrder is called", function() {
     // Given
     Prompts.remove({});
-    var id = Prompts.create({text: 'What is your favorite color?'});
+    var id = Prompts.create('What is your favorite color?');
 
     // When
     Prompts.markAsDeleted(id);
@@ -85,7 +85,7 @@ describe("prompts", function() {
   it("should return deleted prompts when the deleted option is passed to inOrder", function() {
     // Given
     Prompts.remove({});
-    var id = Prompts.create({text: 'What is your favorite color?'});
+    var id = Prompts.create('What is your favorite color?');
 
     // When
     Prompts.markAsDeleted(id);
