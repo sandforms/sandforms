@@ -47,7 +47,6 @@ Submissions.exportCsvFormattedString = function() {
   });
 
   Submissions.inTableFormat(prompts).forEach(function(submission){
-    console.log(submission);
     csvFormattedResponses += submission.join(',') + '\r\n';
   });
 
