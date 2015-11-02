@@ -1,18 +1,18 @@
 <template name="submit">
 <form>
   {{#if alreadySubmitted}}
-  <h5>You've already submitted your response. <br> Thank you for not submitting again.</h5>
+    <h5>You've already submitted your response. <br> Thank you for not submitting again.</h5>
   {{else}}
-  {{#each prompts}}
-  <div class="input-field row">
-    <input class="response-input col s10 offset-s1" id="{{_id}}" type="text">
-    <label class="col s10 offset-s1" for="{{_id}}">{{text}}</label>
-  </div>
-  {{/each}}
-  <!-- we may want to make this a custom button instead of an input submit to reduce the chance of accidental submission -->
-  <div class="row">
-    <input id="submit-responses" class="btn waves-effect waves-light col offset-s1" type="submit" value="Submit Form">
-  </div>
+    {{#each prompts}}
+      <div class="input-field row">
+        <input class="response-input col s10 offset-s1" id="{{_id}}" type="text">
+        <label class="col s10 offset-s1" for="{{_id}}">{{text}}</label>
+      </div>
+    {{/each}}
+    <!-- we may want to make this a custom button instead of an input submit to reduce the chance of accidental submission -->
+    <div class="row">
+      <input id="submit-responses" class="btn waves-effect waves-light col offset-s1" type="submit" value="Submit Form">
+    </div>
   {{/if}}
 </form>
 </template>
