@@ -16,7 +16,7 @@ Router.route('/', function() {
   } else if (User.ownerLoggedIn()) {
       Router.go('create');
   } else {
-      Router.go('submit');
+      Router.go('welcome');
   }
 });
 
