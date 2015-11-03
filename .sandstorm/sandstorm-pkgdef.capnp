@@ -54,8 +54,7 @@ const pkgdef :Spk.PackageDefinition = (
 
       author = (
         contactEmail = "sandforms@jacksingleton.com",
-        #TODO
-        #pgpSignature = embed "pgp-signature",
+        pgpSignature = embed "pgp-signature",
       ),
 
       pgpKeyring = embed "pgp-keyring",
