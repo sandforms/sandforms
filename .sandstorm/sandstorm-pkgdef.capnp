@@ -9,7 +9,8 @@ const pkgdef :Spk.PackageDefinition = (
   # The package definition. Note that the spk tool looks specifically for the
   # "pkgdef" constant.
 
-  id = "5yvm5asuzk62p6s8jw0p33w2ktsn189ne0c9j2pvww5gq84exmf0",
+  id = "ztxnreej8a0pqn97ccfhuckswjkrmsaavn85n5sgzk30tv2k4y9h",
+
   # Your app ID is actually its public key. The private key was placed in
   # your keyring. All updates must be signed with the same key.
 
@@ -51,19 +52,20 @@ const pkgdef :Spk.PackageDefinition = (
       license = (openSource = apache2),
       categories = [office, productivity],
 
-      #author = (
-      #  contactEmail = "hackerslides@jacksingleton.com",
-      #  pgpSignature = embed "pgp-signature",
-      #),
+      author = (
+        contactEmail = "sandforms@jacksingleton.com",
+        #TODO
+        #pgpSignature = embed "pgp-signature",
+      ),
 
-      #pgpKeyring = embed "pgp-keyring",
+      pgpKeyring = embed "pgp-keyring",
 
-      #description = (defaultText = embed "description.md"),
+      description = (defaultText = embed "description.md"),
       shortDescription = (defaultText = "Form App"),
 
-      #screenshots = [
-      #  (width = 448, height = 343, png = embed "screenshot.png")
-      #],
+      screenshots = [
+        (width = 448, height = 343, png = embed "screenshot.png")
+      ],
     ),
   ),
   sourceMap = (
