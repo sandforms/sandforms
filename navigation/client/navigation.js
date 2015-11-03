@@ -2,20 +2,6 @@ Template._navigation.helpers({
     isOwner: function() {
         return User.ownerLoggedIn();
     },
-    isCreatePage: function() {
-      return Router.current().route.getName() === "create";
-    },
-    isResponsePage: function() {
-      return Router.current().route.getName() === 'responses'
-    },
-    isCreateActive: function() {
-      return Router.current().route.getName() === "create" ?
-        'active' : '';
-    },
-    isResponsesActive: function() {
-      return Router.current().route.getName() === 'responses' ?
-        'active' : '';
-    }
 });
 
 Template._navigation.events({
@@ -29,8 +15,4 @@ Template._navigation.events({
     fileName = new Date().toString() + '.csv';
     saveAs(file, fileName);
   },
-  'click .share-form': function(event, template) {
-    console.log('got here');
-    $('.share-form').leanModal();
-  }
 });
