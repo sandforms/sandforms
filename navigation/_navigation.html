@@ -1,9 +1,9 @@
 <template name="_navigation">
   <header>
+    {{#if isOwner}}
     <div class="row">
       <h1 class="col s12 m11 offset-m1" href="#">SandForms</h1>
     </div>
-    {{#if isOwner}}
       {{>_navigationLinks}}
     {{/if}}
   </header>
