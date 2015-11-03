@@ -1,18 +1,15 @@
 <head>
   <title>sandforms-meteor</title>
 
-	<meta name="viewport" content="width=device-width">
-
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width">
 </head>
 
-<template name="loading">
-</template>
+<template name="loading"></template>
 
 <template name="index">
-{{> _navigation}}
-<div class="main-content section">
-	{{> yield}}
-</div>
-{{> footer}}
+  {{> _navigation}}
+  <div class="main-content section">
+      {{> yield}}
+  </div>
+  {{> footer}}
 </template>
