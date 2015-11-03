@@ -26,3 +26,7 @@ Template.submit.events({
     Router.go('/thanks')
   }
 });
+
+Template.submit.onRendered(function() {
+  $('modal-trigger').leanModal();
+});
