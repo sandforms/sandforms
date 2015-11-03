@@ -57,6 +57,11 @@ header
 	{
 		border-bottom: 4px solid $link;
 	}
+
+	.btn {
+		background-color: $secondary;
+		text-align: center;
+	}
 }
 
 .main-content {
