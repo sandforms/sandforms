@@ -1,27 +1,25 @@
 <template name="responses">
-<div class="row">
-  <div class="col s10 offset-s1">
-    <!-- I think this button may be better in the toolbar. -->
-    <button class="export-to-csv btn waves-effect waves-light right">Export to CSV</button>
-    <table class="bordered highlight s10">
-      <thead>
-        <tr>
-          {{#each prompts this}}
-            <th>{{text}}</th>
-          {{/each}}
-        </tr>
-      </thead>
+  <div class="row">
+    <div class="col s10 offset-s1">
+      <table class="bordered highlight s10">
+        <thead>
+          <tr>
+            {{#each prompts this}}
+              <th>{{text}}</th>
+            {{/each}}
+          </tr>
+        </thead>
 
-      <tbody>
-      {{#each responsesInOrder}}
-        <tr>
-        {{#each this}}
-          <td>{{this}}</td>
+        <tbody>
+        {{#each responsesInOrder}}
+          <tr>
+          {{#each this}}
+            <td>{{this}}</td>
+          {{/each}}
+          </tr>
         {{/each}}
-        </tr>
-      {{/each}}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 </template>
