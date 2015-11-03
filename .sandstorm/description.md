@@ -1,1 +1,1 @@
-SandForms is a free software forms application that aims to match orexceed the level of usability we have become accustomed to onlinewhile explicitly protecting the personal information of its users.
+SandForms is a free software forms application that aims to match or exceed the level of usability we have become accustomed to online while explicitly protecting the personal information of its users.
