@@ -2,10 +2,6 @@ function isPage(name) {
   return Router.current().route.getName() === name;
 }
 
-Template._navigationLinks.onRendered(function() {
-  $('.share-form').leanModal();
-});
-
 Template._navigationLinks.helpers({
     isOwner: function() {
         return User.ownerLoggedIn();
@@ -28,4 +24,11 @@ Template._navigationLinks.helpers({
     },
     showOrHideExportCSVButton: function() {
       return isPage('responses') ? '' : 'hide'; }
+});
+
+Template._navigationLinks.events({
+    "click .share-form": function () {
+        // Tell Sandstorm to show the Share Access menu.
+        window.parent.postMessage({startSharing: {}}, "*");
+    }
 });
