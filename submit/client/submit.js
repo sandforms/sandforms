@@ -20,13 +20,22 @@ Template.submit.events({
     });
 
     Submissions.insert({responses: responses});
-
     $('.response-input').val('');
     Session.set('submitted', true)
     Router.go('/thanks')
+  },
+
+  'keypress form': function(e) {
+    var isEnterKey = e.keyCode == 13;
+    var focusIsNotOnSubmitButton = e.target.type != 'submit';
+
+    if(isEnterKey && focusIsNotOnSubmitButton) {
+      e.preventDefault();
+    }
   }
 });
 
 Template.submit.onRendered(function() {
   $('modal-trigger').leanModal();
 });
+
