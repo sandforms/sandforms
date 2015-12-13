@@ -1,25 +1,21 @@
 <template name="responses">
-  <div class="row">
-    <div class="col s10 offset-s1">
-      <table class="bordered highlight s10">
-        <thead>
-          <tr>
-            {{#each prompts this}}
-              <th>{{text}}</th>
-            {{/each}}
-          </tr>
-        </thead>
-
-        <tbody>
-        {{#each responsesInOrder}}
-          <tr>
-          {{#each this}}
-            <td>{{this}}</td>
-          {{/each}}
-          </tr>
+  <table>
+    <thead>
+      <tr>
+        {{#each prompts this}}
+        <th>{{text}}</th>
         {{/each}}
-        </tbody>
-      </table>
-    </div>
-  </div>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each responsesInOrder}}
+      <tr>
+        {{#each this}}
+        <td>{{this}}</td>
+        {{/each}}
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </template>
