@@ -1,0 +1,9 @@
+.privacy {
+  @extend .modal;
+  &__trigger {
+    @extend .modal-trigger;
+  }
+  &__content {
+    @extend .modal-content;
+  }
+}

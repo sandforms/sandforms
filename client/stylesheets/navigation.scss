@@ -1,9 +1,12 @@
+@import "_colors";
+@import "_buttons";
+
 .share-access {
 	@extend .modal;
-  &__content {
-    @extend .modal-content;
-  }
+	&__content {
+		@extend .modal-content;
+	}
   &__trigger {
-    @extend .modal-trigger;
+		@extend %base-button;
   }
 }

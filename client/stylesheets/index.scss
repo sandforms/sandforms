@@ -1,12 +1,9 @@
 @import "{poetic:materialize-scss}/sass/components/_color.scss";
 @import "{poetic:materialize-scss}/sass/materialize.scss";
+@import "_colors";
+@import "_buttons";
 @import "navigation";
-$primary-color: #369C8E;
-$secondary-color: #4C4C4B;
-$cta: #FF9178;
-$link: #B9EBB9;
-$white: lighten($primary-color, 60%);
-$black: darken($secondary-color, 20%);
+@import "footer";
 
 body {
   display: flex;
@@ -40,11 +37,12 @@ header {
   .active {
     border-bottom: 4px solid $link;
   }
-  .btn {
-    background-color: $secondary-color;
-    text-align: center;
+  button {
+    @extend %base-button;
   }
+
 }
+
 .main-content {
   box-shadow: inset 0 2px 2px 0 rgba($black,.25);
   background: $white;
@@ -64,7 +62,7 @@ footer {
   }
 }
 .deleteX {
-  background-color: darkgray;
+  background-color: $secondary-color;
   &:hover {
     background-color: red;
   }
