@@ -1,0 +1,9 @@
+.share-access {
+	@extend .modal;
+  &__content {
+    @extend .modal-content;
+  }
+  &__trigger {
+    @extend .modal-trigger;
+  }
+}

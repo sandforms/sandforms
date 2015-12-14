@@ -3,7 +3,7 @@ function isPage(name) {
 }
 
 Template._navigationLinks.onRendered(function() {
-  $('.share-form').leanModal();
+  $('.share-access__trigger').leanModal();
 });
 
 Template._navigationLinks.helpers({
