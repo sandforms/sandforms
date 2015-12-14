@@ -1,17 +1,28 @@
 <template name="submit">
-  <form>
-    {{#if alreadySubmitted}}
-    <h5>You've already submitted your response.
-      <br> Thank you for not submitting again.</h5>
-    {{else}} {{#each prompts}}
-    <input id="{{_id}}" type="text">
-    <label for="{{_id}}">{{text}}</label>
+<form>
+  {{#if alreadySubmitted}}
+    <h5>You've already submitted your response. <br> Thank you for not submitting again.</h5>
+  {{else}}
+    {{#each prompts}}
+      <div class="input-field row">
+	<input class="response-input col s10 offset-s1" id="{{_id}}" type="text">
+	<label class="col s10 offset-s1" for="{{_id}}">{{text}}</label>
+      </div>
     {{/each}}
     <!-- we may want to make this a custom button instead of an input submit to reduce the chance of accidental submission -->
-    <input id="submit-responses" type="submit" value="Submit Form">
-    <p>
-      We aren't keeping track of who you are or what you're doing, but your employer or internet service provider might be. <a href="https://ssd.eff.org/en/playlist" target="_blank">Learn more</a>.
-    </p>
-    {{/if}}
-  </form>
+    <div class="row">
+      <input id="submit-responses" class="btn waves-effect waves-light col offset-s1" type="submit" value="Submit Form">
+    </div>
+    <div class="row">
+      <div class="col s10 offset-s1 submit-footer-row">
+	<p class="card centered-card center-align submit-footer-card">
+	  We aren't keeping track of who you are or what you're
+	  doing, but your employer or internet service provider
+	  might be. <a href="https://ssd.eff.org/en/playlist"
+	  target="_blank">Learn more</a>.
+	</p>
+      </div>
+    </div>
+  {{/if}}
+</form>
 </template>

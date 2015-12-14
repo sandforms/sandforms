@@ -3,7 +3,7 @@ function isPage(name) {
 }
 
 Template._navigationLinks.onRendered(function() {
-  $('#share-form').leanModal();
+  $('.share-form').leanModal();
 });
 
 Template._navigationLinks.helpers({
@@ -18,10 +18,10 @@ Template._navigationLinks.helpers({
       return isPage('responses');
     },
     isCreateActive: function() {
-      return isPage('create') ?  'navigation__item-active' : '';
+      return isPage('create') ?  'active' : '';
     },
     isResponsesActive: function() {
-      return isPage('responses') ? 'navigation__item-active' : '';
+      return isPage('responses') ? 'active' : '';
     },
     showOrHideShareButton: function() {
       return isPage('create') ? '' : 'hide';

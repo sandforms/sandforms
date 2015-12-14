@@ -1,8 +1,6 @@
 <template name="_prompt">
-  <form id="update-prompt-form">
-    <div class="prompt">
-      <input type="text" name="prompt" data-prompt-id="{{_id}}" value="{{text}}" tabindex="1" />
-      <a href="#" class="prompt__remove"><i class="material-icons" tabIndex="0">not_interested</i></a>
-    </div>
+  <form class="row create-survey__update-form">
+    <input class="col s9 m10 offset-s1 offset-m1" type="text" name="prompt" data-prompt-id="{{_id}}" value="{{text}}" tabindex="1"/>
+    <a href="#" class="btn-floating deleteX"><i class="material-icons" tabIndex="0">not_interested</i></a>
   </form>
 </template>

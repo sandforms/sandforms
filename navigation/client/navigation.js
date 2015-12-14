@@ -5,7 +5,7 @@ Template._navigation.helpers({
 });
 
 Template._navigation.events({
- 'click #export-to-csv': function(event, template) {
+ 'click .export-to-csv': function(event, template) {
     var file,
         fileName,
         submissions;

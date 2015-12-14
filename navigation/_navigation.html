@@ -1,17 +1,25 @@
 <template name="_navigation">
-  {{#if isOwner}}
   <header>
-    <h1 href="#">SandForms</h1>
-    {{>_navigationLinks}}
+    {{#if isOwner}}
+    <div class="row">
+      <h1 class="col s12 m11 offset-m1" href="#">SandForms</h1>
+    </div>
+      {{>_navigationLinks}}
+    {{/if}}
   </header>
-  {{/if}}
 
-  <div class="share-access" id="share-access-modal">
-    <div class="share-access__content">
+  <div id="share-form-modal" class="modal card">
+    <div class="modal-content">
       <h4>Sharing Your Form</h4>
-      <img src="share_access.jpg" alt="">
-      <p>To Share your form click the "Share access" button (pictured above) located in the the sandstorm action bar, above your form.
-        <br />To Share annonymously use the "Get shareable link" tab in the "Share access" dropdown.</p>
+      <div class="row">
+	<img class="col s6 offset-s3" src="share_access.jpg" alt="">
+      </div>
+      <p>
+	To Share your form click the "Share access" button (pictured above) located in the the sandstorm action bar, above your form.
+      </p>
+      <p>
+	To Share annonymously use the "Get shareable link" tab in the "Share access" dropdown.
+      </p>
     </div>
   </div>
 </template>
