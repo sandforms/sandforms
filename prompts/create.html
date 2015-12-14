@@ -1,10 +1,6 @@
 <template name="create">
-<ol>
-  {{#each prompts}}
-  {{> _prompt}}
-  {{/each}}
-</ol>
-<form id="create-prompt-form" class="prompt">
-  <input type="text" name="prompt" placeholder="Add new question" tabindex="1"/>
-</form>
+  {{#each prompts}} {{> _prompt}} {{/each}}
+  <form id="create-prompt-form" class="prompt">
+    <input type="text" name="prompt" placeholder="Add new question" tabindex="1" />
+  </form>
 </template>

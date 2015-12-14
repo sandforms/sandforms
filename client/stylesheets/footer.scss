@@ -1,22 +1,22 @@
 @import "_partials";
 
-footer {
-  padding: $gutter;
-  .privacy {
-    @extend .modal;
-    &__trigger {
-      @extend .modal-trigger;
-    }
-    &__content {
-      @extend .modal-content;
-    }
-  }
-  letter-spacing: 1px;
-  width: 100%;
-  display: flex;
-  order: 3;
-  a {
+.footer {
+  margin: $gutter;
+  padding: 1.5em 0;
+
+  &__link {
+    margin-right: 1.5em;
     font-size: 1.15em;
     color: $link-color;
+  }
+}
+
+.privacy {
+  @extend .modal;
+  &__trigger {
+    @extend .modal-trigger;
+  }
+  &__content {
+    @extend .modal-content;
   }
 }
