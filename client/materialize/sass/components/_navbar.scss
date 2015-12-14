@@ -57,14 +57,14 @@ nav {
       @include transform(translateX(-50%));
 
       &.left, &.right {
-	padding: 0;
-	@include transform(none);
+        padding: 0;
+        @include transform(none);
       }
 
       &.left { left: 0.5rem; }
       &.right {
-	right: 0.5rem;
-	left: auto;
+        right: 0.5rem;
+        left: auto;
       }
     }
 
@@ -85,7 +85,7 @@ nav {
       padding: 0;
 
       &:hover, &.active {
-	background-color: rgba(0,0,0,.1);
+        background-color: rgba(0,0,0,.1);
       }
     }
     a {
@@ -112,8 +112,8 @@ nav {
 
       &:focus, &[type=text]:valid, &[type=password]:valid,
       &[type=email]:valid, &[type=url]:valid, &[type=date]:valid {
-	border: none;
-	box-shadow: none;
+        border: none;
+        box-shadow: none;
       }
     }
     label {
@@ -121,12 +121,12 @@ nav {
       left: 0;
 
       i {
-	color: rgba(255,255,255,.7);
-	@include transition(color .3s);
+        color: rgba(255,255,255,.7);
+        @include transition(color .3s);
       }
       &.active i { color: $navbar-font-color; }
       &.active {
-	@include transform(translateY(0));
+        @include transform(translateY(0));
       }
     }
 

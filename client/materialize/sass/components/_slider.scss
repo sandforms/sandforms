@@ -39,25 +39,25 @@
       overflow: hidden;
 
       img {
-	height: 100%;
-	width: 100%;
-	background-size: cover;
-	background-position: center;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
       }
 
       .caption {
-	color: #fff;
-	position: absolute;
-	top: 15%;
-	left: 15%;
-	width: 70%;
-	opacity: 0;
+        color: #fff;
+        position: absolute;
+        top: 15%;
+        left: 15%;
+        width: 70%;
+        opacity: 0;
 
-	p { color: $slider-bg-color-light; }
+        p { color: $slider-bg-color-light; }
       }
 
       &.active {
-	z-index: 2;
+        z-index: 2;
       }
     }
   }
@@ -84,7 +84,7 @@
       border-radius: 50%;
 
       &.active {
-	background-color: $slider-indicator-color;
+        background-color: $slider-indicator-color;
       }
     }
   }

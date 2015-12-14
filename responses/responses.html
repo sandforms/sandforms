@@ -2,23 +2,23 @@
   <div class="row">
     <div class="col s10 offset-s1">
       <table class="bordered highlight s10">
-	<thead>
-	  <tr>
-	    {{#each prompts this}}
-	      <th>{{text}}</th>
-	    {{/each}}
-	  </tr>
-	</thead>
+        <thead>
+          <tr>
+            {{#each prompts this}}
+              <th>{{text}}</th>
+            {{/each}}
+          </tr>
+        </thead>
 
-	<tbody>
-	{{#each responsesInOrder}}
-	  <tr>
-	  {{#each this}}
-	    <td>{{this}}</td>
-	  {{/each}}
-	  </tr>
+        <tbody>
+        {{#each responsesInOrder}}
+          <tr>
+          {{#each this}}
+            <td>{{this}}</td>
+          {{/each}}
+          </tr>
         {{/each}}
-	</tbody>
+        </tbody>
       </table>
     </div>
   </div>

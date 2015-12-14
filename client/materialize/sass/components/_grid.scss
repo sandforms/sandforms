@@ -55,8 +55,8 @@
     @while $i <= $num-cols {
       $perc: unquote((100 / ($num-cols / $i)) + "%");
       &.s#{$i} {
-	width: $perc;
-	margin-left: 0;
+        width: $perc;
+        margin-left: 0;
       }
       $i: $i + 1;
     }
@@ -64,7 +64,7 @@
     @while $i <= $num-cols {
       $perc: unquote((100 / ($num-cols / $i)) + "%");
       &.offset-s#{$i} {
-	margin-left: $perc;
+        margin-left: $perc;
       }
       $i: $i + 1;
     }
@@ -73,20 +73,20 @@
 
       $i: 1;
       @while $i <= $num-cols {
-	$perc: unquote((100 / ($num-cols / $i)) + "%");
-	&.m#{$i} {
-	  width: $perc;
-	  margin-left: 0;
-	}
-	$i: $i + 1;
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        &.m#{$i} {
+          width: $perc;
+          margin-left: 0;
+        }
+        $i: $i + 1;
       }
       $i: 1;
       @while $i <= $num-cols {
-	$perc: unquote((100 / ($num-cols / $i)) + "%");
-	&.offset-m#{$i} {
-	  margin-left: $perc;
-	}
-	$i: $i + 1;
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        &.offset-m#{$i} {
+          margin-left: $perc;
+        }
+        $i: $i + 1;
       }
 
     }
@@ -95,20 +95,20 @@
 
       $i: 1;
       @while $i <= $num-cols {
-	$perc: unquote((100 / ($num-cols / $i)) + "%");
-	&.l#{$i} {
-	  width: $perc;
-	  margin-left: 0;
-	}
-	$i: $i + 1;
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        &.l#{$i} {
+          width: $perc;
+          margin-left: 0;
+        }
+        $i: $i + 1;
       }
       $i: 1;
       @while $i <= $num-cols {
-	$perc: unquote((100 / ($num-cols / $i)) + "%");
-	&.offset-l#{$i} {
-	  margin-left: $perc;
-	}
-	$i: $i + 1;
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        &.offset-l#{$i} {
+          margin-left: $perc;
+        }
+        $i: $i + 1;
       }
 
     }

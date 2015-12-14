@@ -10,8 +10,8 @@
   .tab {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
-	-ms-flex-positive: 1;
-	    flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
     display: block;
     float: left;
     text-align: center;
@@ -30,7 +30,7 @@
       height: 100%;
       @include transition( color .28s ease);
       &:hover {
-	color: lighten($tabs-text-color, 20%);
+        color: lighten($tabs-text-color, 20%);
       }
     }
 
@@ -49,3 +49,4 @@
 }
 
 .tabs .tab { padding: 0; }
+

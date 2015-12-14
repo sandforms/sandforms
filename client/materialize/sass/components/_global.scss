@@ -209,7 +209,7 @@ video.responsive-video {
     min-width: 100%;
     min-height: 100%;
     -webkit-transform: translate3d(0,0,0);
-	    transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
     transform: translateX(-50%);
   }
 }
@@ -388,12 +388,12 @@ td, th{
       float: left;
 
       tr {
-	display: block;
-	padding: 0 10px 0 0;
+        display: block;
+        padding: 0 10px 0 0;
 
-	th::before {
-	  content: "\00a0";
-	}
+        th::before {
+          content: "\00a0";
+        }
       }
     }
     tbody {
@@ -404,8 +404,8 @@ td, th{
       white-space: nowrap;
 
       tr {
-	display: inline-block;
-	vertical-align: top;
+        display: inline-block;
+        vertical-align: top;
       }
     }
     th {
@@ -459,35 +459,35 @@ td, th{
       position: relative;
 
       .circle {
-	position: absolute;
-	width: 42px;
-	height: 42px;
-	overflow: hidden;
-	left: 15px;
-	display: inline-block;
-	vertical-align: middle;
+        position: absolute;
+        width: 42px;
+        height: 42px;
+        overflow: hidden;
+        left: 15px;
+        display: inline-block;
+        vertical-align: middle;
       }
       i.circle {
-	font-size: 18px;
-	line-height: 42px;
-	color: #fff;
-	background-color: #999;
-	text-align: center;
+        font-size: 18px;
+        line-height: 42px;
+        color: #fff;
+        background-color: #999;
+        text-align: center;
       }
 
 
       .title {
-	font-size: 16px;
+        font-size: 16px;
       }
 
       p {
-	margin: 0;
+        margin: 0;
       }
 
       .secondary-content {
-	position: absolute;
-	top: 16px;
-	right: 16px;
+        position: absolute;
+        top: 16px;
+        right: 16px;
       }
 
     }
@@ -502,7 +502,7 @@ td, th{
       color: $collection-active-color;
 
       .secondary-content {
-	color: #fff;
+        color: #fff;
       }
     }
   }
@@ -512,7 +512,7 @@ td, th{
     color: $secondary-color;
     &:not(.active) {
       &:hover {
-	background-color: $collection-hover-bg-color;
+        background-color: $collection-hover-bg-color;
       }
     }
   }
@@ -642,27 +642,27 @@ nav ul a span.badge {
 }
 @include keyframes(indeterminate) {
     0% {
-	    left: -35%;
-	    right:100%;
-	}
+            left: -35%;
+            right:100%;
+        }
     60% {
-	left: 100%;
-	right: -90%;
+        left: 100%;
+        right: -90%;
     }
     100% {
-	left: 100%;
-	right: -90%;
+        left: 100%;
+        right: -90%;
     }
 }
 
 @include keyframes(indeterminate-short) {
     0% {
-	left: -200%;
-	right: 100%;
+        left: -200%;
+        right: 100%;
     }
     60% {
-	left: 107%;
-	right: -8%;
+        left: 107%;
+        right: -8%;
     }
     100% {
       left: 107%;

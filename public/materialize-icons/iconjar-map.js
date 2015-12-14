@@ -25,7 +25,7 @@ readLineHandle.on('line', function(line) {
   var name = nameCodepointPair[0].toLowerCase().trim()
       .replace(/[^0-9a-z]+/gi, ' ')
       .replace(/\b[a-z]/g, function(char) {
-	return char.toUpperCase();
+        return char.toUpperCase();
       });
 
   // Assign the codepoint to the name for IconJar

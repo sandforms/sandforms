@@ -4,10 +4,10 @@ $mdi-prefix : 'mdi-';
 @font-face {
     font-family: "#{$font-mdi}";
     src:url("#{$icons-font-path}#{$font-mdi}.eot?#iefix") format("embedded-opentype"),
-	url("#{$icons-font-path}#{$font-mdi}.woff2") format("woff2"),
-	url("#{$icons-font-path}#{$font-mdi}.woff") format("woff"),
-	url("#{$icons-font-path}#{$font-mdi}.ttf") format("truetype"),
-	url("#{$icons-font-path}#{$font-mdi}.svg##{$font-mdi}") format("svg");
+        url("#{$icons-font-path}#{$font-mdi}.woff2") format("woff2"),
+        url("#{$icons-font-path}#{$font-mdi}.woff") format("woff"),
+        url("#{$icons-font-path}#{$font-mdi}.ttf") format("truetype"),
+        url("#{$icons-font-path}#{$font-mdi}.svg##{$font-mdi}") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -25,32 +25,32 @@ $mdi-prefix : 'mdi-';
     -moz-osx-font-smoothing: grayscale;
     transform: translate(0, 0);
     &:before {
-	display: inline-block;
-	speak: none;
-	text-decoration: inherit;
+        display: inline-block;
+        speak: none;
+        text-decoration: inherit;
     }
     &.pull-left {
-	margin-right: .3em;
+        margin-right: .3em;
     }
     &.pull-right{
-	margin-left: .3em;
+        margin-left: .3em;
     }
     &.mdi-lg:before, &.mdi-lg:after {
-	font-size: 1.33333333em;
-	line-height: 0.75em;
-	vertical-align: -15%;
+        font-size: 1.33333333em;
+        line-height: 0.75em;
+        vertical-align: -15%;
     }
     &.mdi-2x:before, &.mdi-2x:after {
-	font-size: 2em;
+        font-size: 2em;
     }
     &.mdi-3x:before, &.mdi-3x:after {
-	font-size: 3em;
+        font-size: 3em;
     }
     &.mdi-4x:before, &.mdi-4x:after {
-	font-size: 4em;
+        font-size: 4em;
     }
     &.mdi-5x:before, &.mdi-5x:after {
-	font-size: 5em;
+        font-size: 5em;
     }
 }
 
@@ -62,14 +62,14 @@ $mdi-prefix : 'mdi-';
 [class^="mdi-device-signal-wifi-statusbar-not-connected"],
 .mdi-device-network-wifi{
     &:after {
-	opacity: .3;
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 1;
-	display: inline-block;
-	speak: none;
-	text-decoration: inherit;
+        opacity: .3;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        display: inline-block;
+        speak: none;
+        text-decoration: inherit;
     }
 }
 
@@ -82,7 +82,7 @@ $mdi-prefix : 'mdi-';
 
 .mdi-device-signal-cellular-off, .mdi-device-signal-cellular-null, .mdi-device-signal-cellular-no-sim, .mdi-device-signal-wifi-off, .mdi-device-signal-wifi-4-bar, .mdi-device-signal-cellular-4-bar, .mdi-device-battery-alert, .mdi-device-signal-cellular-connected-no-internet-4-bar, .mdi-device-battery-std, .mdi-device-battery-full .mdi-device-battery-unknown {
     &:after {
-	content: "";
+        content: "";
     }
 }
 
@@ -132,22 +132,22 @@ $mdi-prefix : 'mdi-';
 }
 @-webkit-keyframes mdi-spin {
     0% {
-	-webkit-transform: rotate(0deg);
-	transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-	-webkit-transform: rotate(359deg);
-	transform: rotate(359deg);
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
     }
 }
 @keyframes mdi-spin {
     0% {
-	-webkit-transform: rotate(0deg);
-	transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-	-webkit-transform: rotate(359deg);
-	transform: rotate(359deg);
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
     }
 }
 .mdi-rotate-90 {

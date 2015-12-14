@@ -475,9 +475,9 @@ form p:last-child {
      top: 10px;
 
      -webkit-transform: rotateZ(37deg);
-	     transform: rotateZ(37deg);
+             transform: rotateZ(37deg);
      -webkit-transform-origin: 20% 40%;
-	     transform-origin: 100% 100%;
+             transform-origin: 100% 100%;
   }
   &:not(:checked) + label:after {
     height: 20px;
