@@ -1,6 +1,15 @@
-$primary-color: #369C8E;
-$secondary-color: #4C4C4B;
-$cta: #FF9178;
-$link: #B9EBB9;
+@import "{poetic:materialize-scss}/sass/components/_color.scss";
+
+$dark-gray: map-get($grey, "darken-3");
+$light-gray: map-get($grey, "lighten-1");
+
+$light-green: #B9EBB9;
+$green: #369C8E;
+
+$red: map-get($deep-orange, "accent-3");
+
+$primary-color: $green;
+$secondary-color: $dark-gray;
+$link-color: $light-green;
 $white: lighten($primary-color, 60%);
 $black: darken($secondary-color, 20%);
