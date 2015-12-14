@@ -21,3 +21,4 @@ konecty:mongo-counter
 jquery
 accounts-sandstorm
 audit-argument-checks
+poetic:materialize-scss
