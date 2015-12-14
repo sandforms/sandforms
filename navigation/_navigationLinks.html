@@ -1,8 +1,10 @@
 <template name="_navigationLinks">
-  <ul>
-    <li class="{{isCreateActive}}"><a href="/create">Questions</a></li>
-    <li class="{{isResponsesActive}}"><a href="/responses">Responses</a></li>
-    <a href="#share-access-modal" class="share-access__trigger {{showOrHideShareButton}}">Share Form</a>
-    <button class="{{showOrHideExportCSVButton}}" id="export-to-csv">Export to CSV</button>
-  </ul>
+  <div class="navigation">
+    <div class="navigation__links">
+      <a class="{{isCreateActive}} navigation__item" href="/create">Questions</a>
+      <a class="{{isResponsesActive}} navigation__item" href="/responses">Responses</a>
+    </div>
+    <a href="#share-access-modal" id="share-form" class="navigation__button {{showOrHideShareButton}}">Share Form</a>
+    <button class="navigation__button {{showOrHideExportCSVButton}}" id="export-to-csv">Export to CSV</button>
+  </div>
 </template>

@@ -1,10 +1,10 @@
 <template name="_navigation">
+  {{#if isOwner}}
   <header>
-    {{#if isOwner}}
     <h1 href="#">SandForms</h1>
     {{>_navigationLinks}}
-    {{/if}}
   </header>
+  {{/if}}
 
   <div class="share-access" id="share-access-modal">
     <div class="share-access__content">
