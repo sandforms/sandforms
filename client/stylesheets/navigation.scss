@@ -1,12 +1,36 @@
-@import "_colors";
-@import "_buttons";
-
-.share-access {
-	@extend .modal;
-	&__content {
-		@extend .modal-content;
-	}
-  &__trigger {
-		@extend %base-button;
+@import "_partials";
+header {
+  padding: $gutter;
+  background-color: $primary-color;
+  border-bottom: 1px solid darken($primary-color, 10%);
+  letter-spacing: 1px;
+  h1 {
+    color: lighten($primary-color, 20%);
+    font-size: 3em;
+    margin-bottom: 0.25em;
+    padding-left: 0.125em;
   }
+  li {
+    line-height: 3em;
+    margin-bottom: -3px;
+    a {
+      font-size: 1.25em;
+      color: lighten($link-color, 10%);
+    }
+  }
+  button {
+    @extend %base-button;
+  }
+}
+.share-access {
+  @extend .modal;
+  &__content {
+    @extend .modal-content;
+  }
+  &__trigger {
+    @extend %base-button;
+  }
+}
+.active {
+  border-bottom: 4px solid $link-color;
 }

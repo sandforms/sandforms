@@ -26,7 +26,7 @@ if (Meteor.isClient) {
       );
     }, 200),
 
-    "click .deleteX":function(prompt){
+    "click .prompt__remove":function(prompt){
       Prompts.markAsDeleted(this._id);
     }
   });
