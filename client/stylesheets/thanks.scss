@@ -1,0 +1,22 @@
+@import "_partials";
+.thanks {
+  @extend .card;
+  @extend .center-align;
+  margin: 2em 0;
+  padding: .25em 0;
+
+  &__title {
+    font-size: 2em;
+    font-weight: 300;
+    margin-bottom: 1em;
+  }
+  &__link {
+    display: block;
+    margin-bottom: 1em;
+    color: $peach;
+    transition: color 0.3s ease;
+    &:hover {
+      color: lighten($peach, 20%);
+    }
+  }
+}

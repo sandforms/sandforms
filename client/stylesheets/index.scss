@@ -2,6 +2,8 @@
 @import "_partials";
 @import "navigation";
 @import "prompt";
+@import "submit";
+@import "thanks";
 @import "footer";
 body {
   display: flex;
@@ -15,11 +17,13 @@ header {
   padding: $gutter;
   background-color: $primary-color;
   border-bottom: 1px solid darken($primary-color, 10%);
-
   h1 {
     color: lighten($primary-color, 20%);
     font-size: 3em;
   }
+}
+button {
+  @extend %base-button;
 }
 .main-content {
   flex-grow: 3;
