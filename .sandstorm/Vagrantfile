@@ -8,6 +8,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # We base ourselves off Debian Jessie
   config.vm.box = "debian/jessie64"
 
+  # We pin to base box version 8.2.1 because 8.2.2 removes support for
+  # vboxsf, aka VirtualBox file sharing.
+  config.vm.box_version = "8.2.1"
+
   # We forward port 6080, the Sandstorm web port, so that developers can
   # visit their sandstorm app from their browser as local.sandstorm.io:6080
   # (aka 127.0.0.1:6080).
