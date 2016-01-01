@@ -1,12 +1,3 @@
-.submit {
-  padding: 2em 0;
-  &__note {
-    @extend .card;
-    @extend .center-align;
-    padding: 1em;
-  }
-}
-
 h5
 {
   line-height: 2em;
