@@ -12,11 +12,13 @@
     <!-- we may want to make this a custom button instead of an input submit to reduce the chance of accidental submission -->
 
     {{#if error}}
-      <div class="row">
-        <div class="card-panel col s10 red offset-s1">
-          <span class="error">{{error}}</span>
-        </div>
+    <div class="row">
+      <div class="col s10 offset-s1 submit-footer-row">
+        <p class="card centered-card center-align submit-error-card red">
+          {{error}}
+        </p>
       </div>
+    </div>
     {{/if}}
     <div class="row">
       <input id="submit-responses" class="btn waves-effect waves-light col offset-s1" type="submit" value="Submit Form">
