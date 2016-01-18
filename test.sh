@@ -49,4 +49,4 @@ esac
 
 pkill -f meteor || true
 
-meteor --test --release velocity:METEOR@1.1.0.2_3
+meteor --test
