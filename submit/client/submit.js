@@ -28,10 +28,11 @@ Template.submit.events({
   'keypress .input-field': function(e) {
     var activeInput = e.target;
     var isEnterKey = e.keyCode == 13;
+    var inputs = $(activeInput).closest('form').find(':input');
+    var isLastInput = (inputs.index(activeInput) >= inputs.length - 2);
 
-    if(isEnterKey) { 
+    if(isEnterKey && !isLastInput) { 
       e.preventDefault();
-      var inputs = $(activeInput).closest('form').find(':input');
       inputs.eq( inputs.index(activeInput)+ 1 ).focus();
     }
   }
