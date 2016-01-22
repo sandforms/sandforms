@@ -26,16 +26,17 @@ Template.submit.events({
   },
 
   'keypress .input-field': function(e) {
+    var activeInput = e.target;
     var isEnterKey = e.keyCode == 13;
-    var focusIsNotOnSubmitButton = e.target.type != 'submit';
 
-    if(isEnterKey && focusIsNotOnSubmitButton) {
+    if(isEnterKey) { 
       e.preventDefault();
-      var input = e.target;
-      var inputs = $(input).closest('form').find(':input');
-      inputs.eq( inputs.index(input)+ 1 ).focus();
+      var inputs = $(activeInput).closest('form').find(':input');
+      inputs.eq( inputs.index(activeInput)+ 1 ).focus();
     }
   }
+  // TODO: Consider posting when user hits Enter on final form element
+  // TODO: Submit button should have same focus/blur behavior as hover/no-hover
 });
 
 Template.submit.onRendered(function() {
