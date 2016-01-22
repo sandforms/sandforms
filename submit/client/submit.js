@@ -25,12 +25,15 @@ Template.submit.events({
     Router.go('/thanks')
   },
 
-  'keypress form': function(e) {
+  'keypress .input-field': function(e) {
     var isEnterKey = e.keyCode == 13;
     var focusIsNotOnSubmitButton = e.target.type != 'submit';
 
     if(isEnterKey && focusIsNotOnSubmitButton) {
       e.preventDefault();
+      var input = e.target;
+      var inputs = $(input).closest('form').find(':input');
+      inputs.eq( inputs.index(input)+ 1 ).focus();
     }
   }
 });
