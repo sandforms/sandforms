@@ -7,4 +7,5 @@ for now this is a decent placeholder list.
 
 - Folder Structure: Consider rearranging for greater clarity
 - UI Tests, e2e tests
+- object versioning strategy (i.e. managing "schema" changes)
  
