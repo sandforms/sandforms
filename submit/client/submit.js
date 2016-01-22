@@ -35,8 +35,8 @@ Template.submit.events({
       inputs.eq( inputs.index(activeInput)+ 1 ).focus();
     }
   }
-  // TODO: Consider posting when user hits Enter on final form element
-  // TODO: Submit button should have same focus/blur behavior as hover/no-hover
+  // TODO: Maybe form should post when user hits Enter on final input if all inputs are filled?
+  // TODO: Submit button should have same focus/blur behavior as current hover/no-hover activity
 });
 
 Template.submit.onRendered(function() {
