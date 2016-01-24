@@ -10,6 +10,11 @@ elif [ $(which chromium >/dev/null 2>&1) ]; then
   export CHROME_BIN=chromium
 fi
 
+which velocity >/dev/null 2>&1 || {
+  echo "To run tests, install velicity with 'sudo npm install -g velocity-cli'" 1>&2
+  exit 1
+}
+
 if [ ${DEBUG-1} -ne "0" ]; then
   export DEBUG=1
   export JASMINE_DEBUG=1
@@ -49,4 +54,4 @@ esac
 
 pkill -f meteor || true
 
-meteor --test
+velocity test-app --ci
