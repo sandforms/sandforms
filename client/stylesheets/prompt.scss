@@ -1,0 +1,20 @@
+@import "_partials";
+
+.prompt {
+  margin: 1em 0;
+  display: flex;
+  flex-flow: row wrap;
+
+  input {
+    padding: 0 .75em;
+    width: auto;
+    flex-grow: 2;
+  }
+  &__remove {
+    @extend .btn-floating;
+    background-color: $light-gray;
+    &:hover {
+      background-color: $red;
+    }
+  }
+}

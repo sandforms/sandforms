@@ -1,11 +1,10 @@
 <template name="_navigationLinks">
-  <ul class="row">
-    <li class="col s4 m2 l2 offset-m1 offset-l1 {{isCreateActive}}"><a href="/create">Questions</a></li>
-    <li class="col s4 m2 l2 {{isResponsesActive}}"><a href="/responses">Responses</a></li>
-    <a href="#share-form-modal"
-       class="{{showOrHideShareButton}} share-form btn waves-effect waves-light col s4 m2 l2 offset-m4 offset-l4">
-      Share Form
-    </a>
-    <button class="{{showOrHideExportCSVButton}} export-to-csv btn waves-effect waves-light col s4 m2 l2 offset-m4 offset-l4">Export to CSV</button>
-  </ul>
+  <div class="navigation">
+    <div class="navigation__links">
+      <a class="{{isCreateActive}} navigation__item" href="/create">Questions</a>
+      <a class="{{isResponsesActive}} navigation__item" href="/responses">Responses</a>
+    </div>
+    <a href="#share-access-modal" id="share-form" class="navigation__button {{showOrHideShareButton}}">Share Form</a>
+    <button class="navigation__button {{showOrHideExportCSVButton}}" id="export-to-csv">Export to CSV</button>
+  </div>
 </template>

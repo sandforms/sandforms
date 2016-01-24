@@ -1,0 +1,33 @@
+@import "_partials";
+.navigation {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  &__links {
+    flex-grow: 3;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item {
+    font-size: 1.25em;
+    color: lighten($link-color, 10%);
+    height: 100%;
+    line-height: 3em;
+    margin-bottom: -1px;
+    padding: 0 5em 0 1em;
+    box-sizing: border-box;
+    &-active {
+      border-bottom: 4px solid $link-color;
+    }
+  }
+  &__button {
+    align-self: center;
+    @extend %base-button;
+  }
+}
+.share-access {
+  @extend .modal;
+  &__content {
+    @extend .modal-content;
+  }
+}
