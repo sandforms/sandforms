@@ -4,7 +4,7 @@ describe("migrations", function() {
 
     Prompts.create("Hello");
 
-    var searchResults = Prompts.inOrder({required: {$exists: true}});
+    var searchResults = Prompts.find({required: {$exists: true}}).fetch();
 
     expect(searchResults.length).toEqual(1);
   });
@@ -17,7 +17,7 @@ describe("migrations", function() {
     Migrations.migrateTo(1);
     Migrations.migrateTo(0);
 
-    var searchResults = Prompts.inOrder({required: {$exists: true}});
+    var searchResults = Prompts.find({required: {$exists: true}}).fetch();
 
     expect(searchResults.length).toEqual(0);
   });
