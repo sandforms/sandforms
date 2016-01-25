@@ -42,14 +42,14 @@ Template.submit.events({
     }
   },
 
-  'focus .btn': function(e) {
+  'focus #submit-responses': function(e) {
     var button = e.target;
     if( button.id == 'submit-responses') {
       button.style.backgroundColor = 'black';   
     }
   },
 
-  'blur .btn': function(e) {
+  'blur #submit-responses': function(e) {
     var button = e.target;
     if (button.id == 'submit-responses') {
       button.style.backgroundColor = '';
