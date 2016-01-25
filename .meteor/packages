@@ -20,7 +20,6 @@ konecty:mongo-counter
 jquery
 accounts-sandstorm
 audit-argument-checks
-percolate:migrations
 standard-minifiers
 meteor-base
 mobile-experience
@@ -35,3 +34,4 @@ ejson
 spacebars
 check
 poetic:materialize-scss
+percolate:migrations

@@ -64,6 +64,7 @@ observe-sequence@1.0.7
 ordered-dict@1.0.4
 package-version-parser@3.0.4
 peerlibrary:blob@0.1.4
+percolate:migrations@0.9.8
 pfafman:filesaver@0.2.2
 poetic:materialize-scss@1.97.3_2
 practicalmeteor:chai@2.1.0_1
