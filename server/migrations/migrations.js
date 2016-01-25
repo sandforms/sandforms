@@ -1,5 +1,4 @@
 
-
 // Helpers
 Migrations.areLocked = function() {
   var options = Migrations.options;

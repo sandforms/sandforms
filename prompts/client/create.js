@@ -3,6 +3,10 @@ if (Meteor.isClient) {
   Template.create.helpers({
     prompts: function() {
       return Prompts.inOrder();
+    },
+    promptRequired: function() {
+      //return (prompt.required == "") ? 1 : prompt.required;
+      return 1;
     }
   });
 
@@ -28,6 +32,10 @@ if (Meteor.isClient) {
 
     "click .prompt__remove":function(prompt){
       Prompts.markAsDeleted(this._id);
+    },
+
+    "click .requiredToggle":function(prompt){
+      console.log(this._id);
     }
   });
 }
