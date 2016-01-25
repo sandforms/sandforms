@@ -68,12 +68,31 @@ function _buildQueryFromOptions(maybeOptions) {
 
   var queryObject = {};
 
+  var emptyOr = [{}];
+  var theOr = emptyOr;
   if (!options.deleted) {
-    queryObject['$or'] = [
+    theOr = [
       { "deleted": { $exists: false }},
       { "deleted": false }
     ];
   }
 
+  options = _.omit(options, "deleted");
+  console.log(options);
+
+  if (options != {}) {
+    if (theOr != emptyOr) {
+      queryObject["$and"] = [
+        options,
+        {"$or": theOr}
+      ]
+    } else {
+      queryObject = options;
+    }
+  } else {
+    queryObject["$or"] = theOr;
+  }
+
+  console.log(queryObject);
   return queryObject;
 }

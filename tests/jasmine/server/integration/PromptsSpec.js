@@ -82,10 +82,21 @@ describe("prompts", function() {
     expect(prompts).not.toContain(id);
   });
 
+  it("should pass search queries through inOrder", function() {
+    Prompts.remove({});
+
+    var id = Prompts.create("1");
+    var id2 = Prompts.create("2");
+
+    var prompts = Prompts.inOrder({text: "1"});
+    expect(prompts.length).toEqual(1);
+  });
+
   it("should return deleted prompts when the deleted option is passed to inOrder", function() {
     // Given
     Prompts.remove({});
     var id = Prompts.create('What is your favorite color?');
+    var id2 = Prompts.create('This is the second question');
 
     // When
     Prompts.markAsDeleted(id);
@@ -93,8 +104,9 @@ describe("prompts", function() {
     // Then
     var prompts = Prompts.inOrder({ deleted: true });
 
-    expect(prompts.length).toBe(1);
+    expect(prompts.length).toBe(2);
   });
+
 
   it("should default Required to true", function() {
     Prompts.remove({});
