@@ -1,6 +1,6 @@
 if (Package['sanjo:jasmine']) {
   Jasmine.setKarmaConfig({
-    files: [
+   files: [
       '../../../server/underscore'
    ]
   });
