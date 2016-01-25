@@ -25,13 +25,18 @@ Template.submit.events({
     Router.go('/thanks')
   },
 
-  'keypress .response-input': function(e) {
+  'keypress form': function(e) {
+    if(e.keyCode != 13) {  // Return if the key is not Enter
+      return; 
+    }
+
     var activeInput = e.target;
-    var isEnterKey = e.keyCode == 13;
+    var focusIsNotOnSubmitButton = e.target.type != 'submit';
+
     var inputs = $(activeInput).closest('form').find(':input');
     var isLastInput = (inputs.index(activeInput) >= inputs.length - 2);
 
-    if(isEnterKey && !isLastInput) { 
+    if(focusIsNotOnSubmitButton && !isLastInput) { 
       e.preventDefault();
       inputs.eq( inputs.index(activeInput)+ 1 ).focus();
     }
