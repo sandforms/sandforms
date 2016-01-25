@@ -7,7 +7,7 @@ if (Meteor.isClient) {
   });
 
   Template.create.events({
-    "submit .create-survey__form": function (event) {
+    "submit #create-prompt-form": function (event) {
       event.preventDefault();
       var text = event.target.prompt.value;
 
@@ -15,7 +15,7 @@ if (Meteor.isClient) {
       event.target.prompt.value = "";
     },
 
-    "keyup .create-survey__update-form": _.debounce(function (event) {
+    "keyup #update-prompt-form": _.debounce(function (event) {
       event.preventDefault();
       var text = event.target.value;
       var promptId = $(event.target).data('prompt-id');
@@ -26,7 +26,7 @@ if (Meteor.isClient) {
       );
     }, 200),
 
-    "click .deleteX":function(prompt){
+    "click .prompt__remove":function(prompt){
       Prompts.markAsDeleted(this._id);
     }
   });

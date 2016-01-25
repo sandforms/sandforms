@@ -4,7 +4,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
 iron:router
 http
 sanjo:jasmine
@@ -22,3 +21,17 @@ jquery
 accounts-sandstorm
 audit-argument-checks
 percolate:migrations
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+poetic:materialize-scss
