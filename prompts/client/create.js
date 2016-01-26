@@ -30,6 +30,17 @@ if (Meteor.isClient) {
       );
     }, 200),
 
+    "click .chbRequired": function (event) {
+      event.preventDefault();
+      var isChecked = event.target.checked;
+      var promptId = $(event.target).data('prompt-id');
+
+      Prompts.update(
+        {_id: promptId},
+        {$set: {"required": isChecked}}
+      );
+    },
+
     "click .prompt__remove":function(prompt){
       Prompts.markAsDeleted(this._id);
     },

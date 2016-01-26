@@ -13,6 +13,7 @@
   &__remove {
     @extend .btn-floating;
     background-color: $light-gray;
+    margin-left: 2em;
     &:hover {
       background-color: $red;
     }
