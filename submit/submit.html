@@ -1,20 +1,34 @@
 <template name="submit">
   <div class="submit">
-    <form>
+    <form id="submit-form">
       {{#if alreadySubmitted}}
-      <h5>You've already submitted your response.
-        <br> Thank you for not submitting again.</h5>
-      {{else}} {{#each prompts}}
-      <div class="input-field">
-        <input id="{{_id}}" type="text">
-        <label for="{{_id}}">{{text}}</label>
-      </div>
-      {{/each}}
-      <!-- we may want to make this a custom button instead of an input submit to reduce the chance of accidental submission -->
-      <button id="submit-responses">Submit Form</button>
-      <p class="submit__note">We aren't keeping track of who you are or what you're doing, but your employer or internet service provider might be. <a href="https://ssd.eff.org/en/playlist" target="_blank">Learn more</a>.
-      </p>
+        <h5>You've already submitted your response.
+        <br> Thank you for not submitting again.</h5> 
+      {{else}} 
+        {{#each prompts}}
+          <div class="input-field">
+            {{#if required}}
+              <input id="{{_id}}" type="text" data-validate="required">
+            {{else}}
+              <input id="{{_id}}" type="text">
+            {{/if}}
+            <label for="{{_id}}">{{text}}{{#if required}}&nbsp;<span style="color:red">*</span>{{/if}}</label>
+          </div>
+        {{/each}}
+        
+        <button id="submit-responses">Submit Form</button>
+        <p class="submit__note">We aren't keeping track of who you are or what you're doing, but your employer or internet service provider might be. <a href="https://ssd.eff.org/en/playlist" target="_blank">Learn more</a>.
+        </p>
       {{/if}}
     </form>
+  </div>
+  <div id="validationModalMessageBox" class="modal">
+    <div class="modal-content">
+      <h4>Incomplete Form</h4>
+      <p><span id="validationErrorMessage"></span></p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
   </div>
 </template>
