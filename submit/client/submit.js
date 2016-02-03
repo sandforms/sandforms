@@ -44,8 +44,6 @@ Template.submit.events({
       inputs.eq(inputs.index(activeInput) + 1).focus();
     }
   }
-
-
 });
 
 Template.submit.onRendered(function() {
@@ -53,18 +51,23 @@ Template.submit.onRendered(function() {
   $('#submit-form').verify(); // Bind verify.js to the form
 });
 
-$.notify.addStyle('mystyle', {
+$.notify.addStyle('redalert', {
   html: "<div><span data-notify-text/></div>",
   classes: {
     base: {
       "white-space": "nowrap",
       "color": "red",
-      "padding": "5px"
+      "padding": "0px",
+      "position": "absolute",
+      "right": "5px",
+      "top": "0.8rem"
     }
   }
 });
 
 $.notify.defaults({
-  style: 'mystyle',
-  elementPosition: 'right middle'
+  style: 'redalert',
+  elementPosition: 'right top',
+  autoHide: false,
+  arrowShow: false
 });
