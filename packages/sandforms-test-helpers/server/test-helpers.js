@@ -10,10 +10,12 @@ Meteor.methods({
   setupFixtures: function() {
     clearAllCollections();
 
-    var id = Prompts.insert("test prompt");
+    var id = Prompts.create("test prompt");
     Submissions.insert({
-      promptId: id,
-      response: 'test response'
+      responses: [{
+        promptId: id,
+        response: 'test response'
+      }]
     });
   }
 });

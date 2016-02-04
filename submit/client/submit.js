@@ -19,23 +19,55 @@ Template.submit.events({
       }
     });
 
-    Submissions.insert({responses: responses});
+    Submissions.insert({
+      responses: responses
+    });
+
     $('.response-input').val('');
     Session.set('submitted', true)
     Router.go('/thanks')
   },
 
   'keypress form': function(e) {
-    var isEnterKey = e.keyCode == 13;
+    if (e.keyCode != 13) { // Return if the key is not Enter
+      return;
+    }
+
+    var activeInput = e.target;
     var focusIsNotOnSubmitButton = e.target.type != 'submit';
 
-    if(isEnterKey && focusIsNotOnSubmitButton) {
+    var inputs = $(activeInput).closest('form').find(':input');
+    var isLastInput = (inputs.index(activeInput) >= inputs.length - 2);
+
+    if (focusIsNotOnSubmitButton && !isLastInput) {
       e.preventDefault();
+      inputs.eq(inputs.index(activeInput) + 1).focus();
     }
   }
 });
 
 Template.submit.onRendered(function() {
   $('modal-trigger').leanModal();
+  $('#submit-form').verify(); // Bind verify.js to the form
 });
 
+$.notify.addStyle('redalert', {
+  html: "<div><span data-notify-text/></div>",
+  classes: {
+    base: {
+      "white-space": "nowrap",
+      "color": "red",
+      "padding": "0px",
+      "position": "absolute",
+      "right": "5px",
+      "top": "0.8rem"
+    }
+  }
+});
+
+$.notify.defaults({
+  style: 'redalert',
+  elementPosition: 'right top',
+  autoHide: false,
+  arrowShow: false
+});

@@ -3,11 +3,15 @@ if (Meteor.isClient) {
   Template.create.helpers({
     prompts: function() {
       return Prompts.inOrder();
+    },
+    promptRequired: function() {
+      //return (prompt.required == "") ? 1 : prompt.required;
+      return 1;
     }
   });
 
   Template.create.events({
-    "submit .create-survey__form": function (event) {
+    "submit #create-prompt-form": function (event) {
       event.preventDefault();
       var text = event.target.prompt.value;
 
@@ -15,7 +19,7 @@ if (Meteor.isClient) {
       event.target.prompt.value = "";
     },
 
-    "keyup .create-survey__update-form": _.debounce(function (event) {
+    "keyup #update-prompt-form": _.debounce(function (event) {
       event.preventDefault();
       var text = event.target.value;
       var promptId = $(event.target).data('prompt-id');
@@ -26,8 +30,23 @@ if (Meteor.isClient) {
       );
     }, 200),
 
-    "click .deleteX":function(prompt){
+    "click .chbRequired": function (event) {
+      event.preventDefault();
+      var isChecked = event.target.checked;
+      var promptId = $(event.target).data('prompt-id');
+
+      Prompts.update(
+        {_id: promptId},
+        {$set: {"required": isChecked}}
+      );
+    },
+
+    "click .prompt__remove":function(prompt){
       Prompts.markAsDeleted(this._id);
+    },
+
+    "click .requiredToggle":function(prompt){
+      console.log(this._id);
     }
   });
 }

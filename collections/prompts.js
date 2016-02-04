@@ -18,18 +18,26 @@ if (Meteor.isServer) {
   });
 
   Meteor.methods({
-    'Prompts.create': function(promptText) {
+    'Prompts.create': function(promptText, promptRequired) {
+      if (typeof promptRequired === 'undefined') {
+        promptRequired = true;
+      }
+
       check(promptText, String);
+      check(promptRequired, Boolean);
       var order = incrementCounter(Counters, "promptOrder");
       if(promptText != "") {
-          return Prompts.insert({text: promptText, order: order});
+          return Prompts.insert({text: promptText, 
+            required: promptRequired,
+            order: order});
       }
     }
   });
 }
 
-Prompts.create = function(promptText) {
-  return Meteor.call('Prompts.create', promptText);
+Prompts.create = function(promptText, promptRequired) {
+  promptRequired = (typeof promptRequired === 'undefined') ? true : promptRequired;
+  return Meteor.call('Prompts.create', promptText, promptRequired);
 };
 
 Prompts.allPromptIds = function(maybeOptions) {

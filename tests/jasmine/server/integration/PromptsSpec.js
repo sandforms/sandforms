@@ -82,10 +82,11 @@ describe("prompts", function() {
     expect(prompts).not.toContain(id);
   });
 
-  it("should return deleted prompts when the deleted option is passed to inOrder", function() {
+  it("should return deleted and undeleted prompts when the deleted option is passed to inOrder", function() {
     // Given
     Prompts.remove({});
     var id = Prompts.create('What is your favorite color?');
+    var id2 = Prompts.create('This is the second question');
 
     // When
     Prompts.markAsDeleted(id);
@@ -93,6 +94,32 @@ describe("prompts", function() {
     // Then
     var prompts = Prompts.inOrder({ deleted: true });
 
-    expect(prompts.length).toBe(1);
+    expect(prompts.length).toBe(2);
   });
+
+
+  it("should default Required to true", function() {
+    Prompts.remove({});
+    var promptText = "Why is the sky blue?";
+    var id = Prompts.create(promptText);
+    var prompt = Prompts.inOrder()[0];
+    expect(prompt.text).toEqual(promptText);
+    expect(prompt.required).toEqual(true);
+  })
+
+  it("should set the Required property of a prompt", function() {
+    Prompts.remove({});
+    var promptText = "Why is the sky blue?";
+    var promptText2 = "Why do birds sing?";
+    var id = Prompts.create(promptText, true);
+    var id2 = Prompts.create(promptText2, false);
+    var prompts = Prompts.inOrder();
+    var prompt = prompts[0];
+    var prompt2 = prompts[1];
+    expect(prompt.text).toEqual(promptText);
+    expect(prompt2.text).toEqual(promptText2);
+    expect(prompt.required).toEqual(true);
+    expect(prompt2.required).toEqual(false);
+  })
+
 });
