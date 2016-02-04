@@ -98,13 +98,13 @@ describe("prompts", function() {
   });
 
 
-  it("should default Required to true", function() {
+  it("should default Required to false", function() {
     Prompts.remove({});
     var promptText = "Why is the sky blue?";
     var id = Prompts.create(promptText);
     var prompt = Prompts.inOrder()[0];
     expect(prompt.text).toEqual(promptText);
-    expect(prompt.required).toEqual(true);
+    expect(prompt.required).toEqual(false);
   })
 
   it("should set the Required property of a prompt", function() {

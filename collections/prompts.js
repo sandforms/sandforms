@@ -20,7 +20,7 @@ if (Meteor.isServer) {
   Meteor.methods({
     'Prompts.create': function(promptText, promptRequired) {
       if (typeof promptRequired === 'undefined') {
-        promptRequired = true;
+        promptRequired = false;
       }
 
       check(promptText, String);
@@ -36,7 +36,7 @@ if (Meteor.isServer) {
 }
 
 Prompts.create = function(promptText, promptRequired) {
-  promptRequired = (typeof promptRequired === 'undefined') ? true : promptRequired;
+  promptRequired = (typeof promptRequired === 'undefined') ? false: promptRequired;
   return Meteor.call('Prompts.create', promptText, promptRequired);
 };
 
