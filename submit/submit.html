@@ -15,7 +15,16 @@
             <label for="{{_id}}">{{text}}{{#if required}}&nbsp;<span style="color:red">*</span>{{/if}}</label>
           </div>
         {{/each}}
-        
+        {{#if error}}
+          <div class="row">
+            <div class="col s10 offset-s1 submit-footer-row">
+              <p class="card centered-card center-align submit-error-card red">
+                {{error}}
+              </p>
+            </div>
+          </div>
+        {{/if}}
+
         <button id="submit-responses">Submit Form</button>
         <p class="submit__note">We aren't keeping track of who you are or what you're doing, but your employer or internet service provider might be. <a href="https://ssd.eff.org/en/playlist" target="_blank">Learn more</a>.
         </p>
