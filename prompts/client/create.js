@@ -19,7 +19,7 @@ if (Meteor.isClient) {
       event.target.prompt.value = "";
     },
 
-    "keyup #update-prompt-form": _.debounce(function (event) {
+    "keyup .prompt": _.debounce(function (event) {
       event.preventDefault();
       var text = event.target.value;
       var promptId = $(event.target).data('prompt-id');
