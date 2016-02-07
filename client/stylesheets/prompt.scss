@@ -2,6 +2,11 @@
 
 #update-prompt-form {
   margin: 3em 0;
+  padding: 1em;
+
+  &:hover {
+    border: 2px solid $light-green;
+  }
 
   .prompt {
     display: flex;
