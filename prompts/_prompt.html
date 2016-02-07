@@ -2,8 +2,12 @@
   <form id="update-prompt-form">
     <div class="prompt valign-wrapper">
       <input type="text" name="prompt" data-prompt-id="{{_id}}" value="{{text}}" tabindex="1" />
-      <input type="checkbox" checked="{{required}}" data-prompt-id="{{_id}}" class="chbRequired" id="chkRequired_{{_id}}"/><label for="chkRequired_{{_id}}">Required</label>
-        <a href="#" class="prompt__remove"><i class="material-icons" tabIndex="0">delete</i></a>
+      <input type="checkbox" checked="{{required}}" data-prompt-id="{{_id}}" class="chbRequired" id="chkRequired_{{_id}}"/>
+      <label for="chkRequired_{{_id}}">Required</label>
+      <a href="#" class="prompt__remove"><i class="material-icons" tabIndex="0">delete</i></a>
+    </div>
+    <div class="sample-response">
+    	<input class="col s9 m10 offset-s1 offset-m1" type="text" name="response-sample" data-prompt-id="{{_id}}" placeholder="Their response will be a short text answer like this!" tabindex="1"/>
     </div>
   </form>
 </template>
