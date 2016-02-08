@@ -1,8 +1,24 @@
 Submissions = new Mongo.Collection("submissions");
 
 Submissions.allow({
-  insert: function() {
-    return true;
+  insert: function(userId, submission) {
+    var requiredPrompts = Prompts.find({$and: [{required: true}, {deleted: {$not: {$eq: true}}}]}).fetch();
+
+    var areAnyRequiredPromptsNotRespondedTo = requiredPrompts.some(function(prompt) {
+      return !submission.responses.some(function(response) {
+          return ((response.promptId === prompt._id) && (response.text != ''));
+        }) 
+    });
+
+    return !areAnyRequiredPromptsNotRespondedTo;
+  },
+
+  update: function(userId) {
+    return User.isOwnersUserId(userId);
+  },
+
+  remove: function(userId) {
+    return User.isOwnersUserId(userId);
   }
 });
 
@@ -39,14 +55,14 @@ Submissions.inTableFormat = function(prompts) {
 
 Submissions.exportCsvFormattedString = function() {
   var csvFormattedResponses = '',
-      headerText = [],
-      prompts = Prompts.inOrder();
+    headerText = [],
+    prompts = Prompts.inOrder();
 
-  prompts.forEach(function(prompt){
+  prompts.forEach(function(prompt) {
     headerText.push(prompt.text);
   });
 
-  Submissions.inTableFormat(prompts).forEach(function(submission){
+  Submissions.inTableFormat(prompts).forEach(function(submission) {
     csvFormattedResponses += submission.join(',') + '\r\n';
   });
 

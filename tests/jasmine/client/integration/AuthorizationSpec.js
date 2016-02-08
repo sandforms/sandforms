@@ -32,9 +32,9 @@ describe("authorization", function() {
     });
   });
 
-  it("should let an owner add Prompts", function (done) {
+  it("should let an owner add Prompts", function(done) {
     // Given
-     withOwner(function() {
+    withOwner(function() {
       // When
       Prompts.insert("Should owners be able to add prompts?", function(error, result) {
 
@@ -76,15 +76,22 @@ describe("authorization", function() {
     // Given
     withNonOwner(function() {
       // When
-      Submissions.insert({ responses: [ {
-        promptId: 'test-prompt-id',
-        response: 'test response'
-      }]}, function(error, id) {
+      var prompts = Prompts.inOrder();
+      var responsesForAllPrompts = prompts.map(function(prompt) {
+        return {
+          promptId: prompt._id,
+          response: 'test response'
+        };
+      });
+
+      Submissions.insert({
+        responses: responsesForAllPrompts
+      }, function(error, id) {
         // Then
         expect(error).toBeUndefined();
-        expect(id).not.toBeUndefined();
+        expect(id).not.toBe(false);
         done();
       });
-    })
+    });
   });
 });
