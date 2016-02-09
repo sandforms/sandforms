@@ -11,7 +11,7 @@ elif [ $(which chromium >/dev/null 2>&1) ]; then
 fi
 
 which velocity >/dev/null 2>&1 || {
-  echo "To run tests, install velicity with 'sudo npm install -g velocity-cli'" 1>&2
+  echo "To run tests, install velocity with 'sudo npm install -g velocity-cli'" 1>&2
   exit 1
 }
 
