@@ -2,7 +2,7 @@
 
 We have two major motivations:
 
-First, we want to reduce our society's reliance on propriatery software by creating user friendly alternatives to centralized services that monetize personal information.
+First, we want to reduce our society's reliance on proprietary software by creating user-friendly alternatives to centralized services that monetize personal information.
 
 Second, we want to improve the safety of those who work to protect individuals’ liberties online by providing software that actively protects their privacy.
 
