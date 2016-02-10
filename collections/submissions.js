@@ -2,7 +2,7 @@ Submissions = new Mongo.Collection("submissions");
 
 Submissions.allow({
   insert: function(userId, submission) {
-    var requiredPrompts = Prompts.find({$and: [{required: true}, {deleted: {$not: {$eq: true}}}]}).fetch();
+    var requiredPrompts = Prompts.find({$and: [{required: true}, {deleted: {$ne: true}}]}).fetch();
 
     var areAnyRequiredPromptsNotRespondedTo = requiredPrompts.some(function(prompt) {
       return !submission.responses.some(function(response) {
