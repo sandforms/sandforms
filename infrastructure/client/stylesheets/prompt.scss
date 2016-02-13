@@ -28,6 +28,14 @@
     }
   }
 
+  .prompt-type-dropdown {
+    display: inline-block;
+  }
+
+  #prompt-type-select {
+    display: inline-block;
+  }
+
   .sample-response {
     color: $light-gray;
     padding: 0 1.5em;

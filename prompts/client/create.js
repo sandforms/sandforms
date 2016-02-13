@@ -30,6 +30,15 @@ if (Meteor.isClient) {
       );
     }, 200),
 
+    "change #prompt-type-select": function (event, template) {
+      var type = $(event.currentTarget).val();
+      var promptId = $(event.target).data('prompt-id');
+      Prompts.update(
+        {_id: promptId},
+        {$set: {'selectedPromptType': type}}
+      );
+    },
+
     "click .chbRequired": function (event) {
       event.preventDefault();
       var isChecked = event.target.checked;

@@ -6,8 +6,16 @@
       <label for="chkRequired_{{_id}}">Required</label>
       <a href="#" class="prompt__remove"><i class="material-icons" tabIndex="0">delete</i></a>
     </div>
+    <div class="prompt-type-dropdown">
+      <select id="prompt-type-select" data-prompt-id="{{_id}}">
+        <option disabled="disabled" selected="selected">Please Select</option> 
+        {{#each promptTypes}}
+            <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
     <div class="sample-response">
-    	<input class="col s9 m10 offset-s1 offset-m1" type="text" name="response-sample" data-prompt-id="{{_id}}" disabled placeholder="Their response will be a short text answer like this!" tabindex="1"/>
+      {{> Template.dynamic template=selectedPromptType}}
     </div>
   </form>
 </template>
