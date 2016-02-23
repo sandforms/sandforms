@@ -97,7 +97,6 @@ describe("prompts", function() {
     expect(prompts.length).toBe(2);
   });
 
-
   it("should default Required to false", function() {
     Prompts.remove({});
     var promptText = "Why is the sky blue?";
@@ -105,7 +104,7 @@ describe("prompts", function() {
     var prompt = Prompts.inOrder()[0];
     expect(prompt.text).toEqual(promptText);
     expect(prompt.required).toEqual(false);
-  })
+  });
 
   it("should set the Required property of a prompt", function() {
     Prompts.remove({});
@@ -120,6 +119,15 @@ describe("prompts", function() {
     expect(prompt2.text).toEqual(promptText2);
     expect(prompt.required).toEqual(true);
     expect(prompt2.required).toEqual(false);
-  })
+  });
+
+  it("should default selectedPromptType to _shortTextResponse", function() {
+    Prompts.remove({});
+    var promptText = "Why is the sky blue?";
+    var id = Prompts.create(promptText);
+    var prompt = Prompts.inOrder()[0];
+    expect(prompt.text).toEqual(promptText);
+    expect(prompt.selectedPromptType).toEqual("_shortTextResponse");
+  });
 
 });

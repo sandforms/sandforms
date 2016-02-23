@@ -19,8 +19,13 @@ if (Meteor.isServer) {
 
   Meteor.methods({
     'Prompts.create': function(promptText, promptRequired) {
+      var defaultPromptType = "_shortTextResponse";
+      
       if (typeof promptRequired === 'undefined') {
         promptRequired = false;
+      }
+      if (typeof selectedPromptType === 'undefined') {
+        selectedPromptType = defaultPromptType;
       }
 
       check(promptText, String);
@@ -29,7 +34,8 @@ if (Meteor.isServer) {
       if(promptText != "") {
           return Prompts.insert({text: promptText, 
             required: promptRequired,
-            order: order});
+            order: order,
+            selectedPromptType: selectedPromptType});
       }
     }
   });
