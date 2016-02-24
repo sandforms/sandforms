@@ -6,7 +6,7 @@ if (Meteor.isClient) {
 		},
 
     promptTypes: function() {
-    	return ["_shortTextResponse", "_checkboxResponse"]
+    	return ["_shortTextResponse", "_longTextResponse", "_checkboxResponse"]
   	}
 	});
 }
