@@ -8,9 +8,6 @@
     </div>
     <div class="prompt-type-dropdown">
       <select id="prompt-type-select" data-prompt-id="{{_id}}">
-        {{#if selectedPromptType}}
-          <option value="{{selectedPromptType}}">{{selectedPromptType}}</option>
-        {{/if}} 
         {{#each promptTypes}}
             <option value="{{this}}">{{this}}</option>
         {{/each}}
