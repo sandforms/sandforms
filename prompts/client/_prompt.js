@@ -5,6 +5,10 @@ if (Meteor.isClient) {
 			return this.selectedPromptType
 		},
 
+		responsePreview: function() {
+			return this.selectedPromptType == "paragraph" ? "paragraphResponsePreview" : "shortAnswerResponsePreview"
+		},
+
     promptTypes: function() {
 			return [ {"type": "shortAnswer", "label": "Short Answer"},
 							 {"type": "paragraph", "label": "Paragraph"}
