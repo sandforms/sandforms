@@ -121,13 +121,13 @@ describe("prompts", function() {
     expect(prompt2.required).toEqual(false);
   });
 
-  it("should default selectedPromptType to _shortTextResponse", function() {
+  it("should default selectedPromptType to shortAnswer", function() {
     Prompts.remove({});
     var promptText = "Why is the sky blue?";
     var id = Prompts.create(promptText);
     var prompt = Prompts.inOrder()[0];
     expect(prompt.text).toEqual(promptText);
-    expect(prompt.selectedPromptType).toEqual("_shortTextResponse");
+    expect(prompt.selectedPromptType).toEqual("shortAnswer");
   });
 
 });

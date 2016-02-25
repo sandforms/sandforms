@@ -3,16 +3,11 @@
     <form id="submit-form">
       {{#if alreadySubmitted}}
         <h5>You've already submitted your response.
-        <br> Thank you for not submitting again.</h5> 
-      {{else}} 
+        <br> Thank you for not submitting again.</h5>
+      {{else}}
         {{#each prompts}}
           <div class="input-field">
-            {{#if required}}
-              <input id="{{_id}}" type="text" data-validate="required">
-            {{else}}
-              <input id="{{_id}}" type="text">
-            {{/if}}
-            <label for="{{_id}}">{{text}}{{#if required}}&nbsp;<span style="color:red">*</span>{{/if}}</label>
+            {{> Template.dynamic template=this.selectedPromptType }}
           </div>
         {{/each}}
         {{#if error}}
@@ -40,4 +35,22 @@
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
   </div>
+</template>
+
+<template name="shortAnswer">
+  {{#if required}}
+    <input id="{{_id}}" type="text" data-validate="required">
+  {{else}}
+    <input id="{{_id}}" type="text">
+  {{/if}}
+  <label for="{{_id}}">{{text}}{{#if required}}&nbsp;<span style="color:red">*</span>{{/if}}</label>
+</template>
+
+<template name="paragraph">
+  {{#if required}}
+    <textarea id="{{_id}}" class="materialize-textarea" data-validate="required"></textarea>
+  {{else}}
+    <textarea id="{{_id}}" class="materialize-textarea"></textarea>
+  {{/if}}
+  <label for="{{_id}}">{{text}}{{#if required}}&nbsp;<span style="color:red">*</span>{{/if}}</label>
 </template>

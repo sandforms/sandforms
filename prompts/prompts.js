@@ -19,8 +19,8 @@ if (Meteor.isServer) {
 
   Meteor.methods({
     'Prompts.create': function(promptText, promptRequired) {
-      var defaultPromptType = "_shortTextResponse";
-      
+      var defaultPromptType = "shortAnswer";
+
       if (typeof promptRequired === 'undefined') {
         promptRequired = false;
       }
@@ -32,7 +32,7 @@ if (Meteor.isServer) {
       check(promptRequired, Boolean);
       var order = incrementCounter(Counters, "promptOrder");
       if(promptText != "") {
-          return Prompts.insert({text: promptText, 
+          return Prompts.insert({text: promptText,
             required: promptRequired,
             order: order,
             selectedPromptType: selectedPromptType});

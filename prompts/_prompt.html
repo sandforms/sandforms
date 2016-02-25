@@ -9,12 +9,9 @@
     <div class="prompt-type-dropdown">
       <select id="prompt-type-select" data-prompt-id="{{_id}}">
         {{#each promptTypes}}
-            <option value="{{this}}">{{this}}</option>
+            <option value="{{this.type}}">{{this.label}}</option>
         {{/each}}
       </select>
-    </div>
-    <div class="sample-response">
-      {{> Template.dynamic template=selectedPromptType}}
     </div>
   </form>
 </template>
