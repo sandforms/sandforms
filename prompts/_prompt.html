@@ -7,15 +7,15 @@
       <a href="#" class="prompt__remove"><i class="material-icons" tabIndex="0">delete</i></a>
     </div>
     <div class="prompt-type-preview">
-      <div class="sample-response">
-        {{> Template.dynamic template=responsePreview}}
-      </div>
       <div class="input-select prompt-type-dropdown">
         <select class="browser-default" id="prompt-type-select" data-prompt-id="{{_id}}">
           {{#each promptTypes}}
           <option value="{{this.type}}" {{this.selected}}>{{this.label}}</option>
           {{/each}}
         </select>
+      </div>
+      <div class="sample-response">
+        {{> Template.dynamic template=responsePreview}}
       </div>
     </div>
   </form>
