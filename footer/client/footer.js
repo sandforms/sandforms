@@ -1,3 +1,3 @@
 Template.footer.onRendered(function() {
-  $('.privacy__trigger').leanModal();
+  $('.privacy__trigger__footer').leanModal();
 });
