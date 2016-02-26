@@ -36,7 +36,7 @@ Template.submit.events({
     }
   },
 
-  'keypress form': function(e) {
+  'keypress input': function(e) {
     if (e.keyCode != 13) { // Return if the key is not Enter
       return;
     }
