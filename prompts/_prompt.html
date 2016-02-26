@@ -9,7 +9,7 @@
     <div class="prompt-type-dropdown">
       <select id="prompt-type-select" data-prompt-id="{{_id}}">
         {{#each promptTypes}}
-            <option value="{{this.type}}">{{this.label}}</option>
+            <option value="{{this.type}}" {{this.selected}}>{{this.label}}</option>
         {{/each}}
       </select>
     </div>

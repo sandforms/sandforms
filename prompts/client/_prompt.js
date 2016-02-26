@@ -10,8 +10,8 @@ if (Meteor.isClient) {
 		},
 
     promptTypes: function() {
-			return [ {"type": "shortAnswer", "label": "Short Answer"},
-							 {"type": "paragraph", "label": "Paragraph"}
+			return [ {"type": "shortAnswer", "label": "Short Answer", "selected": this.selectedPromptType == "shortAnswer" ? "selected" : ""},
+							 {"type": "paragraph", "label": "Paragraph", "selected": this.selectedPromptType == "paragraph" ? "selected" : ""}
 						 ]
   	}
 	});
