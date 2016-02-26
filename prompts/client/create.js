@@ -35,7 +35,7 @@ if (Meteor.isClient) {
       var promptId = $(event.target).data('prompt-id');
       Prompts.update(
         {_id: promptId},
-        {$set: {'selectedPromptType': type}}
+        { $set: {"selectedPromptType": type}}
       );
     },
 
