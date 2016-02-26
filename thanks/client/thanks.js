@@ -1,3 +1,3 @@
 Template.thanks.onRendered(function() {
-  $('.modal-trigger').leanModal();
+  $('.privacy__trigger').leanModal();
 });
