@@ -1,13 +1,14 @@
 # SandForms
 
-We have two major motivations:
+Sandforms is a online forms application that priortizes simplicity and data autonomy: you control how to use data you collect through these forms. 
 
-First, we want to reduce our society's reliance on proprietary software by creating user-friendly alternatives to centralized services that monetize personal information.
+Sandforms is built for [Sandstorm](https://sandstorm.io), a platform that allows you to easily host applications on your personal server. 
 
-Second, we want to improve the safety of those who work to protect individuals’ liberties online by providing software that actively protects their privacy.
+## Motivations
 
-To those ends, we are creating SandForms - a free software forms application that matches or exceeds the level of usability we have become accustomed to online while explicitly protecting the personal information of its users.
+- We want to reduce our society's reliance on proprietary software by creating user-friendly alternatives to centralized services that monetize personal information.
 
+- We want to improve the safety of those who work to protect individuals’ liberties online by providing software that actively protects their privacy.
 
 ### Build Status
 [![Build Status](https://snap-ci.com/sandforms/sandforms/branch/master/build_image)](https://snap-ci.com/sandforms/sandforms/branch/master)
@@ -16,9 +17,9 @@ To those ends, we are creating SandForms - a free software forms application tha
 
 To run the webapp without Vagrant
 
-1. Install Meteor [here] (https://docs.meteor.com/#/basic/quickstart)
+1. Install Meteor [here](https://docs.meteor.com/#/basic/quickstart)
 2. Start running the app `meteor`
-3. Visit your [localhost:3000] (http://localhost:3000)
+3. Visit your [localhost:3000](http://localhost:3000)
 
 To see multiple, small UI changes faster, you can run the webapp without Velocity’s constantly running tests:
 ```bash
