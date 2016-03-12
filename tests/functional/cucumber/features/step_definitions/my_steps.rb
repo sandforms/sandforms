@@ -1,5 +1,4 @@
 require 'watir-webdriver'
-require 'pry'
 
 Given(/^the user navigates to "([^"]*)" using "([^"]*)"$/) do |arg1, arg2|
     @browser = arg2
