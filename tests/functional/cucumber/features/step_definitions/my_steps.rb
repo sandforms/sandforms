@@ -19,8 +19,11 @@ Given(/^the user navigates to "([^"]*)" using "([^"]*)"$/) do |arg1, arg2|
         @b = Watir::Browser.new :chrome
     end
 
-    @b = Headless.new
-    @b.start
+    if @browser == 'headless'
+      @headless = Headless.new
+      @headless.start
+      @b = Watir::Browser.new
+    end
 
     @b.goto arg1
     sleep 1
@@ -111,8 +114,11 @@ Then(/^accesses and the newly created questions without answering questions in a
         @b1 = Watir::Browser.new :chrome
     end
 
-    @b1 = Headless.new
-    @b1.start
+    if @browser1 == 'headless'
+      @headless1 = Headless.new
+      @headless1.start
+      @b1 = Watir::Browser.new
+    end
 
     @b1.goto @answers_url
     sleep 7
@@ -174,7 +180,10 @@ Then(/^clicks the feedback link$/) do
     sleep 2
 
     @b1.close
-    @b1.destroy
+
+    if @browser1 == 'headless'
+      @headless1.destroy
+    end
 
 end
 
@@ -191,6 +200,8 @@ end
 
 Then(/^closes the original browser$/) do
     @b.close
-    @b.destroy
+    if @browser == 'headless'
+      @headless.destroy
+    end
 
 end
