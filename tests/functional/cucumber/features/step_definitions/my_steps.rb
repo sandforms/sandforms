@@ -47,11 +47,10 @@ Then(/^logs in as an admin$/) do
 
     end
 
-    sleep 10
+    sleep 30
 end
 
 Then(/^clicks on the "([^"]*)" app$/) do |arg1|
-    sleep 5
     @b.span(:text => arg1).click
     sleep 7
 end
