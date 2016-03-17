@@ -1,5 +1,4 @@
 require 'watir-webdriver'
-require 'pry'
 require 'headless'
 
 Given(/^the user navigates to "([^"]*)" using "([^"]*)"$/) do |arg1, arg2|
