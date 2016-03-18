@@ -83,11 +83,15 @@ end
 
 Then(/^creates a shareable link$/) do
 
-    sleep 1
+    sleep 3
 
     @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').element(:id => 'share-form').click
 
+    sleep 3
+
     @b.body.div(:class => 'popup share').div(:class => 'frame align-left').element(:text => 'Get shareable link').click
+
+    sleep 3
 
     @b.body.div(:class => 'popup share').div(:class => 'frame align-left').div(:id => 'shareable-link-tab').form(:class => 'new-share-token').div(:class => 'button-container').button(:text => 'Create').click
 
