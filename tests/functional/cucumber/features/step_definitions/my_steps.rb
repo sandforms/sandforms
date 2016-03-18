@@ -47,11 +47,16 @@ Then(/^logs in as an admin$/) do
 
     end
 
-    sleep 30
+    sleep 10
 end
 
 Then(/^clicks on the "([^"]*)" app$/) do |arg1|
-    @b.span(:text => arg1).click
+sleep 5
+  if (@b.ul(:class => 'navbar').li(:class => 'navitem-create-grain').exists?  == true)
+    @b.ul(:class => 'navbar').li(:class => 'navitem-create-grain').click
+  end
+
+  @b.span(:text => arg1).click
     sleep 7
 end
 
@@ -61,7 +66,7 @@ Then(/^creates a new form$/) do
 end
 
 Then(/^within that form they create "([^"]*)" questions$/) do |arg1|
-@count = 1
+  @count = 1
 
     while (@count <= arg1.to_i) do
 
