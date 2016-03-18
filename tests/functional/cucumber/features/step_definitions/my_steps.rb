@@ -22,7 +22,7 @@ Given(/^the user navigates to "([^"]*)" using "([^"]*)"$/) do |arg1, arg2|
     if @browser == 'headless'
       @headless = Headless.new
       @headless.start
-      @b = Watir::Browser.new
+      @b = Watir::Browser.new :chrome
     end
 
     @b.goto arg1
@@ -116,7 +116,7 @@ Then(/^accesses and the newly created questions without answering questions in a
     if @browser1 == 'headless'
       @headless1 = Headless.new
       @headless1.start
-      @b1 = Watir::Browser.new
+      @b1 = Watir::Browser.new :chrome
     end
 
     @b1.goto @answers_url
