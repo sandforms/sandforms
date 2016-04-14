@@ -35,4 +35,17 @@
     color: $light-gray;
     padding: 0 1.5em;
   }
+
+  .multiple-choice {
+    &__new-option {
+      label {
+        width: 100%;
+      }
+
+      input {
+        height: auto;
+        padding-bottom: 15px;
+      }
+    }
+  }
 }

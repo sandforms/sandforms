@@ -30,7 +30,18 @@
 </template>
 
 <template name="multipleChoiceResponsePreview">
-    <form id="response-option" data-prompt-id="{{_id}}">
-        <input type="text" name="option" data-prompt-id="{{_id}}" placeholder="Option 1" />
+    <form id="response-option" data-prompt-id="{{_id}}" class="multiple-choice">
+        {{#each options}}
+            <p>
+                <input type="radio" disabled="disabled" />
+                <label>{{this}}</label>
+            </p>
+        {{/each}}
+
+        <p class="multiple-choice__new-option">
+            <input type="radio" disabled="disabled">
+            <label><input type="text" name="option" data-prompt-id="{{_id}}" placeholder="Their response could be this option" /></label>
+        </p>
+
     </form>
 </template>

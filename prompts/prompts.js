@@ -70,7 +70,7 @@ Prompts.markAsDeleted = function(promptId) {
 Prompts.updateOption = function(promptId, text) {
   Prompts.update(
       { _id: promptId },
-      { $set: { "option": text } }
+      { $push: { "options": text } }
   );
 };
 

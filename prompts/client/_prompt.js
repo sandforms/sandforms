@@ -8,21 +8,22 @@ if (Meteor.isClient) {
         responsePreview: function () {
             var responseTemplateName = "shortAnswerResponsePreview"
 
-            if(this.selectedPromptType == "paragraph") {
+            if (this.selectedPromptType == "paragraph") {
                 responseTemplateName = "paragraphResponsePreview"
             }
 
-            if (this.selectedPromptType = "multipleChoice") {
+            if (this.selectedPromptType == "multipleChoice") {
                 responseTemplateName = "multipleChoiceResponsePreview"
             }
+
             return responseTemplateName
         },
 
         promptTypes: function () {
-            return [{
-                "type": "shortAnswer",
-                "label": "Short Answer",
-                "selected": this.selectedPromptType == "shortAnswer" ? "selected" : ""
+                return [{
+                    "type": "shortAnswer",
+                    "label": "Short Answer",
+                    "selected": this.selectedPromptType == "shortAnswer" ? "selected" : ""
                 },
                 {
                     "type": "paragraph",
@@ -36,6 +37,7 @@ if (Meteor.isClient) {
                 }
             ]
         }
+        
     });
 
     Template.multipleChoiceResponsePreview.events({
@@ -46,7 +48,7 @@ if (Meteor.isClient) {
             var text = event.target.option.value;
 
             Prompts.updateOption(promptId, text);
-            // event.target.option.value = "";
+            event.target.option.value = "";
         }
     });
 }
