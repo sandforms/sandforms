@@ -3,7 +3,7 @@
     <form id="submit-form">
       {{#if alreadySubmitted}}
         <h5>You've already submitted your response.
-        <br> Thank you for not submitting again.</h5>
+          <br> Thank you for not submitting again.</h5>
       {{else}}
         {{#each prompts}}
           <div class="input-field">
@@ -21,7 +21,8 @@
         {{/if}}
 
         <button id="submit-responses">Submit Form</button>
-        <p class="submit__note">We aren't keeping track of who you are or what you're doing, but your employer or internet service provider might be. <a href="https://ssd.eff.org/en/playlist" target="_blank">Learn more</a>.
+        <p class="submit__note">We aren't keeping track of who you are or what you're doing, but your employer or
+          internet service provider might be. <a href="https://ssd.eff.org/en/playlist" target="_blank">Learn more</a>.
         </p>
       {{/if}}
     </form>
@@ -43,7 +44,11 @@
   {{else}}
     <input id="{{_id}}" type="text">
   {{/if}}
-  <label for="{{_id}}">{{text}}{{#if required}}&nbsp;<span style="color:red">*</span>{{/if}}</label>
+  <label for="{{_id}}">{{text}}
+    {{#if required}}
+      &nbsp;<span style="color:red">*</span>
+    {{/if}}
+  </label>
 </template>
 
 <template name="paragraph">
@@ -53,4 +58,16 @@
     <textarea id="{{_id}}" class="materialize-textarea"></textarea>
   {{/if}}
   <label for="{{_id}}">{{text}}{{#if required}}&nbsp;<span style="color:red">*</span>{{/if}}</label>
+</template>
+
+<template name="multipleChoice">
+  <div id="{{_id}}">
+    {{text}}
+    {{#each options}}
+      <p>
+        <input class="with-gap" id="{{this}}" type="radio" name="{{../_id}}" value="{{this}}"/>
+        <label for="{{this}}">{{this}}</label>
+      </p>
+    {{/each}}
+  </div>
 </template>

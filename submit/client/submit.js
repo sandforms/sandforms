@@ -20,9 +20,17 @@ Template.submit.events({
     e.preventDefault();
 
     var responses = Prompts.allPromptIds().map(function(id) {
+      function responseFromPage() {
+        if (Prompts.findOne(id).selectedPromptType == "multipleChoice") {
+          return $('#' + id + ' input:checked').val();
+        } else {
+          return $('#' + id).val();
+        }
+      }
+
       return {
         promptId: id,
-        response: $('#' + id).val()
+        response: responseFromPage()
       }
     });
 
