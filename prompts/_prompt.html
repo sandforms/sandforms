@@ -30,5 +30,7 @@
 </template>
 
 <template name="multipleChoiceResponsePreview">
-    <input type="text" name="response-option-sample" data-prompt-id="{{_id}}" placeholder="Option 1" />
+    <form id="response-option" data-prompt-id="{{_id}}">
+        <input type="text" name="option" data-prompt-id="{{_id}}" placeholder="Option 1" />
+    </form>
 </template>

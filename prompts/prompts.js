@@ -35,7 +35,9 @@ if (Meteor.isServer) {
           return Prompts.insert({text: promptText,
             required: promptRequired,
             order: order,
-            selectedPromptType: selectedPromptType});
+            selectedPromptType: selectedPromptType,
+            option: ""
+          });
       }
     }
   });
@@ -64,6 +66,14 @@ Prompts.markAsDeleted = function(promptId) {
     { $set: { "deleted": true } }
   );
 };
+
+Prompts.updateOption = function(promptId, text) {
+  Prompts.update(
+      { _id: promptId },
+      { $set: { "option": text } }
+  );
+};
+
 
 function _buildQueryFromOptions(maybeOptions) {
   var options = _(

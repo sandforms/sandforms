@@ -37,4 +37,16 @@ if (Meteor.isClient) {
             ]
         }
     });
+
+    Template.multipleChoiceResponsePreview.events({
+        "submit #response-option": function (event) {
+            event.preventDefault();
+
+            var promptId = $(event.target).data('prompt-id');
+            var text = event.target.option.value;
+
+            Prompts.updateOption(promptId, text);
+            // event.target.option.value = "";
+        }
+    });
 }
