@@ -67,11 +67,13 @@ Prompts.markAsDeleted = function(promptId) {
   );
 };
 
-Prompts.updateOption = function(promptId, text) {
-  Prompts.update(
-      { _id: promptId },
-      { $push: { "options": text } }
-  );
+Prompts.updateOption = function (promptId, text) {
+    var prompt = Prompts.findOne(promptId);
+    var id = prompt.options ? prompt.options.length : 0;
+    Prompts.update(
+        {_id: promptId},
+        {$push: {"options": {id: id, text: text}}}
+    );
 };
 
 

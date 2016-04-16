@@ -65,8 +65,8 @@
     {{text}}
     {{#each options}}
       <p>
-        <input class="with-gap" id="{{this}}" type="radio" name="{{../_id}}" value="{{this}}"/>
-        <label for="{{this}}">{{this}}</label>
+        <input class="with-gap" id="{{id}}" type="radio" name="{{../_id}}" value="{{this.text}}"/>
+        <label for="{{id}}">{{this.text}}</label>
       </p>
     {{/each}}
   </div>
