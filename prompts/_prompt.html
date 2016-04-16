@@ -1,8 +1,9 @@
 <template name="_prompt">
   <form id="update-prompt-form">
     <div class="prompt valign-wrapper">
-      <input class="prompt-text" type="text" name="prompt" data-prompt-id="{{_id}}" value="{{text}}" tabindex="1" />
-      <input type="checkbox" checked="{{required}}" data-prompt-id="{{_id}}" class="chbRequired" id="chkRequired_{{_id}}"/>
+      <input class="prompt-text" type="text" name="prompt" data-prompt-id="{{_id}}" value="{{text}}" tabindex="1"/>
+      <input type="checkbox" checked="{{required}}" data-prompt-id="{{_id}}" class="chbRequired"
+             id="chkRequired_{{_id}}"/>
       <label for="chkRequired_{{_id}}">Required</label>
       <a href="#" class="prompt__remove"><i class="material-icons" tabIndex="0">delete</i></a>
     </div>
@@ -10,7 +11,7 @@
       <div class="input-select prompt-type-dropdown">
         <select class="browser-default" id="prompt-type-select" data-prompt-id="{{_id}}">
           {{#each promptTypes}}
-          <option value="{{this.type}}" {{this.selected}}>{{this.label}}</option>
+            <option value="{{this.type}}" {{this.selected}}>{{this.label}}</option>
           {{/each}}
         </select>
       </div>
@@ -22,7 +23,8 @@
 </template>
 
 <template name="shortAnswerResponsePreview">
-  <input type="text" name="response-sample" data-prompt-id="{{_id}}" disabled placeholder="Their response will be a short answer" />
+  <input type="text" name="response-sample" data-prompt-id="{{_id}}" disabled
+         placeholder="Their response will be a short answer"/>
 </template>
 
 <template name="paragraphResponsePreview">
@@ -30,18 +32,27 @@
 </template>
 
 <template name="multipleChoiceResponsePreview">
-    <form id="response-option" data-prompt-id="{{_id}}" class="multiple-choice">
-        {{#each options}}
-            <p>
-                <input type="radio" disabled="disabled" />
-                <label>{{this}}</label>
-            </p>
-        {{/each}}
-
-        <p class="multiple-choice__new-option">
-            <input type="radio" disabled="disabled">
-            <label><input type="text" name="option" data-prompt-id="{{_id}}" placeholder="Their response could be this option" /></label>
+  <form id="response-option" data-prompt-id="{{_id}}" class="multiple-choice">
+    {{#each options}}
+      <div class="possible_option">
+        <p>
+          <input type="radio" disabled="disabled"/>
+          <label>{{this}}</label>
         </p>
+        <button>
+          <i class="material-icons">not_interested</i>
+        </button>
+      </div>
+    {{/each}}
 
-    </form>
+    <div class="possible_option">
+      <p class="multiple-choice__new-option">
+        <input type="radio" disabled="disabled">
+        <label><input type="text" name="option" data-prompt-id="{{_id}}"
+                      placeholder="Their response could be this option"/></label>
+      </p>
+        <i class="material-icons">playlist_add</i>
+    </div>
+
+  </form>
 </template>

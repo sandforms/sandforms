@@ -35,9 +35,27 @@
     color: $light-gray;
     padding: 0 1.5em;
   }
+  
+  .possible_option {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+    button {
+      @extend .btn-flat;
+      padding: 0;
+    }
+
+    i {
+      margin: .5em;
+    }
+  }
 
   .multiple-choice {
+
     &__new-option {
+      width: 100%;
+
       label {
         width: 100%;
       }
