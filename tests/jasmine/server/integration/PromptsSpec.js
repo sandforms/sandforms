@@ -130,4 +130,14 @@ describe("prompts", function () {
         expect(prompt.selectedPromptType).toEqual("shortAnswer");
     });
 
+    it("should mark options as deleted", function () {
+        Prompts.remove({});
+
+        var id = Prompts.create("What is this HUGE rash?");
+        var optionId = Prompts.updateOption(id, "space-flu");
+
+        Prompts.deleteOption(id, optionId);
+
+        expect(Prompts.findOne(id).options[0].deleted).toEqual(true);
+    });
 });

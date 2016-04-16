@@ -75,8 +75,21 @@ Prompts.updateOption = function (promptId, text) {
         {_id: promptId},
         {$push: {"options": {id: id, text: text}}}
     );
+    return id;
 };
 
+Prompts.deleteOption = function (promptId, optionId) {
+    var options = Prompts.findOne(promptId).options;
+
+    options.find(function(option) {
+        return option.id === optionId
+    }).deleted = true;
+
+    Prompts.update(
+        {_id: promptId},
+        {$set: {"options": options}}
+    );
+};
 
 function _buildQueryFromOptions(maybeOptions) {
     var options = _(
