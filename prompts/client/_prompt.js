@@ -49,6 +49,14 @@ if (Meteor.isClient) {
 
             Prompts.updateOption(promptId, text);
             event.target.option.value = "";
+        },
+
+        "click .delete-option": function (event) {
+            event.preventDefault();
+
+            var promptId = $(event.currentTarget).data('prompt-id');
+            var optionId = $(event.currentTarget).data('option-id');
+            Prompts.deleteOption(promptId, optionId)
         }
     });
 }

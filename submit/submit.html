@@ -64,10 +64,12 @@
   <div id="{{_id}}">
     {{text}}
     {{#each options}}
-      <p>
-        <input class="with-gap" id="{{id}}" type="radio" name="{{../_id}}" value="{{this.text}}"/>
-        <label for="{{id}}">{{this.text}}</label>
-      </p>
+      {{#unless this.deleted}}
+        <p>
+          <input class="with-gap" id="{{id}}" type="radio" name="{{../_id}}" value="{{this.text}}"/>
+          <label for="{{id}}">{{this.text}}</label>
+        </p>
+      {{/unless}}
     {{/each}}
   </div>
 </template>
