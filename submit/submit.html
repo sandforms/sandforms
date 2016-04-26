@@ -52,16 +52,18 @@
 </template>
 
 <template name="paragraph">
-  {{#if required}}
-    <textarea id="{{_id}}" class="materialize-textarea" data-validate="required"></textarea>
-  {{else}}
-    <textarea id="{{_id}}" class="materialize-textarea"></textarea>
-  {{/if}}
-  <label for="{{_id}}">{{text}}{{#if required}}&nbsp;<span style="color:red">*</span>{{/if}}</label>
+  <div class="paragraph-question">
+      {{#if required}}
+        <textarea id="{{_id}}" class="materialize-textarea" data-validate="required"></textarea>
+      {{else}}
+        <textarea id="{{_id}}" class="materialize-textarea"></textarea>
+      {{/if}}
+      <label for="{{_id}}">{{text}}{{#if required}}&nbsp;<span style="color:red">*</span>{{/if}}</label>
+  </div>
 </template>
 
 <template name="multipleChoice">
-  <div id="{{_id}}">
+  <div id="{{_id}}" class="multiple-choice-question">
     {{text}}
     {{#each options}}
       {{#unless this.deleted}}
