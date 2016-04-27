@@ -1,5 +1,5 @@
 require 'watir-webdriver'
-require 'headless'
+#require 'headless'
 
 Given(/^the user navigates to "([^"]*)" using "([^"]*)"$/) do |arg1, arg2|
     @browser = arg2
@@ -82,18 +82,23 @@ Then(/^within that form they create "([^"]*)" questions$/) do |arg1|
 end
 
 Then(/^creates a shareable link$/) do
-
     sleep 3
 
     @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').element(:id => 'share-form').click
 
     sleep 3
+    if (@browser == 'chrome') 
+        @b.send_keys :arrow_right
+        @b.send_keys :enter
+    end
+    
+    if(@browser == 'fire fox')
+        @b.body.div(:class => 'popup share').div(:class => 'frame-container align-left').element(:text => 'Get shareable link').click
+    end
 
-    @b.body.div(:class => 'popup share').div(:class => 'frame align-left').element(:text => 'Get shareable link').click
-
-    sleep 3
-
-    @b.body.div(:class => 'popup share').div(:class => 'frame align-left').div(:id => 'shareable-link-tab').form(:class => 'new-share-token').div(:class => 'button-container').button(:text => 'Create').click
+    @b.send_keys :tab
+    @b.send_keys :tab
+    @b.send_keys :enter
 
     sleep 1
 
@@ -201,7 +206,7 @@ Then(/^accesses the responses in the original browser window$/) do
 end
 
 Then(/^signouts$/) do
-    @b.element(:class => 'topbar').ul(:class => 'menubar').button(:class => 'show-popup').click
+    @b.element(:class => 'topbar').ul(:class => 'menubar').element(:class => 'account').click
     @b.button(:class => 'logout').click
 
 end
