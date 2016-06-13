@@ -1,6 +1,6 @@
 var fieldIsAnswered = function(response){
   return response.response != "";
-}
+};
 
 Template.submit.helpers({
   prompts: function() {
@@ -31,14 +31,14 @@ Template.submit.events({
       return {
         promptId: id,
         response: responseFromPage()
-      }
+      };
     });
 
     if (responses.some(fieldIsAnswered)){
         Submissions.insert({responses: responses});
         $('.response-input').val('');
-        Session.set('submitted', true)
-        Router.go('/thanks')
+        Session.set('submitted', true);
+        Router.go('/thanks');
     } else {
         Session.set("error", "Please fill out at least one field");
     }

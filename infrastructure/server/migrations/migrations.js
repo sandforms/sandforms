@@ -9,4 +9,4 @@ Migrations.areLocked = function() {
     }).locked == true;
 
     return locked;
-}
+};
