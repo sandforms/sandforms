@@ -4,7 +4,10 @@ describe("migrations", function() {
     // Given
     Prompts.remove({});
     Migrations.migrateTo(0);
-    Prompts.create("Hello");
+    Prompts.insert({
+      text: "Hello",
+      order: 1
+    });
 
     // When
     Migrations.migrateTo(1);
@@ -19,7 +22,11 @@ describe("migrations", function() {
     // Given
     Prompts.remove({});
     Migrations.migrateTo(1);
-    Prompts.create("Hello again");
+    Prompts.insert({
+      text: "Hello",
+      order: 1,
+      required: true
+    });
 
     // When
     Migrations.migrateTo(0);
