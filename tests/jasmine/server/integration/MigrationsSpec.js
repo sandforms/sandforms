@@ -1,10 +1,16 @@
 describe("migrations", function() {
-  it("should start up with v1 schema", function() {
+  
+  it("should migrate to v1 properly", function() {
+    // Given
     Prompts.remove({});
-
+    Migrations.migrateTo(0);
     Prompts.create("Hello");
 
-    var searchResults = Prompts.find({required: {$exists: true}}).fetch();
+    // When
+    Migrations.migrateTo(1);
+
+    // Then
+    var searchResults = Prompts.find({required: true}).fetch();
 
     expect(searchResults.length).toEqual(1);
   });
