@@ -16,13 +16,15 @@ describe("migrations", function() {
   });
 
   it("should migrate down from v1 properly", function() {
+    // Given
     Prompts.remove({});
-
+    Migrations.migrateTo(1);
     Prompts.create("Hello again");
 
-    Migrations.migrateTo(1);
+    // When
     Migrations.migrateTo(0);
 
+    // Then
     var searchResults = Prompts.find({required: {$exists: true}}).fetch();
 
     expect(searchResults.length).toEqual(0);
