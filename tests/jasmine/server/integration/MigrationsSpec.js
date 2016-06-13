@@ -1,12 +1,18 @@
 describe("migrations", function() {
+
+  // _setControl avoids running unnecessary migrations to get to the
+  // starting point and lets us ensure that 'locked' is false... it
+  // seems to get stuck at true when running tests sometimes
+  function startMigrationsAt(version) {
+    Migrations._setControl({version: version, locked: false});
+  };
   
   it("should migrate to v1 properly", function() {
     // Given
     Prompts.remove({});
-    Migrations.migrateTo(0);
+    startMigrationsAt(0);
     Prompts.insert({
-      text: "Hello",
-      order: 1
+      text: "Hello"
     });
 
     // When
@@ -21,10 +27,9 @@ describe("migrations", function() {
   it("should migrate down from v1 properly", function() {
     // Given
     Prompts.remove({});
-    Migrations.migrateTo(1);
+    startMigrationsAt(1);
     Prompts.insert({
       text: "Hello",
-      order: 1,
       required: true
     });
 
@@ -35,6 +40,23 @@ describe("migrations", function() {
     var searchResults = Prompts.find({required: {$exists: true}}).fetch();
 
     expect(searchResults.length).toEqual(0);
+  });
+  
+  it("should migrate to v2 properly", function() {
+    // Given
+    Prompts.remove({});
+    startMigrationsAt(1);
+    Prompts.insert({
+      text: "Hello"
+    });
+
+    // When
+    Migrations.migrateTo(2);
+
+    // Then
+    var searchResults = Prompts.find({selectedPromptType: "shortAnswer"}).fetch();
+
+    expect(searchResults.length).toEqual(1);
   });
 });
 
