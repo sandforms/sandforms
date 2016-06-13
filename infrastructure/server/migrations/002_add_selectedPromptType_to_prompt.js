@@ -6,13 +6,13 @@
        {$set: {selectedPromptType: "shortAnswer"}},
        {multi: true}
      );
+   },
+   down: function() {
+     Prompts.update(
+       {selectedPromptType: {$exists: true}},
+       {$unset: {selectedPromptType: ""}},
+       {multi: true}
+     );
    }
-//   down: function() {
-//     Prompts.update(
-//       {selectedPromptType: {$exists: true}},
-//       {$unset: {selectedPromptType: ""}},
-//       {multi: true}
-//     );
-//   }
 });
 
