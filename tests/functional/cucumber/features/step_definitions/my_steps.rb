@@ -1,4 +1,5 @@
 require 'watir-webdriver'
+require 'pry'
 #require 'headless'
 
 Given(/^the user navigates to "([^"]*)" using "([^"]*)"$/) do |arg1, arg2|
@@ -26,47 +27,45 @@ Given(/^the user navigates to "([^"]*)" using "([^"]*)"$/) do |arg1, arg2|
     end
 
     @b.goto arg1
-    sleep 1
+
 end
 
 
 Then(/^logs in as an admin$/) do
-    sleep 5
+    @b.div(:class => 'login-buttons-list').button(:class => 'login oneclick github').when_present.click
 
-    @b.div(:class => 'login-buttons-list').button(:class => 'login oneclick github').click
-
-    if (@browser == 'chrome') || (@browser == 'fire fox')
-
-        @b.div(:class => 'auth-form-body').input(:id => 'login_field').click
-
-        @b.send_keys ENV["USERNAME"]
-        @b.send_keys :tab
-        @b.send_keys ENV["PASSWORD"]
-        @b.send_keys :tab
-        @b.send_keys :enter
-
+    if (@browser == 'safari')
+        binding.pry
     end
 
-    sleep 10
+    @b.send_keys ENV["USERNAME"]
+    @b.send_keys :tab
+    @b.send_keys ENV["PASSWORD"]
+    @b.send_keys :tab
+    @b.send_keys :enter
+
+    @b.element(:text => 'Apps').wait_until_present
 end
 
 Then(/^clicks on the "([^"]*)" app$/) do |arg1|
-sleep 5
-  if (@b.ul(:class => 'navbar').li(:class => 'navitem-create-grain').exists?  == true)
-    @b.ul(:class => 'navbar').li(:class => 'navitem-create-grain').click
-  end
 
-  @b.span(:text => arg1).click
-    sleep 7
+    @b.element(:text => 'Apps').click
+    @b.element(:text => 'SandForms').wait_until_present
+
+if (@b.ul(:class => 'navbar').li(:class => 'navitem-create-grain').exists?  == true)
+        @b.ul(:class => 'navbar').li(:class => 'navitem-create-grain').click
+    end
+
+    @b.span(:text => arg1).click
 end
 
 Then(/^creates a new form$/) do
-    @b.button(:text => 'Create new form').click
-    sleep 15
+    @b.button(:text => 'Create new form').when_present.click
 end
 
 Then(/^within that form they create "([^"]*)" questions$/) do |arg1|
-  @count = 1
+    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').element(:id => 'share-form').wait_until_present
+    @count = 1
 
     while (@count <= arg1.to_i) do
 
@@ -82,28 +81,25 @@ Then(/^within that form they create "([^"]*)" questions$/) do |arg1|
 end
 
 Then(/^creates a shareable link$/) do
-    sleep 3
+    sleep 1
+    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').element(:id => 'share-form').when_present.click
 
-    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').element(:id => 'share-form').click
-
-    sleep 3
-    if (@browser == 'chrome') 
+    if (@browser == 'chrome')
         @b.send_keys :arrow_right
         @b.send_keys :enter
     end
-    
+
     if(@browser == 'fire fox')
-        @b.body.div(:class => 'popup share').div(:class => 'frame-container align-left').element(:text => 'Get shareable link').click
+        @b.body.div(:class => 'popup share').div(:class => 'frame-container align-left').element(:text => 'Get shareable link').when_present.click
     end
 
     @b.send_keys :tab
     @b.send_keys :tab
     @b.send_keys :enter
 
-    sleep 1
-
+    @b.link(:index => 4).wait_until_present
     @answers_url = @b.link(:index => 4).href
-    @b.button(:class => 'close-popup').click
+    @b.button(:class => 'close-popup').when_present.click
 
 end
 
@@ -134,21 +130,19 @@ Then(/^accesses and the newly created questions without answering questions in a
     end
 
     @b1.goto @answers_url
-    sleep 7
 
     if (@browser == 'fire fox') || (@browser == 'chrome')
         # Close Sign in pop up
-        @b1.button(:class => 'close-popup').click
+        @b1.button(:class => 'close-popup').when_present.click
 
     end
 
     if (@browser == 'safari')
-        @b1.button(:class => 'incognito-button').click
+        @b1.button(:class => 'incognito-button').when_present.click
 
     end
 
-    sleep 7
-    @b1.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').form(:id => 'submit-form').div(:class => 'input-field').element(:text => 'q1').click
+    @b1.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').form(:id => 'submit-form').div(:class => 'input-field').element(:text => 'q1').when_present.click
 
     a_count = 1
 
@@ -161,7 +155,6 @@ Then(/^accesses and the newly created questions without answering questions in a
 
     end
 
-    sleep 1
     @b1.send_keys :enter
 
 end
@@ -216,5 +209,29 @@ Then(/^closes the original browser$/) do
     if @browser == 'headless'
       @headless.destroy
     end
+
+end
+
+Then(/^uninstall sandforms$/) do
+    @b.link(:text => 'Apps').when_present.click
+    @b.button(:text => 'Uninstall...').click
+    @b.element(:text => 'SandForms').click
+    @b.button(:text => 'Done uninstalling').click
+
+end
+
+Then(/^install Sandorms$/) do
+
+    @b.element(:text => 'Apps').click
+    @b.button(:text => 'Upload app...').wait_until_present
+
+    # webdriver doesn't want to interact with non visible elements...
+    @b.execute_script("$('input[type=file]').css('display', 'block')")
+
+    @b.file_field().set('/Users/nliao/Desktop/sandforms.spk')
+
+    # uploadApp comes from sandstorm
+    @b.execute_script("uploadApp($('input[type=file]')[0].files[0])")
+    @b.button(:text => 'Install SandForms').when_present.click
 
 end
