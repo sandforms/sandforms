@@ -7,7 +7,7 @@ Submissions.allow({
     var areAnyRequiredPromptsNotRespondedTo = requiredPrompts.some(function(prompt) {
       return !submission.responses.some(function(response) {
           return ((response.promptId === prompt._id) && (response.text != ''));
-        }) 
+      });
     });
 
     return !areAnyRequiredPromptsNotRespondedTo;
@@ -51,7 +51,7 @@ Submissions.inTableFormat = function(prompts) {
 
     return responses;
   });
-}
+};
 
 Submissions.exportCsvFormattedString = function() {
   var csvFormattedResponses = '',
