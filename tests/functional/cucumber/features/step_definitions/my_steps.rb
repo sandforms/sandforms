@@ -228,10 +228,12 @@ Then(/^install Sandorms$/) do
     # webdriver doesn't want to interact with non visible elements...
     @b.execute_script("$('input[type=file]').css('display', 'block')")
 
-    @b.file_field().set('/Users/nliao/Desktop/sandforms.spk')
+    spk = File.expand_path('./sandforms.spk')
+
+    @b.file_field().set(spk)
 
     # uploadApp comes from sandstorm
     @b.execute_script("uploadApp($('input[type=file]')[0].files[0])")
-    @b.button(:text => 'Install SandForms').when_present.click
+    @b.button(:text => 'Install SandForms').when_present(60).click
 
 end
