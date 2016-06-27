@@ -33,15 +33,15 @@ describe("Client integration tests for Submissions", function() {
       responses: [
       {
         promptId: 'id-1',
-        text: ''
+        response: ''
       },
       {
         promptId: 'id-2',
-        text: 'things'
+        response: 'things'
       },
       {
         promptId: 'id-3',
-        text: 'here'
+        response: 'here'
       }]
     };
 
@@ -62,21 +62,22 @@ describe("Client integration tests for Submissions", function() {
       responses: [
       {
         promptId: 'id-1',
-        text: 'stuffs'
+        response: 'stuffs'
       },
       {
         promptId: 'id-2',
-        text: ''
+        response: ''
       },
       {
         promptId: 'id-3',
-        text: 'here'
+        response: 'here'
       }]
     };
 
     Submissions.insert(submission, function(error, result) {
       expect(error.error).toBe(403);
       expect(result).toBe(false);
+      expect(1).toEqual(2);
       var submissions = Submissions.find({}).fetch();
       expect(submissions.length).toEqual(0);
       done();
@@ -88,11 +89,11 @@ describe("Client integration tests for Submissions", function() {
       responses: [
       {
         promptId: 'id-1',
-        text: 'stuffs'
+        response: 'stuffs'
       },
       {
         promptId: 'id-3',
-        text: 'here'
+        response: 'here'
       }]
     };
 
