@@ -65,6 +65,18 @@ Template.submit.events({
 Template.submit.onRendered(function() {
   $('modal-trigger').leanModal();
   $('#submit-form').verify(); // Bind verify.js to the form
+  
+  $.verify({
+    prompt: function(element, text) {
+      var notifyElement;
+      if ($(element).attr('type') === "radio") {
+        notifyElement = $(element).parents('.multiple-choice-question')[0];
+      } else {
+        notifyElement = element;
+      }
+      $.notify(notifyElement, text);
+    }
+  });
 });
 
 $.notify.addStyle('redalert', {

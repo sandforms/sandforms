@@ -65,10 +65,16 @@
 <template name="multipleChoice">
   <div id="{{_id}}" class="multiple-choice-question">
     {{text}}
+    {{#if required}}&nbsp;<span style="color:red">*</span>{{/if}}
     {{#each options}}
       {{#unless this.deleted}}
         <p>
-          <input class="with-gap" id="{{id}}" type="radio" name="{{../_id}}" value="{{this.text}}"/>
+          {{# if ../required}}
+            <input class="with-gap" id="{{id}}" type="radio" name="{{../_id}}" value="{{this.text}}"
+                data-validate="required" />
+          {{else}}
+            <input class="with-gap" id="{{id}}" type="radio" name="{{../_id}}" value="{{this.text}}" />
+          {{/if}}
           <label for="{{id}}">{{this.text}}</label>
         </p>
       {{/unless}}
