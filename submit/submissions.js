@@ -6,7 +6,7 @@ Submissions.allow({
 
     var areAnyRequiredPromptsNotRespondedTo = requiredPrompts.some(function(prompt) {
       return !submission.responses.some(function(response) {
-          return ((response.promptId === prompt._id) && (response.text != ''));
+          return ((response.promptId === prompt._id) && (response.response != ''));
       });
     });
 

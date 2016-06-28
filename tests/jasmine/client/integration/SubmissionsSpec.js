@@ -75,9 +75,9 @@ describe("Client integration tests for Submissions", function() {
     };
 
     Submissions.insert(submission, function(error, result) {
+      expect(error).not.toBeUndefined();
       expect(error.error).toBe(403);
       expect(result).toBe(false);
-      expect(1).toEqual(2);
       var submissions = Submissions.find({}).fetch();
       expect(submissions.length).toEqual(0);
       done();
@@ -98,6 +98,7 @@ describe("Client integration tests for Submissions", function() {
     };
 
     Submissions.insert(submission, function(error, result) {
+      expect(error).not.toBeUndefined();
       expect(error).not.toBeNull();
       expect(result).toBe(false);
       var submissions = Submissions.find({}).fetch();
