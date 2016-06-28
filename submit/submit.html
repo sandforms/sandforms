@@ -70,12 +70,12 @@
       {{#unless this.deleted}}
         <p>
           {{# if ../required}}
-            <input class="with-gap" id="{{id}}" type="radio" name="{{../_id}}" value="{{this.text}}"
+            <input class="with-gap" id="{{../_id}}-{{id}}" type="radio" name="{{../_id}}" value="{{this.text}}"
                 data-validate="required" />
           {{else}}
-            <input class="with-gap" id="{{id}}" type="radio" name="{{../_id}}" value="{{this.text}}" />
+            <input class="with-gap" id="{{../_id}}-{{id}}" type="radio" name="{{../_id}}" value="{{this.text}}" />
           {{/if}}
-          <label for="{{id}}">{{this.text}}</label>
+          <label for="{{../_id}}-{{id}}">{{this.text}}</label>
         </p>
       {{/unless}}
     {{/each}}
