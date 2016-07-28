@@ -64,14 +64,14 @@ Then(/^creates a new form$/) do
 end
 
 Then(/^within that form they create "([^"]*)" questions$/) do |arg1|
-    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').element(:id => 'share-form').wait_until_present
+    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').element(:id => 'share-form').wait_until_present(120)
     @count = 1
 
     while (@count <= arg1.to_i) do
 
         str_q = "q" + @count.to_s
 
-        @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').input(:placeholder => 'Add new question').send_keys str_q
+        @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').input(:placeholder => 'Add new question').send_keys str_q
 
         @b.send_keys :enter
 
@@ -82,7 +82,7 @@ end
 
 Then(/^creates a shareable link$/) do
     sleep 1
-    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').element(:id => 'share-form').when_present.click
+    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').element(:id => 'share-form').when_present.click
 
     if (@browser == 'chrome')
         @b.send_keys :arrow_right
@@ -142,7 +142,7 @@ Then(/^accesses and the newly created questions without answering questions in a
 
     end
 
-    @b1.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').form(:id => 'submit-form').div(:class => 'input-field').element(:text => 'q1').when_present.click
+    @b1.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').form(:id => 'submit-form').div(:class => 'input-field').element(:text => 'q1').when_present.click
 
     a_count = 1
 
@@ -162,7 +162,7 @@ end
 
 Then(/^accesses and responds to the newly created questions in a new browser window using "([^"]*)"$/) do | arg1 |
 
-    @b1.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').form(:id => 'submit-form').div(:class => 'input-field').element(:text => 'q1').click
+    @b1.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').form(:id => 'submit-form').div(:class => 'input-field').element(:text => 'q1').click
 
     a_count = 1
 
@@ -181,7 +181,7 @@ Then(/^accesses and responds to the newly created questions in a new browser win
 end
 
 Then(/^clicks the feedback link$/) do
-    @b1.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').div(:class => 'main-content').element(:text => 'Please give us feedback').click
+    @b1.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').div(:class => 'main-content').element(:text => 'Please give us feedback').click
 
     sleep 2
 
@@ -194,7 +194,7 @@ Then(/^clicks the feedback link$/) do
 end
 
 Then(/^accesses the responses in the original browser window$/) do
-    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:id => 'grain-frame').div(:class => 'navigation__links').element(:text => 'Responses').click
+    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').div(:class => 'navigation__links').element(:text => 'Responses').click
 
 end
 
@@ -234,6 +234,6 @@ Then(/^install Sandorms$/) do
 
     # uploadApp comes from sandstorm
     @b.execute_script("uploadApp($('input[type=file]')[0].files[0])")
-    @b.button(:text => 'Install SandForms').when_present(60).click
+    @b.button(:text => 'Install SandForms').when_present(120).click
 
 end
