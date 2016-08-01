@@ -10,7 +10,8 @@
 Scenario:  Chrome - create n number of users
   Given the user navigates to "http://37.218.240.191.xip.io:6080/" using "chrome"
   Then logs in as an admin
-  Then install Sandorms
+  Then remove Sandforms if present
+  Then install Sandforms
   Then clicks on the "SandForms" app
   Then creates a new form
   Then within that form they create "2" questions

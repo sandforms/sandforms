@@ -66,6 +66,37 @@ end
 Then(/^within that form they create "([^"]*)" questions$/) do |arg1|
     @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').element(:id => 'share-form').wait_until_present(120)
     @count = 1
+    @count1 = 1
+
+    str_multiple_choice = "m1"
+
+    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').input(:placeholder => 'Add new question').send_keys str_multiple_choice
+
+    @b.send_keys :enter
+
+
+    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').div(:class => 'main-content').form(:id => 'update-prompt-form').div(:class => 'prompt-type-preview').div(:class => 'input-select prompt-type-dropdown').element(:id => 'prompt-type-select').wait_until_present(120)
+
+    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').div(:class => 'main-content').form(:id => 'update-prompt-form').div(:class => 'prompt-type-preview').div(:class => 'input-select prompt-type-dropdown').select_list(:id => 'prompt-type-select').select 'Multiple Choice'
+
+    while (@count1 <= 3) do
+
+      if (@count1 == 1)
+        @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').input(:placeholder => 'Their response could be this option').send_keys "a"
+      end
+
+      if (@count1 == 2)
+        @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').input(:placeholder => 'Their response could be this option').send_keys "b"
+      end
+
+      if (@count1 == 3)
+        @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').input(:placeholder => 'Their response could be this option').send_keys "c"
+      end
+
+      @b.send_keys :enter
+
+      @count1 = @count1 + 1
+    end
 
     while (@count <= arg1.to_i) do
 
@@ -78,6 +109,9 @@ Then(/^within that form they create "([^"]*)" questions$/) do |arg1|
         @count = @count + 1
 
     end
+
+
+
 end
 
 Then(/^creates a shareable link$/) do
@@ -142,27 +176,16 @@ Then(/^accesses and the newly created questions without answering questions in a
 
     end
 
-    @b1.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').form(:id => 'submit-form').div(:class => 'input-field').element(:text => 'q1').when_present.click
-
-    a_count = 1
-
-    while (a_count < @count) do
-
-        @b1.send_keys :tab
-
-        @b1.send_keys :enter
-        a_count = a_count + 1
-
-    end
-
-    @b1.send_keys :enter
-
 end
 
 
 Then(/^accesses and responds to the newly created questions in a new browser window using "([^"]*)"$/) do | arg1 |
 
-    @b1.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').form(:id => 'submit-form').div(:class => 'input-field').element(:text => 'q1').click
+    @b1.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').form(:id => 'submit-form').div(:class => 'input-field').wait_until_present(120)
+
+    @b1.execute_script("document.getElementById('0').click()")
+
+    @b1.send_keys :tab
 
     a_count = 1
 
@@ -220,9 +243,7 @@ Then(/^uninstall sandforms$/) do
 
 end
 
-Then(/^install Sandorms$/) do
-
-    @b.element(:text => 'Apps').click
+Then(/^install Sandforms$/) do
     @b.button(:text => 'Upload app...').wait_until_present
 
     # webdriver doesn't want to interact with non visible elements...
@@ -235,5 +256,17 @@ Then(/^install Sandorms$/) do
     # uploadApp comes from sandstorm
     @b.execute_script("uploadApp($('input[type=file]')[0].files[0])")
     @b.button(:text => 'Install SandForms').when_present(120).click
+
+end
+
+Then(/^remove Sandforms if present$/) do
+  @b.element(:text => 'Apps').click
+  sleep 3
+
+  if @b.element(:text => 'SandForms').exists?
+    @b.button(:text => 'Uninstall...').click
+    @b.element(:text => 'SandForms').click
+    @b.button(:text => 'Done uninstalling').click
+  end
 
 end
