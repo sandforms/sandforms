@@ -1,5 +1,6 @@
 require 'watir-webdriver'
 require 'pry'
+require 'test/unit'
 #require 'headless'
 
 Given(/^the user navigates to "([^"]*)" using "([^"]*)"$/) do |arg1, arg2|
@@ -182,7 +183,6 @@ end
 Then(/^accesses and responds to the newly created questions in a new browser window using "([^"]*)"$/) do | arg1 |
 
     @b1.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').form(:id => 'submit-form').div(:class => 'input-field').wait_until_present(120)
-
     @b1.execute_script("document.getElementById('0').click()")
 
     @b1.send_keys :tab
@@ -218,6 +218,11 @@ end
 
 Then(/^accesses the responses in the original browser window$/) do
     @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').div(:class => 'navigation__links').element(:text => 'Responses').click
+
+    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').div(:class => 'main-content').element(:text => "a").wait_until_present
+    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').div(:class => 'main-content').element(:text => "a1").wait_until_present
+    @b.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').div(:class => 'main-content').element(:text => "a2").wait_until_present
+
 
 end
 
@@ -261,7 +266,7 @@ end
 
 Then(/^remove Sandforms if present$/) do
   @b.element(:text => 'Apps').click
-  sleep 3
+  @b.element(:text => 'Install...').wait_until_present
 
   if @b.element(:text => 'SandForms').exists?
     @b.button(:text => 'Uninstall...').click
