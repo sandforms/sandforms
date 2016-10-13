@@ -37,11 +37,9 @@ Then(/^logs in as an admin$/) do
         binding.pry
     end
 
-    @b.send_keys ENV["USERNAME"]
-    @b.send_keys :tab
-    @b.send_keys ENV["PASSWORD"]
-    @b.send_keys :tab
-    @b.send_keys :enter
+    @b.input(:id => 'login_field').send_keys ENV["USERNAME"]
+    @b.input(:id => 'password').send_keys ENV["PASSWORD"]
+    @b.input(:name => 'commit').click
 
     @b.element(:text => 'Apps').wait_until_present
 end
@@ -126,9 +124,7 @@ Then(/^creates a shareable link$/) do
         @b.body.div(:class => 'popup share').div(:class => 'frame-container align-left').element(:text => 'Get shareable link').when_present.click
     end
 
-    @b.send_keys :tab
-    @b.send_keys :tab
-    @b.send_keys :enter
+    @b.form(:class => 'new-share-token').button.click
 
     @b.link(:index => 4).wait_until_present
     @answers_url = @b.link(:index => 4).href
@@ -183,22 +179,10 @@ Then(/^accesses and responds to the newly created questions in a new browser win
     @b1.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame').form(:id => 'submit-form').div(:class => 'input-field').wait_until_present(120)
     @b1.execute_script("document.getElementById('0').click()")
 
-    @b1.send_keys :tab
+    @b1.execute_script(%{$("div[class='input-field']:eq(1) input").val('a1')})
+    @b1.execute_script(%{$("div[class='input-field']:eq(2) input").val('a2')})
 
-    a_count = 1
-
-    while (a_count < @count) do
-
-        @b1.send_keys 'a' + a_count.to_s
-
-        @b1.send_keys :enter
-        a_count = a_count + 1
-        sleep 1
-    end
-
-    sleep 1
-    @b1.send_keys :enter
-
+    grain_frame(@b1).button(:id => 'submit-responses').click
 end
 
 Then(/^clicks the feedback link$/) do
@@ -272,4 +256,8 @@ Then(/^remove Sandforms if present$/) do
     @b.button(:text => 'Done uninstalling').click
   end
 
+end
+
+def grain_frame(browser)
+    browser.div(:class => 'main-content').div(:class => 'grain-container active-grain').iframe(:class => 'grain-frame')
 end
