@@ -2,7 +2,9 @@
 
 Sandforms is a online forms application that priortizes simplicity and data autonomy: you control how to use data you collect through these forms. 
 
-Sandforms is built for [Sandstorm](https://sandstorm.io), a platform that allows you to easily host applications on your personal server. 
+Sandforms is built for [Sandstorm](https://sandstorm.io), a platform that allows you to easily host applications on your personal server.
+
+[Try a live demo!](https://oasis.sandstorm.io/appdemo/ztxnreej8a0pqn97ccfhuckswjkrmsaavn85n5sgzk30tv2k4y9h)
 
 ## Motivations
 
