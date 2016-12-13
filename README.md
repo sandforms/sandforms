@@ -51,6 +51,7 @@ instructions](https://docs.sandstorm.io/en/latest/vagrant-spk/installation/)
 3. Bring up the Vagrant VM
 
   ```bash
+  $ vagrant-spk setupvm meteor
   $ vagrant-spk up
   ```
 
