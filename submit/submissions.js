@@ -49,6 +49,7 @@ Submissions.inTableFormat = function(prompts) {
       }
     });
 
+    responses.splice(0, 0, submission._id);
     return responses;
   });
 };

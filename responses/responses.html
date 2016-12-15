@@ -5,6 +5,7 @@
         {{#each prompts this}}
         <th>{{text}}</th>
         {{/each}}
+        <th></th>
       </tr>
     </thead>
 
@@ -12,8 +13,11 @@
       {{#each responsesInOrder}}
       <tr>
         {{#each this}}
-        <td>{{this}}</td>
+          {{#if @index}}
+            <td>{{this}}</td>
+          {{/if}}
         {{/each}}
+        <td><button class="delete">&times;</button></td>
       </tr>
       {{/each}}
     </tbody>

@@ -10,3 +10,11 @@ Template.responses.helpers({
     );
   }
 });
+
+Template.responses.events({
+    'click .delete': function() {
+        if (confirm("Delete this record?")) {
+            Submissions.remove(this[0]);
+        }
+    }
+});
