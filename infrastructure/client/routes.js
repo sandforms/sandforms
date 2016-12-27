@@ -13,7 +13,7 @@ Router.route('/', function() {
   if (!this.ready() || Meteor.loggingIn()) {
       this.render('loading');
   } else if (User.ownerLoggedIn()) {
-      Router.go('create');
+      Router.go('responses');
   } else {
       Router.go('submit');
   }

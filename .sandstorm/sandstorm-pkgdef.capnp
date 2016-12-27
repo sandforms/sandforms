@@ -1,4 +1,4 @@
-@0xf74e26428b6e7a33;
+@0xa1031c8344728156;
 
 using Spk = import "/sandstorm/package.capnp";
 # This imports:
@@ -9,7 +9,7 @@ const pkgdef :Spk.PackageDefinition = (
   # The package definition. Note that the spk tool looks specifically for the
   # "pkgdef" constant.
 
-  id = "ave58rfwzfczmyp1rt1hvym2q3hf3cp23ej6cg8qmp0vg30u9700",
+  id = "701tk0zgjsf1umfwaar199e3kkpus7eah7rgxpxydrsqn7ghy4ah",
   # Your app ID is actually its public key. The private key was placed in
   # your keyring. All updates must be signed with the same key.
 
@@ -21,7 +21,7 @@ const pkgdef :Spk.PackageDefinition = (
 
     appVersion = 1,  # Increment this for every release.
 
-    appMarketingVersion = (defaultText = "1.0.0"),
+    appMarketingVersion = (defaultText = "0.0.1"),
     # Human-readable representation of appVersion. Should match the way you
     # identify versions of your app in documentation and marketing.
 
@@ -48,16 +48,16 @@ const pkgdef :Spk.PackageDefinition = (
       # https://github.com/sandstorm-io/sandstorm/blob/master/src/sandstorm/package.capnp
       icons = (
         # Various icons to represent the app in various contexts.
-        #appGrid = (svg = embed "path/to/appgrid-128x128.svg"),
-        #grain = (svg = embed "path/to/grain-24x24.svg"),
+        appGrid = (svg = embed "../graphics/appGrid.svg"),
+        grain = (svg = embed "../graphics/grain.svg"),
         #market = (svg = embed "path/to/market-150x150.svg"),
         #marketBig = (svg = embed "path/to/market-big-300x300.svg"),
       ),
 
-      website = "https://github.com/PDIS/sandforms",
+      website = "http://example.com",
       # This should be the app's main website url.
 
-      codeUrl = "https://github.com/PDIS/sandforms",
+      codeUrl = "http://example.com",
       # URL of the app's source code repository, e.g. a GitHub URL.
       # Required if you specify a license requiring redistributing code, but optional otherwise.
 
@@ -73,7 +73,7 @@ const pkgdef :Spk.PackageDefinition = (
       author = (
         # Fields relating to the author of this app.
 
-        contactEmail = "urakagi@gmail.com",
+        contactEmail = "youremail@example.com",
         # Email address to contact for any issues with this app. This includes end-user support
         # requests as well as app store administrator requests, so it is very important that this be a
         # valid address with someone paying attention to it.
@@ -148,6 +148,7 @@ const pkgdef :Spk.PackageDefinition = (
   # the app opens while running in dev mode. To see what that looks like,
   # run `spk init` without the -A option.)
 
+  bridgeConfig = (viewInfo = (permissions = [(name = "owner")]))
   #bridgeConfig = (
   #  # Used for integrating permissions and roles into the Sandstorm shell
   #  # and for sandstorm-http-bridge to pass to your app.
