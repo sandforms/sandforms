@@ -9,7 +9,7 @@ describe("submissions", function() {
     ];
 
     Submissions.remove({});
-    Submissions.insert({ responses: [
+    var submissionId = Submissions.insert({ responses: [
       { promptId: 'id-2', response: 'GGG Garfield'},
       { promptId: 'id-1', response: 'ZZZ Orange'},
       { promptId: 'id-3', response: 'AAA Maybe'}
@@ -20,7 +20,7 @@ describe("submissions", function() {
 
     // Then
     expect(answers).toEqual([
-      ['ZZZ Orange', 'GGG Garfield', 'AAA Maybe']
+      { _id: submissionId, responses: ['ZZZ Orange', 'GGG Garfield', 'AAA Maybe']}
     ]);
   });
 
@@ -32,7 +32,7 @@ describe("submissions", function() {
     ];
 
     Submissions.remove({});
-    Submissions.insert({ responses: [
+    var submissionId = Submissions.insert({ responses: [
       { promptId: 'id-1', response: 'Garfield'},
     ]});
 
@@ -41,7 +41,7 @@ describe("submissions", function() {
 
     // Then
     expect(answers).toEqual([
-      ['Garfield', '']
+      { _id: submissionId, responses: ['Garfield', '']}
     ]);
   });
 

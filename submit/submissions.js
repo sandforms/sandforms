@@ -37,7 +37,7 @@ if (Meteor.isServer) {
 
 Submissions.inTableFormat = function(prompts) {
   return Submissions.find().map(function(submission) {
-    var responses = prompts.map(function(prompt) {
+    submission.responses = prompts.map(function(prompt) {
       var responseForPrompt = _(submission.responses).find(function(response) {
         return response.promptId === prompt._id;
       });
@@ -49,8 +49,7 @@ Submissions.inTableFormat = function(prompts) {
       }
     });
 
-    responses.splice(0, 0, submission._id);
-    return responses;
+    return submission;
   });
 };
 
@@ -64,7 +63,7 @@ Submissions.exportCsvFormattedString = function() {
   });
 
   Submissions.inTableFormat(prompts).forEach(function(submission) {
-    csvFormattedResponses += submission.join(',') + '\r\n';
+    csvFormattedResponses += submission.responses.join(',') + '\r\n';
   });
 
   return headerText.join(',') + '\r\n' + csvFormattedResponses;

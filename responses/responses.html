@@ -12,10 +12,8 @@
     <tbody>
       {{#each responsesInOrder}}
       <tr>
-        {{#each this}}
-          {{#if @index}}
+        {{#each this.responses}}
             <td>{{this}}</td>
-          {{/if}}
         {{/each}}
         <td><button class="delete">&times;</button></td>
       </tr>
