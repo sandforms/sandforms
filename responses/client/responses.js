@@ -12,7 +12,7 @@ Template.responses.helpers({
 });
 
 Template.responses.events({
-    'click .delete': function() {
+    'click .responses__remove': function() {
         if (confirm("Delete this record?")) {
             Submissions.remove(this._id);
         }

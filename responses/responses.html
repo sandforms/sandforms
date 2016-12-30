@@ -1,11 +1,11 @@
 <template name="responses">
-  <table>
+  <table class="responses">
     <thead>
       <tr>
         {{#each prompts this}}
-        <th>{{text}}</th>
+          <th>{{text}}</th>
         {{/each}}
-        <th></th>
+        <th class="responses__actions"></th>
       </tr>
     </thead>
 
@@ -15,7 +15,9 @@
         {{#each this.responses}}
             <td>{{this}}</td>
         {{/each}}
-        <td><button class="delete">&times;</button></td>
+        <td class="responses__actions">
+          <a href="#" class="responses__remove"><i class="material-icons" tabIndex="-1">delete</i></a>
+        </td>
       </tr>
       {{/each}}
     </tbody>
