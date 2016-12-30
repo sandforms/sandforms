@@ -48,7 +48,7 @@ describe("submissions", function() {
   it("should return a csv formatted string of submissions", function() {
     var properlyFormattedString = "name,fav_food,activity\r\n" +
                                   "Garfield,lasagna,sleep\r\n" +
-                                  "Fonzo,pizza,\r\n";
+                                  "Fonzo,pizza,";
     var prompts = [
       { _id: 'id-1', text: 'name' },
       { _id: 'id-2', text: 'fav_food' },
@@ -73,7 +73,7 @@ describe("submissions", function() {
   });
 
   it("should return prompts in csv if no responses", function() {
-    var properlyFormattedString = "name,fav_food,activity\r\n";
+    var properlyFormattedString = "name,fav_food,activity\r\n,,";
     var prompts = [
       { _id: 'id-1', text: 'name' },
       { _id: 'id-2', text: 'fav_food' },

@@ -54,17 +54,18 @@ Submissions.inTableFormat = function(prompts) {
 };
 
 Submissions.exportCsvFormattedString = function() {
-  var csvFormattedResponses = '',
-    headerText = [],
-    prompts = Prompts.inOrder();
+  var prompts = Prompts.inOrder();
 
-  prompts.forEach(function(prompt) {
-    headerText.push(prompt.text);
+  var fields = prompts.map(function(p) {
+    return p.text;
+  });
+  
+  var data = Submissions.inTableFormat(prompts).map(function(s) {
+    return s.responses;
   });
 
-  Submissions.inTableFormat(prompts).forEach(function(submission) {
-    csvFormattedResponses += submission.responses.join(',') + '\r\n';
+  return Papa.unparse({
+    fields: fields,
+    data: data
   });
-
-  return headerText.join(',') + '\r\n' + csvFormattedResponses;
 };
