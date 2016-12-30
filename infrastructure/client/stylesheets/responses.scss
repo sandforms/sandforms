@@ -12,4 +12,9 @@ table.responses {
     -ms-user-select: none;
     user-select: none;
   }
+
+  a.responses__delete {
+    font-weight: 500;
+    color: #fff;
+  }
 }

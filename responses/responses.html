@@ -11,15 +11,32 @@
 
     <tbody>
       {{#each responsesInOrder}}
-      <tr>
-        {{#each this.responses}}
-            <td>{{this}}</td>
-        {{/each}}
-        <td class="responses__actions">
-          <a href="#" class="responses__remove"><i class="material-icons" tabIndex="-1">delete</i></a>
-        </td>
-      </tr>
+        {{> response}}
       {{/each}}
     </tbody>
   </table>
+</template>
+
+<template name="response">
+  <tr>
+    {{#each this.responses}}
+    <td>{{this}}</td>
+    {{/each}}
+    <td class="responses__actions">
+      <a class="responses__actions__delete-modal" href="#delete-modal-{{this._id}}"><i class="material-icons" tabIndex="-1">delete</i></a>
+    </td>
+    
+    <div id="delete-modal-{{this._id}}" class="modal">
+      <div class="modal-content">
+        <h5>Permanantly delete this response?</h5>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close btn-flat">Cancel</a>
+        <a href="#!" class="responses__delete modal-action modal-close btn-flat red">
+          <i class="material-icons left">delete</i>
+          Delete
+        </a>
+      </div>
+    </div>
+  </tr>
 </template>

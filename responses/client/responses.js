@@ -12,9 +12,15 @@ Template.responses.helpers({
 });
 
 Template.responses.events({
-    'click .responses__remove': function() {
-        if (confirm("Delete this record?")) {
-            Submissions.remove(this._id);
-        }
+  'click .responses__delete': function() {
+    Submissions.remove(this._id);
+  }
+});
+
+Template.response.onRendered(function() {
+  this.$('.responses__actions__delete-modal').leanModal({
+    complete: function() {
+      $('.lean-overlay').remove();
     }
+  });
 });
