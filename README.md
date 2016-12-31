@@ -53,7 +53,13 @@ instructions](https://docs.sandstorm.io/en/latest/vagrant-spk/installation/)
 3. Bring up the Vagrant VM
 
   ```bash
-  $ vagrant-spk up
+  $ vagrant-spk vm up
+  ```
+
+  If you meet command not found or vm can't take up problem on a Windows platform, try this first:
+  
+  ```bash
+  $ vagrant-spk setupvm meteor
   ```
 
 4. Start the application in dev mode

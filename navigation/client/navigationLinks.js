@@ -7,7 +7,6 @@ Template._navigationLinks.helpers({
         return User.ownerLoggedIn();
     },
     isCreatePage: function() {
-      console.log(isPage('create'));
       return isPage('create');
     },
     isResponsePage: function() {
