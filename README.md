@@ -1,6 +1,6 @@
 # SandForms
 
-Sandforms is a online forms application that priortizes simplicity and data autonomy: you control how to use data you collect through these forms. 
+Sandforms is a online forms application that priortizes simplicity and data autonomy: you control how to use data you collect through these forms.
 
 Sandforms is built for [Sandstorm](https://sandstorm.io), a platform that allows you to easily host applications on your personal server.
 
@@ -53,7 +53,7 @@ instructions](https://docs.sandstorm.io/en/latest/vagrant-spk/installation/)
 3. Bring up the Vagrant VM
 
   ```bash
-  $ vagrant-spk up
+  $ vagrant-spk vm up
   ```
 
 4. Start the application in dev mode
@@ -65,4 +65,3 @@ instructions](https://docs.sandstorm.io/en/latest/vagrant-spk/installation/)
 5. Navigate to the Sandstorm dev instance
 
   `http://local.sandstorm.io:6080/`
-
